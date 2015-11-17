@@ -1,5 +1,5 @@
 {
-    "name": "lukasz/symfony-generic-form-type",
+    "name": "lucaszz/symfony-generic-form-type",
     "description": "Generic solution to create form types \"on the fly\" basing on class metadata",
     "type": "library",
     "license": "MIT",
@@ -22,6 +22,9 @@
         "symfony/form": "~2.3"
     },
     "require-dev": {
-        "phpunit/phpunit" : "~4.8"
+        "phpunit/phpunit" : "~4.8",
+        "ramsey/uuid": "~3.0",
+        "symfony/symfony": "~2.3",
+        "sensio/generator-bundle": "~2.3"
     }
 }
