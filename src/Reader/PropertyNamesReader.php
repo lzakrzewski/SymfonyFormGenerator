@@ -21,7 +21,7 @@ class PropertyNamesReader
     private function propertyNames($object)
     {
         $names = [];
-        $refl = new \ReflectionClass($object);
+        $refl  = new \ReflectionClass($object);
 
         foreach ($refl->getProperties() as $property) {
             $names[] = $property->getName();

@@ -19,7 +19,7 @@ class Generator
      */
     public function __construct(FormBuilderInterface $builder, PropertyNamesReader $propertyNames)
     {
-        $this->builder = $builder;
+        $this->builder       = $builder;
         $this->propertyNames = $propertyNames;
     }
 
