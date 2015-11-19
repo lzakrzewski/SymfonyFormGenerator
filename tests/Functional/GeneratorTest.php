@@ -3,6 +3,7 @@
 namespace Lucaszz\SymfonyGenericForm\Tests;
 
 use Lucaszz\SymfonyGenericForm\Generator;
+use Lucaszz\SymfonyGenericForm\Reader\PropertyNamesReader;
 use Lucaszz\SymfonyGenericForm\Tests\fixtures\ObjectWithoutMetadata;
 use Lucaszz\SymfonyGenericForm\Tests\fixtures\ObjectWithPhpDocMetadata;
 use Ramsey\Uuid\Uuid;
@@ -46,7 +47,7 @@ class GeneratorTest extends TypeTestCase
     {
         parent::setUp();
 
-        $this->generator = new Generator($this->builder);
+        $this->generator = new Generator($this->builder, new PropertyNamesReader());
     }
 
     /** {@inheritdoc} */
@@ -59,10 +60,10 @@ class GeneratorTest extends TypeTestCase
     {
         return $this->builder
             ->create('form', null, ['compound' => true])
-            ->add('text')
-            ->add('text')
-            ->add('text')
-            ->add('text')
+            ->add('int', null)
+            ->add('string', null)
+            ->add('dateTime', null)
+            ->add('uuid', null)
             ->getForm();
     }
 }
