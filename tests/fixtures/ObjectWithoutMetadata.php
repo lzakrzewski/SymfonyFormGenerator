@@ -4,16 +4,16 @@ namespace Lucaszz\SymfonyGenericForm\Tests\fixtures;
 
 class ObjectWithoutMetadata
 {
-    public $int;
-    public $string;
-    public $dateTime;
-    public $uuid;
+    public $propertyInteger;
+    public $propertyString;
+    public $propertyDateTime;
+    public $propertyUuid;
 
     public function __construct($int, $string, $dateTime, $uuid)
     {
-        $this->int      = $int;
-        $this->string   = $string;
-        $this->dateTime = $dateTime;
-        $this->uuid     = $uuid;
+        $this->propertyInteger      = $int;
+        $this->propertyString   = $string;
+        $this->propertyDateTime = $dateTime;
+        $this->propertyUuid     = $uuid;
     }
 }

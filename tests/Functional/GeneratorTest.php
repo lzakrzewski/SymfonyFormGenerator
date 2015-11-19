@@ -7,6 +7,7 @@ use Lucaszz\SymfonyGenericForm\Reader\PropertyNamesReader;
 use Lucaszz\SymfonyGenericForm\Tests\fixtures\ObjectWithoutMetadata;
 use Lucaszz\SymfonyGenericForm\Tests\fixtures\ObjectWithPhpDocMetadata;
 use Ramsey\Uuid\Uuid;
+use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Form\Test\TypeTestCase;
 
 class GeneratorTest extends TypeTestCase
@@ -32,6 +33,11 @@ class GeneratorTest extends TypeTestCase
         $form = $this->generator->generate($object);
 
         $this->assertEquals($this->expectedForm(), $form);
+
+        $this->assertThatFormFieldHasType('text', 'propertyInteger', $form);
+        $this->assertThatFormFieldHasType('text', 'propertyString', $form);
+        $this->assertThatFormFieldHasType('text', 'propertyDateTime', $form);
+        $this->assertThatFormFieldHasType('text', 'propertyUuid', $form);
     }
 
     public function objects()
@@ -60,10 +66,17 @@ class GeneratorTest extends TypeTestCase
     {
         return $this->builder
             ->create('form', null, ['compound' => true])
-            ->add('int', null)
-            ->add('string', null)
-            ->add('dateTime', null)
-            ->add('uuid', null)
+            ->add('propertyInteger', null)
+            ->add('propertyString', null)
+            ->add('propertyDateTime', null)
+            ->add('propertyUuid', null)
             ->getForm();
+    }
+
+    private function assertThatFormFieldHasType($expectedType, $fieldName, FormInterface $form)
+    {
+        $name = $form->get($fieldName)->getConfig()->getType()->getName();
+
+        $this->assertEquals($expectedType, $name);
     }
 }

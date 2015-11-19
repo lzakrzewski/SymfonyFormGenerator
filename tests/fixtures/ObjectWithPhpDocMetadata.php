@@ -7,13 +7,13 @@ use Ramsey\Uuid\UuidInterface;
 class ObjectWithPhpDocMetadata
 {
     /** @var int */
-    public $int;
+    public $propertyInteger;
     /** @var string */
-    public $string;
+    public $propertyString;
     /** @var \DateTime */
-    public $dateTime;
+    public $propertyDateTime;
     /** @var UuidInterface*/
-    public $uuid;
+    public $propertyUuid;
 
     public function __construct($int, $string, $dateTime, $uuid)
     {
