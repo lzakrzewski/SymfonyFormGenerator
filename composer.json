@@ -1,6 +1,6 @@
 {
-    "name": "lucaszz/symfony-generic-form-type",
-    "description": "Generic solution to create form types \"on the fly\" basing on class metadata",
+    "name": "lucaszz/symfony-generic-form",
+    "description": "Generic solution to create forms \"on the fly\" basing on class metadata",
     "type": "library",
     "license": "MIT",
     "authors": [
@@ -11,11 +11,11 @@
     ],
     "autoload": {
         "psr-4": {
-            "Lucaszz\\SymfonyGenericFormType\\": "src"
+            "Lucaszz\\SymfonyGenericForm\\": "src"
         }
     },
     "autoload-dev": {
-        "psr-4" : { "Lucaszz\\SymfonyGenericFormType\\Tests\\" : "tests" }
+        "psr-4" : { "Lucaszz\\SymfonyGenericForm\\Tests\\" : "tests" }
     },
     "require": {
         "php": ">=5.5",

@@ -1,6 +1,6 @@
 <?php
 
-namespace Lucaszz\SymfonyGenericFormType;
+namespace Lucaszz\SymfonyGenericForm;
 
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormInterface;

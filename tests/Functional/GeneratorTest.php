@@ -1,10 +1,10 @@
 <?php
 
-namespace Lucaszz\SymfonyGenericFormType\Tests;
+namespace Lucaszz\SymfonyGenericForm\Tests;
 
-use Lucaszz\SymfonyGenericFormType\Generator;
-use Lucaszz\SymfonyGenericFormType\Tests\fixtures\ObjectWithoutMetadata;
-use Lucaszz\SymfonyGenericFormType\Tests\fixtures\ObjectWithPhpDocMetadata;
+use Lucaszz\SymfonyGenericForm\Generator;
+use Lucaszz\SymfonyGenericForm\Tests\fixtures\ObjectWithoutMetadata;
+use Lucaszz\SymfonyGenericForm\Tests\fixtures\ObjectWithPhpDocMetadata;
 use Ramsey\Uuid\Uuid;
 use Symfony\Component\Form\Test\TypeTestCase;
 
