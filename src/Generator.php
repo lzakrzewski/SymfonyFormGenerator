@@ -36,7 +36,7 @@ class Generator
             throw new \InvalidArgumentException(sprintf('Unable to generate form type from non-object, %s given.', gettype($object)));
         }
 
-        $builder = $this->emptyBuilder();
+        $builder = $this->emptyBuilder($object);
 
         foreach ($this->propertyNames->read($object) as $propertyName) {
             $builder = $builder->add($propertyName, null);
@@ -45,8 +45,8 @@ class Generator
         return $builder->getForm();
     }
 
-    private function emptyBuilder()
+    private function emptyBuilder($object)
     {
-        return $this->builder->create('form', null, ['compound' => true]);
+        return $this->builder->create('form', null, ['compound' => true, 'data_class' => get_class($object)]);
     }
 }

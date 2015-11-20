@@ -1,16 +1,15 @@
 <?php
 
-namespace Lucaszz\SymfonyGenericForm\Tests;
+namespace Lucaszz\SymfonyGenericForm\Tests\Functional;
 
 use Lucaszz\SymfonyGenericForm\Generator;
+use Lucaszz\SymfonyGenericForm\Guesser\PHPDocTypeGuesser;
 use Lucaszz\SymfonyGenericForm\Reader\PropertyNamesReader;
 use Lucaszz\SymfonyGenericForm\Tests\fixtures\ObjectWithoutMetadata;
 use Lucaszz\SymfonyGenericForm\Tests\fixtures\ObjectWithPhpDocMetadata;
 use Ramsey\Uuid\Uuid;
-use Symfony\Component\Form\FormInterface;
-use Symfony\Component\Form\Test\TypeTestCase;
 
-class GeneratorTest extends TypeTestCase
+class GeneratorTest extends FormTestCase
 {
     /** @var Generator */
     private $generator;
@@ -24,15 +23,12 @@ class GeneratorTest extends TypeTestCase
         $this->generator->generate([1, 2, 3, 4]);
     }
 
-    /**
-     * @test
-     * @dataProvider objects
-     */
-    public function it_can_generate_form_from_given_object($object)
+    /** @test */
+    public function it_can_generate_form_from_object_without_metadata()
     {
-        $form = $this->generator->generate($object);
+        $object = new ObjectWithoutMetadata(1, 'test', new \DateTime(), Uuid::uuid4());
 
-        $this->assertEquals($this->expectedForm(), $form);
+        $form = $this->generator->generate($object);
 
         $this->assertThatFormFieldHasType('text', 'propertyInteger', $form);
         $this->assertThatFormFieldHasType('text', 'propertyString', $form);
@@ -40,12 +36,17 @@ class GeneratorTest extends TypeTestCase
         $this->assertThatFormFieldHasType('text', 'propertyUuid', $form);
     }
 
-    public function objects()
+    /** @test */
+    public function it_can_generate_form_from_object_with_phpdoc_annotations()
     {
-        return [
-            [new ObjectWithoutMetadata(1, 'abcd', new \DateTime(), Uuid::uuid4())],
-            [new ObjectWithPhpDocMetadata(1, 'abcd', new \DateTime(), Uuid::uuid4())],
-        ];
+        $object = new ObjectWithPhpDocMetadata(1, 'test', new \DateTime(), Uuid::uuid4());
+
+        $form = $this->generator->generate($object);
+
+        $this->assertThatFormFieldHasType('integer', 'propertyInteger', $form);
+        $this->assertThatFormFieldHasType('text', 'propertyString', $form);
+        $this->assertThatFormFieldHasType('datetime', 'propertyDateTime', $form);
+        $this->assertThatFormFieldHasType('text', 'propertyUuid', $form);
     }
 
     /** {@inheritdoc} */
@@ -62,21 +63,11 @@ class GeneratorTest extends TypeTestCase
         $this->generator = null;
     }
 
-    private function expectedForm()
+    /** {@inheritdoc} */
+    protected function getTypeGuessers()
     {
-        return $this->builder
-            ->create('form', null, ['compound' => true])
-            ->add('propertyInteger', null)
-            ->add('propertyString', null)
-            ->add('propertyDateTime', null)
-            ->add('propertyUuid', null)
-            ->getForm();
-    }
-
-    private function assertThatFormFieldHasType($expectedType, $fieldName, FormInterface $form)
-    {
-        $name = $form->get($fieldName)->getConfig()->getType()->getName();
-
-        $this->assertEquals($expectedType, $name);
+        return [
+            new PHPDocTypeGuesser(),
+        ];
     }
 }
