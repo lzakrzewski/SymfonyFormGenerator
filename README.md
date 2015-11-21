@@ -2,19 +2,19 @@
 Generic solution to create form types "on the fly" basing on class metadata.
 
 #Todo 
-- HintTypeGuesser [ ]
-- PhpDocTypeGuesser [ ]
-- ValidatorTypeGuesser [ ]
+- [ ] HintTypeGuesser
+- [ ] PhpDocTypeGuesser
+- [ ] ValidatorTypeGuesser
 
-- Support phpdoc only on constructor [ ]
+- [ ] Support phpdoc only on constructor 
 
 - SupportTypes:
-    - string [ ] 
-    - integer [ ]
-    - float/double/real [ ]
+    - [ ] string  
+    - [ ] integer 
+    - [ ] float/double/real 
 
 - Support VO: 
-    - DateTime [ ]
-    - Money [ ] 
-    - Uuid [ ] 
-    - Carbon [ ] 
+    - [ ] DateTime 
+    - [ ] Money 
+    - [ ] Uuid 
+    - [ ] Carbon 
