@@ -7,13 +7,11 @@ class ObjectWithoutMetadata
     public $propertyInteger;
     public $propertyString;
     public $propertyDateTime;
-    public $propertyUuid;
 
-    public function __construct($int, $string, $dateTime, $uuid)
+    public function __construct($propertyInteger, $propertyString, $propertyDateTime)
     {
-        $this->propertyInteger  = $int;
-        $this->propertyString   = $string;
-        $this->propertyDateTime = $dateTime;
-        $this->propertyUuid     = $uuid;
+        $this->propertyInteger  = $propertyInteger;
+        $this->propertyString   = $propertyString;
+        $this->propertyDateTime = $propertyDateTime;
     }
 }

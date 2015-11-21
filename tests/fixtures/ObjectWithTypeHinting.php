@@ -2,16 +2,13 @@
 
 namespace Lucaszz\SymfonyGenericForm\Tests\fixtures;
 
-class ObjectWithPhpDocMetadata
+class ObjectWithTypeHinting
 {
-    /** @var int */
     public $propertyInteger;
-    /** @var string */
     public $propertyString;
-    /** @var \DateTime */
     public $propertyDateTime;
 
-    public function __construct($propertyInteger, $propertyString, $propertyDateTime)
+    public function __construct($propertyInteger, $propertyString, \DateTime $propertyDateTime)
     {
         $this->propertyInteger  = $propertyInteger;
         $this->propertyString   = $propertyString;
