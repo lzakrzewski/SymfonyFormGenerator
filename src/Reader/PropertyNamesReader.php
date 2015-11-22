@@ -5,23 +5,19 @@ namespace Lucaszz\SymfonyGenericForm\Reader;
 class PropertyNamesReader
 {
     /**
-     * @param $object
+     * @param string $class
      *
      * @return array
      */
-    public function read($object)
+    public function read($class)
     {
-        if (!is_object($object)) {
-            throw new \InvalidArgumentException(sprintf('Unable to read property names on non-object, %s given.', gettype($object)));
-        }
-
-        return $this->propertyNames($object);
+        return $this->propertyNames($class);
     }
 
-    private function propertyNames($object)
+    private function propertyNames($class)
     {
         $names = [];
-        $refl  = new \ReflectionClass($object);
+        $refl  = new \ReflectionClass($class);
 
         foreach ($refl->getProperties() as $property) {
             $names[] = $property->getName();

@@ -10,15 +10,6 @@ class PropertyNamesReaderTest extends \PHPUnit_Framework_TestCase
     /** @var PropertyNamesReader */
     private $reader;
 
-    /**
-     * @test
-     * @expectedException \InvalidArgumentException
-     */
-    public function it_can_not_generate_form_for_non_objects()
-    {
-        $this->reader->read([1, 2, 3, 4]);
-    }
-
     /** @test */
     public function it_can_read_names_of_properties()
     {
