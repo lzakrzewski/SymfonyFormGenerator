@@ -4,6 +4,9 @@ namespace Lucaszz\SymfonyGenericForm\Form\Guesser;
 
 use phpDocumentor\Reflection\DocBlock;
 
+/**
+ * @todo read type hints from constructor
+ */
 class PHPDocTypeGuesser extends GenericTypeGuesser
 {
     /** {@inheritdoc} */
