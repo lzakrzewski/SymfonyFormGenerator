@@ -2,17 +2,22 @@
 
 namespace Lucaszz\SymfonyGenericForm\Tests\Functional;
 
+use Lucaszz\SymfonyGenericForm\Form\Guesser\HintTypeGuesser;
+use Lucaszz\SymfonyGenericForm\Form\Guesser\PHPDocTypeGuesser;
+use Lucaszz\SymfonyGenericForm\Form\Guesser\Resolver\TypeGuessResolver;
+use Lucaszz\SymfonyGenericForm\Generator;
+use Lucaszz\SymfonyGenericForm\Reader\PropertyNamesReader;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\Form\FormBuilder;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Form\Forms;
-use Symfony\Component\Form\FormTypeGuesserInterface;
 
 abstract class FormTestCase extends \PHPUnit_Framework_TestCase
 {
+    /** @var Generator */
+    protected $generator;
     /** @var FormBuilderInterface */
-    protected $builder;
+    private $builder;
 
     /** {@inheritdoc} */
     protected function setUp()
@@ -23,24 +28,24 @@ abstract class FormTestCase extends \PHPUnit_Framework_TestCase
 
         $dispatcher = $this->prophesize(EventDispatcherInterface::class);
 
-        $this->builder = new FormBuilder(null, null, $dispatcher->reveal(), $factory);
+        $this->builder   = new FormBuilder(null, null, $dispatcher->reveal(), $factory);
+        $this->generator = new Generator($this->builder, new PropertyNamesReader());
     }
 
     /** {@inheritdoc} */
     protected function tearDown()
     {
-        $this->builder = null;
+        $this->builder   = null;
+        $this->generator = null;
     }
 
-    protected function assertThatFormFieldHasType($expectedType, $fieldName, FormInterface $form)
+    private function getTypeGuessers()
     {
-        $name = $form->get($fieldName)->getConfig()->getType()->getName();
+        $resolver = new TypeGuessResolver();
 
-        $this->assertEquals($expectedType, $name);
+        return [
+            new PHPDocTypeGuesser($resolver),
+            new HintTypeGuesser($resolver),
+        ];
     }
-
-    /**
-     * @return FormTypeGuesserInterface[]
-     */
-    abstract protected function getTypeGuessers();
 }
