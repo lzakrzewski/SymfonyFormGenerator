@@ -7,6 +7,7 @@ use Lucaszz\SymfonyGenericForm\Form\Guesser\HintTypeGuesser;
 use Lucaszz\SymfonyGenericForm\Form\Guesser\PHPDocTypeGuesser;
 use Lucaszz\SymfonyGenericForm\Form\Guesser\Resolver\TypeGuessResolver;
 use Lucaszz\SymfonyGenericForm\Form\Type\DateTimeType;
+use Lucaszz\SymfonyGenericForm\Form\Type\UuidType;
 use Lucaszz\SymfonyGenericForm\Generator;
 use Lucaszz\SymfonyGenericForm\Reader\PropertyNamesReader;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
@@ -71,6 +72,6 @@ abstract class FunctionalTestCase extends \PHPUnit_Framework_TestCase
 
     private function getTypes()
     {
-        return [new DateTimeType()];
+        return [new DateTimeType(), new UuidType()];
     }
 }

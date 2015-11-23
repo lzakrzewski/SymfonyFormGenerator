@@ -35,6 +35,16 @@ class TypeGuessResolver
             case 'DateTime':
                 return new TypeGuess('generic_datetime', [], Guess::HIGH_CONFIDENCE);
 
+            case '\UuidInterface':
+            case '\Uuid':
+            case 'UuidInterface':
+            case 'Uuid':
+            case '\Ramsey\Uuid\Uuid':
+            case '\Ramsey\Uuid\UuidInterface':
+            case 'Ramsey\Uuid\Uuid':
+            case 'Ramsey\Uuid\UuidInterface':
+                return new TypeGuess('generic_uuid', [], Guess::HIGH_CONFIDENCE);
+
             default:
                 return new TypeGuess('text', [], Guess::LOW_CONFIDENCE);
         }
