@@ -57,9 +57,9 @@ class SubmitGeneratedFormTest extends FormTestCase
     private function validFormData()
     {
         return [
-            'propertyInteger' => 1,
-            'propertyString' => 'test',
-            'propertyDateTime' => '2015-01-01 00:00:00'
+            'propertyInteger'  => 1,
+            'propertyString'   => 'test',
+            'propertyDateTime' => '2015-01-01 00:00:00',
         ];
     }
 }

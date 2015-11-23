@@ -5,7 +5,6 @@ namespace Lucaszz\SymfonyGenericForm\Tests\Functional;
 use Lucaszz\SymfonyGenericForm\Form\Guesser\HintTypeGuesser;
 use Lucaszz\SymfonyGenericForm\Form\Guesser\PHPDocTypeGuesser;
 use Lucaszz\SymfonyGenericForm\Form\Guesser\Resolver\TypeGuessResolver;
-
 use Lucaszz\SymfonyGenericForm\Form\Type\DateTimeType;
 use Lucaszz\SymfonyGenericForm\Generator;
 use Lucaszz\SymfonyGenericForm\Reader\PropertyNamesReader;

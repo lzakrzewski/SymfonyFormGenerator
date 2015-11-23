@@ -13,8 +13,8 @@ class DateTimeType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'widget'      => 'single_text',
-            'format'      => "Y-m-d H:i:s",
+            'widget' => 'single_text',
+            'format' => 'Y-m-d H:i:s',
         ]);
     }
 
