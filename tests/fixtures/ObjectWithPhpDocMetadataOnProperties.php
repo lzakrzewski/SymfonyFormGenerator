@@ -2,7 +2,7 @@
 
 namespace Lucaszz\SymfonyGenericForm\Tests\fixtures;
 
-class ObjectWithPhpDocMetadata
+class ObjectWithPhpDocMetadataOnProperties
 {
     /** @var int */
     public $propertyInteger;

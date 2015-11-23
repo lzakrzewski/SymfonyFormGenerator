@@ -5,7 +5,8 @@ namespace Lucaszz\SymfonyGenericForm\Tests\Form\Guesser;
 use Lucaszz\SymfonyGenericForm\Form\Guesser\PHPDocTypeGuesser;
 use Lucaszz\SymfonyGenericForm\Form\Guesser\Resolver\TypeGuessResolver;
 use Lucaszz\SymfonyGenericForm\Tests\fixtures\ObjectWithoutMetadata;
-use Lucaszz\SymfonyGenericForm\Tests\fixtures\ObjectWithPhpDocMetadata;
+use Lucaszz\SymfonyGenericForm\Tests\fixtures\ObjectWithPhpDocMetadataOnConstructorParams;
+use Lucaszz\SymfonyGenericForm\Tests\fixtures\ObjectWithPhpDocMetadataOnProperties;
 use Prophecy\Argument;
 use Prophecy\Prophecy\ObjectProphecy;
 use Symfony\Component\Form\Guess\TypeGuess;
@@ -22,19 +23,19 @@ class PHPDocTypeGuesserTest extends \PHPUnit_Framework_TestCase
     /** @test */
     public function it_does_not_guess_required()
     {
-        $this->assertNull($this->guesser->guessRequired(ObjectWithPhpDocMetadata::class, 'propertyInteger'));
+        $this->assertNull($this->guesser->guessRequired(ObjectWithPhpDocMetadataOnProperties::class, 'propertyInteger'));
     }
 
     /** @test */
     public function it_does_not_guess_max_length()
     {
-        $this->assertNull($this->guesser->guessMaxLength(ObjectWithPhpDocMetadata::class, 'propertyInteger'));
+        $this->assertNull($this->guesser->guessMaxLength(ObjectWithPhpDocMetadataOnProperties::class, 'propertyInteger'));
     }
 
     /** @test */
     public function it_does_not_guess_pattern()
     {
-        $this->assertNull($this->guesser->guessPattern(ObjectWithPhpDocMetadata::class, 'propertyInteger'));
+        $this->assertNull($this->guesser->guessPattern(ObjectWithPhpDocMetadataOnProperties::class, 'propertyInteger'));
     }
 
     /** @test */
@@ -50,7 +51,7 @@ class PHPDocTypeGuesserTest extends \PHPUnit_Framework_TestCase
     {
         $this->resolver->resolve('int')->willReturn($this->typeGuess->reveal());
 
-        $this->assertInstanceOf(TypeGuess::class, $this->guesser->guessType(ObjectWithPhpDocMetadata::class, 'propertyInteger'));
+        $this->assertInstanceOf(TypeGuess::class, $this->guesser->guessType(ObjectWithPhpDocMetadataOnProperties::class, 'propertyInteger'));
     }
 
     /** @test */
@@ -58,7 +59,7 @@ class PHPDocTypeGuesserTest extends \PHPUnit_Framework_TestCase
     {
         $this->resolver->resolve('string')->willReturn($this->typeGuess->reveal());
 
-        $this->assertInstanceOf(TypeGuess::class, $this->guesser->guessType(ObjectWithPhpDocMetadata::class, 'propertyString'));
+        $this->assertInstanceOf(TypeGuess::class, $this->guesser->guessType(ObjectWithPhpDocMetadataOnProperties::class, 'propertyString'));
     }
 
     /** @test */
@@ -66,7 +67,31 @@ class PHPDocTypeGuesserTest extends \PHPUnit_Framework_TestCase
     {
         $this->resolver->resolve('\DateTime')->willReturn($this->typeGuess->reveal());
 
-        $this->assertInstanceOf(TypeGuess::class, $this->guesser->guessType(ObjectWithPhpDocMetadata::class, 'propertyDateTime'));
+        $this->assertInstanceOf(TypeGuess::class, $this->guesser->guessType(ObjectWithPhpDocMetadataOnProperties::class, 'propertyDateTime'));
+    }
+
+    /** @test */
+    public function it_can_read_type_of_integer_constructor_parameter()
+    {
+        $this->resolver->resolve('int')->willReturn($this->typeGuess->reveal());
+
+        $this->assertInstanceOf(TypeGuess::class, $this->guesser->guessType(ObjectWithPhpDocMetadataOnConstructorParams::class, 'propertyInteger'));
+    }
+
+    /** @test */
+    public function it_can_read_type_of_string_constructor_parameter()
+    {
+        $this->resolver->resolve('string')->willReturn($this->typeGuess->reveal());
+
+        $this->assertInstanceOf(TypeGuess::class, $this->guesser->guessType(ObjectWithPhpDocMetadataOnConstructorParams::class, 'propertyString'));
+    }
+
+    /** @test */
+    public function it_can_read_type_of_datetime_constructor_parameter()
+    {
+        $this->resolver->resolve('\DateTime')->willReturn($this->typeGuess->reveal());
+
+        $this->assertInstanceOf(TypeGuess::class, $this->guesser->guessType(ObjectWithPhpDocMetadataOnConstructorParams::class, 'propertyDateTime'));
     }
 
     /** {@inheritdoc} */

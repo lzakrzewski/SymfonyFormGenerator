@@ -3,7 +3,8 @@
 namespace Lucaszz\SymfonyGenericForm\Tests\Functional;
 
 use Lucaszz\SymfonyGenericForm\Tests\fixtures\ObjectWithoutMetadata;
-use Lucaszz\SymfonyGenericForm\Tests\fixtures\ObjectWithPhpDocMetadata;
+use Lucaszz\SymfonyGenericForm\Tests\fixtures\ObjectWithPhpDocMetadataOnConstructorParams;
+use Lucaszz\SymfonyGenericForm\Tests\fixtures\ObjectWithPhpDocMetadataOnProperties;
 use Lucaszz\SymfonyGenericForm\Tests\fixtures\ObjectWithTypeHinting;
 use Symfony\Component\Form\FormInterface;
 
@@ -57,9 +58,19 @@ class GenerateFormTest extends FunctionalTestCase
     }
 
     /** @test */
-    public function it_can_generate_form_from_class_with_phpdoc_annotations()
+    public function it_can_generate_form_from_class_with_phpdoc_annotations_on_properties()
     {
-        $form = $this->generator->generate(ObjectWithPhpDocMetadata::class);
+        $form = $this->generator->generate(ObjectWithPhpDocMetadataOnProperties::class);
+
+        $this->assertThatFormFieldHasType('integer', 'propertyInteger', $form);
+        $this->assertThatFormFieldHasType('text', 'propertyString', $form);
+        $this->assertThatFormFieldHasType('generic_datetime', 'propertyDateTime', $form);
+    }
+
+    /** @test */
+    public function it_can_generate_form_from_class_with_phpdoc_annotations_on_constructor_parameters()
+    {
+        $form = $this->generator->generate(ObjectWithPhpDocMetadataOnConstructorParams::class);
 
         $this->assertThatFormFieldHasType('integer', 'propertyInteger', $form);
         $this->assertThatFormFieldHasType('text', 'propertyString', $form);

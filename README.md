@@ -2,6 +2,7 @@
 Generic solution to create form types "on the fly" basing on class metadata.
 
 #Todo 
+- [ ] Rename to symfony form metadata reader
 - [ ] HintTypeGuesser
 - [ ] PhpDocTypeGuesser
 - [ ] ValidatorTypeGuesser
