@@ -7,14 +7,12 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class DateTimeType extends AbstractType
 {
-    /**
-     * {@inheritdoc}
-     */
+    /** {@inheritdoc} */
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
             'widget' => 'single_text',
-            'format' => 'Y-m-d H:i:s',
+            'format' => 'yyyy-MM-dd hh:mm:ss',
         ]);
     }
 
@@ -24,6 +22,7 @@ class DateTimeType extends AbstractType
         return 'datetime';
     }
 
+    /** {@inheritdoc} */
     public function getName()
     {
         return 'generic_datetime';

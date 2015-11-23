@@ -13,7 +13,7 @@ use Symfony\Component\Form\FormBuilder;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\Forms;
 
-abstract class FormTestCase extends \PHPUnit_Framework_TestCase
+abstract class FunctionalTestCase extends \PHPUnit_Framework_TestCase
 {
     /** @var Generator */
     protected $generator;

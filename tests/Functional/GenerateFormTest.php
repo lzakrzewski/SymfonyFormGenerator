@@ -7,7 +7,7 @@ use Lucaszz\SymfonyGenericForm\Tests\fixtures\ObjectWithPhpDocMetadata;
 use Lucaszz\SymfonyGenericForm\Tests\fixtures\ObjectWithTypeHinting;
 use Symfony\Component\Form\FormInterface;
 
-class GenerateFormTest extends FormTestCase
+class GenerateFormTest extends FunctionalTestCase
 {
     /**
      * @test
