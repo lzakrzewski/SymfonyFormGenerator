@@ -2,7 +2,6 @@
 
 namespace Lucaszz\SymfonyGenericForm\Tests\Functional;
 
-use Lucaszz\SymfonyGenericForm\Generator;
 use Lucaszz\SymfonyGenericForm\Tests\fixtures\ObjectWithoutMetadata;
 use Lucaszz\SymfonyGenericForm\Tests\fixtures\ObjectWithPhpDocMetadata;
 use Lucaszz\SymfonyGenericForm\Tests\fixtures\ObjectWithTypeHinting;
@@ -54,7 +53,7 @@ class GenerateFormTest extends FormTestCase
 
         $this->assertThatFormFieldHasType('text', 'propertyInteger', $form);
         $this->assertThatFormFieldHasType('text', 'propertyString', $form);
-        $this->assertThatFormFieldHasType('datetime', 'propertyDateTime', $form);
+        $this->assertThatFormFieldHasType('generic_datetime', 'propertyDateTime', $form);
     }
 
     /** @test */
@@ -64,7 +63,7 @@ class GenerateFormTest extends FormTestCase
 
         $this->assertThatFormFieldHasType('integer', 'propertyInteger', $form);
         $this->assertThatFormFieldHasType('text', 'propertyString', $form);
-        $this->assertThatFormFieldHasType('datetime', 'propertyDateTime', $form);
+        $this->assertThatFormFieldHasType('generic_datetime', 'propertyDateTime', $form);
     }
 
     private function assertThatFormFieldHasType($expectedType, $fieldName, FormInterface $form)

@@ -37,8 +37,8 @@ class TypeGuessResolverTest extends \PHPUnit_Framework_TestCase
             [new TypeGuess('number', [], Guess::MEDIUM_CONFIDENCE), 'real'],
             [new TypeGuess('checkbox', [], Guess::HIGH_CONFIDENCE), 'boolean'],
             [new TypeGuess('checkbox', [], Guess::HIGH_CONFIDENCE), 'bool'],
-            [new TypeGuess('datetime', [], Guess::HIGH_CONFIDENCE), 'DateTime'],
-            [new TypeGuess('datetime', [], Guess::HIGH_CONFIDENCE), '\DateTime'],
+            [new TypeGuess('generic_datetime', [], Guess::HIGH_CONFIDENCE), 'DateTime'],
+            [new TypeGuess('generic_datetime', [], Guess::HIGH_CONFIDENCE), '\DateTime'],
         ];
     }
 

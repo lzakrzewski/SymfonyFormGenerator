@@ -33,7 +33,7 @@ class TypeGuessResolver
 
             case '\DateTime':
             case 'DateTime':
-                return new TypeGuess('datetime', [], Guess::HIGH_CONFIDENCE);
+                return new TypeGuess('generic_datetime', [], Guess::HIGH_CONFIDENCE);
 
             default:
                 return new TypeGuess('text', [], Guess::LOW_CONFIDENCE);

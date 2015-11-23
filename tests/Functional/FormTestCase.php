@@ -5,6 +5,8 @@ namespace Lucaszz\SymfonyGenericForm\Tests\Functional;
 use Lucaszz\SymfonyGenericForm\Form\Guesser\HintTypeGuesser;
 use Lucaszz\SymfonyGenericForm\Form\Guesser\PHPDocTypeGuesser;
 use Lucaszz\SymfonyGenericForm\Form\Guesser\Resolver\TypeGuessResolver;
+
+use Lucaszz\SymfonyGenericForm\Form\Type\DateTimeType;
 use Lucaszz\SymfonyGenericForm\Generator;
 use Lucaszz\SymfonyGenericForm\Reader\PropertyNamesReader;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
@@ -24,6 +26,7 @@ abstract class FormTestCase extends \PHPUnit_Framework_TestCase
     {
         $factory = Forms::createFormFactoryBuilder()
             ->addTypeGuessers($this->getTypeGuessers())
+            ->addType(new DateTimeType())
             ->getFormFactory();
 
         $dispatcher = $this->prophesize(EventDispatcherInterface::class);
