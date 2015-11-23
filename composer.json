@@ -20,6 +20,7 @@
     "require": {
         "php": ">=5.5",
         "symfony/form": "~2.3",
+        "symfony/validator": "~2.3",
         "phpdocumentor/reflection-docblock": "~2.0"
     },
     "require-dev": {

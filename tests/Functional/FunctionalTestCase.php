@@ -2,6 +2,7 @@
 
 namespace Lucaszz\SymfonyGenericForm\Tests\Functional;
 
+use Lucaszz\SymfonyGenericForm\Form\Extension\NotBlankExtension;
 use Lucaszz\SymfonyGenericForm\Form\Guesser\HintTypeGuesser;
 use Lucaszz\SymfonyGenericForm\Form\Guesser\PHPDocTypeGuesser;
 use Lucaszz\SymfonyGenericForm\Form\Guesser\Resolver\TypeGuessResolver;
@@ -9,9 +10,11 @@ use Lucaszz\SymfonyGenericForm\Form\Type\DateTimeType;
 use Lucaszz\SymfonyGenericForm\Generator;
 use Lucaszz\SymfonyGenericForm\Reader\PropertyNamesReader;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
+use Symfony\Component\Form\Extension\Validator\ValidatorExtension;
 use Symfony\Component\Form\FormBuilder;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\Forms;
+use Symfony\Component\Validator\Validation;
 
 abstract class FunctionalTestCase extends \PHPUnit_Framework_TestCase
 {
@@ -25,7 +28,9 @@ abstract class FunctionalTestCase extends \PHPUnit_Framework_TestCase
     {
         $factory = Forms::createFormFactoryBuilder()
             ->addTypeGuessers($this->getTypeGuessers())
-            ->addType(new DateTimeType())
+            ->addExtensions($this->getExtensions())
+            ->addTypeExtensions($this->getTypeExtensions())
+            ->addTypes($this->getTypes())
             ->getFormFactory();
 
         $dispatcher = $this->prophesize(EventDispatcherInterface::class);
@@ -49,5 +54,23 @@ abstract class FunctionalTestCase extends \PHPUnit_Framework_TestCase
             new PHPDocTypeGuesser($resolver),
             new HintTypeGuesser($resolver),
         ];
+    }
+
+    private function getExtensions()
+    {
+        $validation = Validation::createValidatorBuilder();
+        $validator  = $validation->getValidator();
+
+        return [new ValidatorExtension($validator)];
+    }
+
+    private function getTypeExtensions()
+    {
+        return [new NotBlankExtension()];
+    }
+
+    private function getTypes()
+    {
+        return [new DateTimeType()];
     }
 }
