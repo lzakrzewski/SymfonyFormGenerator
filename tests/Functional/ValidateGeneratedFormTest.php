@@ -19,10 +19,11 @@ class ValidateGeneratedFormTest extends FunctionalTestCase
             'propertyInteger'  => null,
             'propertyString'   => null,
             'propertyDateTime' => null,
+            'propertyUuid'     => null,
         ]);
 
         $this->assertThatFormIsNotValid($form);
-        $this->assertThatFormHasErrors(3, $form);
+        $this->assertThatFormHasErrors(4, $form);
     }
 
     /** @test */
@@ -34,10 +35,11 @@ class ValidateGeneratedFormTest extends FunctionalTestCase
             'propertyInteger'  => null,
             'propertyString'   => null,
             'propertyDateTime' => 'invalid-date-time',
+            'propertyUuid'     => 'invalid-uuid',
         ]);
 
         $this->assertThatFormIsNotValid($form);
-        $this->assertThatFormHasErrors(3, $form);
+        $this->assertThatFormHasErrors(4, $form);
     }
 
     /** @test */
@@ -49,10 +51,11 @@ class ValidateGeneratedFormTest extends FunctionalTestCase
             'propertyInteger'  => 'string',
             'propertyString'   => [],
             'propertyDateTime' => 'invalid-date-time',
+            'propertyUuid'     => 'invalid-uuid',
         ]);
 
         $this->assertThatFormIsNotValid($form);
-        $this->assertThatFormHasErrors(3, $form);
+        $this->assertThatFormHasErrors(4, $form);
     }
 
     /** @test */
@@ -64,10 +67,11 @@ class ValidateGeneratedFormTest extends FunctionalTestCase
             'propertyInteger'  => 'string',
             'propertyString'   => [],
             'propertyDateTime' => 'invalid-date-time',
+            'propertyUuid'     => 'invalid-uuid',
         ]);
 
         $this->assertThatFormIsNotValid($form);
-        $this->assertThatFormHasErrors(3, $form);
+        $this->assertThatFormHasErrors(4, $form);
     }
 
     private function assertThatFormIsNotValid(FormInterface $form)

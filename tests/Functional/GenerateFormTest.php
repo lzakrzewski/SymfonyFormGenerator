@@ -45,6 +45,7 @@ class GenerateFormTest extends FunctionalTestCase
         $this->assertThatFormFieldHasType('text', 'propertyInteger', $form);
         $this->assertThatFormFieldHasType('text', 'propertyString', $form);
         $this->assertThatFormFieldHasType('text', 'propertyDateTime', $form);
+        $this->assertThatFormFieldHasType('text', 'propertyUuid', $form);
     }
 
     /** @test */
@@ -55,6 +56,7 @@ class GenerateFormTest extends FunctionalTestCase
         $this->assertThatFormFieldHasType('text', 'propertyInteger', $form);
         $this->assertThatFormFieldHasType('text', 'propertyString', $form);
         $this->assertThatFormFieldHasType('generic_datetime', 'propertyDateTime', $form);
+        $this->assertThatFormFieldHasType('generic_uuid', 'propertyUuid', $form);
     }
 
     /** @test */
@@ -65,6 +67,7 @@ class GenerateFormTest extends FunctionalTestCase
         $this->assertThatFormFieldHasType('integer', 'propertyInteger', $form);
         $this->assertThatFormFieldHasType('text', 'propertyString', $form);
         $this->assertThatFormFieldHasType('generic_datetime', 'propertyDateTime', $form);
+        $this->assertThatFormFieldHasType('generic_uuid', 'propertyUuid', $form);
     }
 
     /** @test */
@@ -75,6 +78,7 @@ class GenerateFormTest extends FunctionalTestCase
         $this->assertThatFormFieldHasType('integer', 'propertyInteger', $form);
         $this->assertThatFormFieldHasType('text', 'propertyString', $form);
         $this->assertThatFormFieldHasType('generic_datetime', 'propertyDateTime', $form);
+        $this->assertThatFormFieldHasType('generic_uuid', 'propertyUuid', $form);
     }
 
     private function assertThatFormFieldHasType($expectedType, $fieldName, FormInterface $form)

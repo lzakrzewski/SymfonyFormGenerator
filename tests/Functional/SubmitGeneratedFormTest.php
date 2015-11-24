@@ -6,6 +6,7 @@ use Lucaszz\SymfonyGenericForm\Tests\fixtures\ObjectWithoutMetadata;
 use Lucaszz\SymfonyGenericForm\Tests\fixtures\ObjectWithPhpDocMetadataOnConstructorParams;
 use Lucaszz\SymfonyGenericForm\Tests\fixtures\ObjectWithPhpDocMetadataOnProperties;
 use Lucaszz\SymfonyGenericForm\Tests\fixtures\ObjectWithTypeHinting;
+use Ramsey\Uuid\Uuid;
 use Symfony\Component\Form\FormInterface;
 
 class SubmitGeneratedFormTest extends FunctionalTestCase
@@ -18,7 +19,10 @@ class SubmitGeneratedFormTest extends FunctionalTestCase
         $form->submit($this->validFormData());
 
         $this->assertThatFormWasSubmittedWithSuccess($form);
-        $this->assertEquals(new ObjectWithoutMetadata('1', 'test', '2015-01-01 01:01:01'), $form->getData());
+        $this->assertEquals(
+            new ObjectWithoutMetadata('1', 'test', '2015-01-01 01:01:01', 'b771a92d-57a3-4442-ad85-165000c07f12'),
+            $form->getData()
+        );
     }
 
     /** @test */
@@ -29,7 +33,10 @@ class SubmitGeneratedFormTest extends FunctionalTestCase
         $form->submit($this->validFormData());
 
         $this->assertThatFormWasSubmittedWithSuccess($form);
-        $this->assertEquals(new ObjectWithTypeHinting('1', 'test', new \DateTime('2015-01-01 01:01:01')), $form->getData());
+        $this->assertFormDataEqualsAndHasExpectedTypes(
+            new ObjectWithTypeHinting('1', 'test', new \DateTime('2015-01-01 01:01:01'), Uuid::fromString('b771a92d-57a3-4442-ad85-165000c07f12')),
+            $form
+        );
     }
 
     /** @test */
@@ -40,7 +47,10 @@ class SubmitGeneratedFormTest extends FunctionalTestCase
         $form->submit($this->validFormData());
 
         $this->assertThatFormWasSubmittedWithSuccess($form);
-        $this->assertEquals(new ObjectWithPhpDocMetadataOnProperties(1, 'test', new \DateTime('2015-01-01 01:01:01')), $form->getData());
+        $this->assertFormDataEqualsAndHasExpectedTypes(
+            new ObjectWithPhpDocMetadataOnProperties(1, 'test', new \DateTime('2015-01-01 01:01:01'), Uuid::fromString('b771a92d-57a3-4442-ad85-165000c07f12')),
+            $form
+        );
     }
 
     /** @test */
@@ -51,7 +61,10 @@ class SubmitGeneratedFormTest extends FunctionalTestCase
         $form->submit($this->validFormData());
 
         $this->assertThatFormWasSubmittedWithSuccess($form);
-        $this->assertEquals(new ObjectWithPhpDocMetadataOnConstructorParams(1, 'test', new \DateTime('2015-01-01 01:01:01')), $form->getData());
+        $this->assertFormDataEqualsAndHasExpectedTypes(
+            new ObjectWithPhpDocMetadataOnConstructorParams(1, 'test', new \DateTime('2015-01-01 01:01:01'), Uuid::fromString('b771a92d-57a3-4442-ad85-165000c07f12')),
+            $form
+        );
     }
 
     private function assertThatFormWasSubmittedWithSuccess(FormInterface $form)
@@ -67,6 +80,17 @@ class SubmitGeneratedFormTest extends FunctionalTestCase
             'propertyInteger'  => 1,
             'propertyString'   => 'test',
             'propertyDateTime' => '2015-01-01 01:01:01',
+            'propertyUuid'     => 'b771a92d-57a3-4442-ad85-165000c07f12',
         ];
+    }
+
+    private function assertFormDataEqualsAndHasExpectedTypes($expected, FormInterface $form)
+    {
+        $formData = $form->getData();
+
+        $this->assertEquals($expected->propertyInteger, $formData->propertyInteger);
+        $this->assertEquals($expected->propertyString, $formData->propertyString);
+        $this->assertDateTimeEquals($expected->propertyDateTime, $formData->propertyDateTime);
+        $this->assertUuidEquals($expected->propertyUuid, $formData->propertyUuid);
     }
 }

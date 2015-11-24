@@ -5,6 +5,9 @@ namespace Lucaszz\SymfonyGenericForm\Form\Type;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
+/**
+ * @todo move it directly to form
+ */
 class GenericFormType extends AbstractType
 {
     /** @var string */

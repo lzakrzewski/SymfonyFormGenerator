@@ -10,6 +10,7 @@ use Lucaszz\SymfonyGenericForm\Form\Type\DateTimeType;
 use Lucaszz\SymfonyGenericForm\Form\Type\UuidType;
 use Lucaszz\SymfonyGenericForm\Generator;
 use Lucaszz\SymfonyGenericForm\Reader\PropertyNamesReader;
+use Ramsey\Uuid\Uuid;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\Form\Extension\Validator\ValidatorExtension;
 use Symfony\Component\Form\FormBuilder;
@@ -45,6 +46,18 @@ abstract class FunctionalTestCase extends \PHPUnit_Framework_TestCase
     {
         $this->builder   = null;
         $this->generator = null;
+    }
+
+    protected function assertDateTimeEquals(\DateTime $expected, $actual)
+    {
+        $this->assertInstanceOf(\DateTime::class, $actual);
+        $this->assertEquals($expected->format('c'), $actual->format('c'));
+    }
+
+    protected function assertUuidEquals(Uuid $expected, $actual)
+    {
+        $this->assertInstanceOf(Uuid::class, $actual);
+        $this->assertEquals($expected->toString(), $actual->toString());
     }
 
     private function getTypeGuessers()

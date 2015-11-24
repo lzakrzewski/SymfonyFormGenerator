@@ -5,6 +5,9 @@ namespace Lucaszz\SymfonyGenericForm\Form\Guesser\Resolver;
 use Symfony\Component\Form\Guess\Guess;
 use Symfony\Component\Form\Guess\TypeGuess;
 
+/**
+ * @todo introduce config class
+ */
 class TypeGuessResolver
 {
     /**
