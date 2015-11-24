@@ -3,12 +3,10 @@
 namespace Lucaszz\SymfonyGenericForm\Tests\Form\DataTransformer;
 
 use Lucaszz\SymfonyGenericForm\Form\DataTransformer\UuidToStringTransformer;
+use Lucaszz\SymfonyGenericForm\Tests\UnitTestCase;
 use Ramsey\Uuid\Uuid;
 
-/**
- * @todo use custom asserts
- */
-class UuidToStringTransformerTest extends \PHPUnit_Framework_TestCase
+class UuidToStringTransformerTest extends UnitTestCase
 {
     /** @var UuidToStringTransformer */
     private $transformer;
@@ -47,7 +45,7 @@ class UuidToStringTransformerTest extends \PHPUnit_Framework_TestCase
 
         $transformed = $this->transformer->reverseTransform('b771a92d-57a3-4442-ad85-165000c07f12');
 
-        $this->assertTrue($uuid->equals($transformed));
+        $this->assertUuidEquals($uuid, $transformed);
     }
 
     /**
