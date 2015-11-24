@@ -2,6 +2,7 @@
 
 namespace Lucaszz\SymfonyGenericForm\Tests\fixtures;
 
+use Money\Money;
 use Ramsey\Uuid\UuidInterface;
 
 class ObjectWithPhpDocMetadataOnProperties
@@ -14,6 +15,8 @@ class ObjectWithPhpDocMetadataOnProperties
     public $propertyDateTime;
     /** @var UuidInterface */
     public $propertyUuid;
+    /** @var Money */
+    public $propertyMoney;
 
     public function __construct($propertyInteger, $propertyString, $propertyDateTime, $propertyUuid)
     {

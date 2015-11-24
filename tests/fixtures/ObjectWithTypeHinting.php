@@ -2,6 +2,7 @@
 
 namespace Lucaszz\SymfonyGenericForm\Tests\fixtures;
 
+use Money\Money;
 use Ramsey\Uuid\UuidInterface;
 
 class ObjectWithTypeHinting
@@ -10,8 +11,9 @@ class ObjectWithTypeHinting
     public $propertyString;
     public $propertyDateTime;
     public $propertyUuid;
+    public $propertyMoney;
 
-    public function __construct($propertyInteger, $propertyString, \DateTime $propertyDateTime, UuidInterface $propertyUuid)
+    public function __construct($propertyInteger, $propertyString, \DateTime $propertyDateTime, UuidInterface $propertyUuid, Money $propertyMoney)
     {
         $this->propertyInteger  = $propertyInteger;
         $this->propertyString   = $propertyString;
