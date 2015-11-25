@@ -17,7 +17,10 @@ class PropertyNamesReaderTest extends \PHPUnit_Framework_TestCase
     {
         $object = new ObjectWithoutMetadata(1, 'test', new \DateTime(), Uuid::uuid4(), Money::USD(1000));
 
-        $this->assertEquals(['propertyInteger', 'propertyString', 'propertyDateTime', 'propertyUuid', 'propertyMoney'], $this->reader->read($object));
+        $this->assertEquals(
+            ['propertyInteger', 'propertyString', 'propertyDateTime', 'propertyUuid', 'propertyMoney'],
+            $this->reader->read($object)
+        );
     }
 
     /** {@inheritdoc} */
