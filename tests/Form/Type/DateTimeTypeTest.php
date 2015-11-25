@@ -14,6 +14,6 @@ class DateTimeTypeTest extends TypeTestCase
 
         $form->submit('2010-06-02 01:01:01');
 
-        $this->assertEquals(new \DateTime('2010-06-02 01:01:01'), $form->getData());
+        $this->assertDateTimeEquals(new \DateTime('2010-06-02 01:01:01'), $form->getData());
     }
 }
