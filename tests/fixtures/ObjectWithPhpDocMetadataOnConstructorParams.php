@@ -14,11 +14,11 @@ class ObjectWithPhpDocMetadataOnConstructorParams
     public $propertyMoney;
 
     /**
-     * @param int $propertyInteger
-     * @param string $propertyString
-     * @param \DateTime $propertyDateTime
+     * @param int           $propertyInteger
+     * @param string        $propertyString
+     * @param \DateTime     $propertyDateTime
      * @param UuidInterface $propertyUuid
-     * @param Money $propertyMoney
+     * @param Money         $propertyMoney
      */
     public function __construct($propertyInteger, $propertyString, $propertyDateTime, $propertyUuid, $propertyMoney)
     {
@@ -26,6 +26,6 @@ class ObjectWithPhpDocMetadataOnConstructorParams
         $this->propertyString   = $propertyString;
         $this->propertyDateTime = $propertyDateTime;
         $this->propertyUuid     = $propertyUuid;
-        $this->propertyMoney = $propertyMoney;
+        $this->propertyMoney    = $propertyMoney;
     }
 }

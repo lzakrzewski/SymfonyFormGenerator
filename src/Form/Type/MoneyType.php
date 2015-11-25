@@ -2,17 +2,22 @@
 
 namespace Lucaszz\SymfonyGenericForm\Form\Type;
 
+use Lucaszz\SymfonyGenericForm\Form\DataTransformer\MoneyToStringTransformer;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\FormBuilderInterface;
 
 class MoneyType extends AbstractType
 {
-
+    /** {@inheritdoc} */
+    public function buildForm(FormBuilderInterface $builder, array $options)
+    {
+        $builder->addModelTransformer(new MoneyToStringTransformer());
+    }
 
     /** {@inheritdoc} */
-    public function configureOptions(OptionsResolver $resolver)
+    public function getParent()
     {
-
+        return 'text';
     }
 
     /** {@inheritdoc} */

@@ -14,7 +14,7 @@ class MoneyTypeTest extends TypeTestCase
     {
         $form = $this->factory->create(new MoneyType());
 
-        $form->submit('100');
+        $form->submit('100 USD');
 
         $expected = new Money(10000, new Currency('USD'));
         $this->assertTrue($expected->equals($form->getData()));

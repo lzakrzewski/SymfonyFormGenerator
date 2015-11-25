@@ -28,7 +28,7 @@ class UuidToStringTransformer implements DataTransformerInterface
         try {
             $uuid = Uuid::fromString($value);
         } catch (\InvalidArgumentException $e) {
-            throw new TransformationFailedException();
+            throw new TransformationFailedException($e->getMessage());
         }
 
         return $uuid;

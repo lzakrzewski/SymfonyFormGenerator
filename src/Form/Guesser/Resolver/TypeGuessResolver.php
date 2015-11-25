@@ -7,6 +7,7 @@ use Symfony\Component\Form\Guess\TypeGuess;
 
 /**
  * @todo introduce config class
+ * read full namespace
  */
 class TypeGuessResolver
 {
@@ -47,6 +48,12 @@ class TypeGuessResolver
             case 'Ramsey\Uuid\Uuid':
             case 'Ramsey\Uuid\UuidInterface':
                 return new TypeGuess('generic_uuid', [], Guess::HIGH_CONFIDENCE);
+
+            case '\Money\Money':
+            case 'Money\Money':
+            case '\Money':
+            case 'Money':
+                return new TypeGuess('generic_money', [], Guess::HIGH_CONFIDENCE);
 
             default:
                 return new TypeGuess('text', [], Guess::LOW_CONFIDENCE);

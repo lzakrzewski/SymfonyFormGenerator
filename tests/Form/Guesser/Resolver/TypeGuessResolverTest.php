@@ -45,6 +45,10 @@ class TypeGuessResolverTest extends \PHPUnit_Framework_TestCase
             [new TypeGuess('generic_uuid', [], Guess::HIGH_CONFIDENCE), 'Uuid'],
             [new TypeGuess('generic_uuid', [], Guess::HIGH_CONFIDENCE), '\Ramsey\Uuid\UuidInterface'],
             [new TypeGuess('generic_uuid', [], Guess::HIGH_CONFIDENCE), '\Ramsey\Uuid\Uuid'],
+            [new TypeGuess('generic_money', [], Guess::HIGH_CONFIDENCE), 'Money'],
+            [new TypeGuess('generic_money', [], Guess::HIGH_CONFIDENCE), '\Money'],
+            [new TypeGuess('generic_money', [], Guess::HIGH_CONFIDENCE), 'Money\Money'],
+            [new TypeGuess('generic_money', [], Guess::HIGH_CONFIDENCE), '\Money\Money'],
         ];
     }
 

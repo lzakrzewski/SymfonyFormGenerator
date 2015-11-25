@@ -18,11 +18,12 @@ class ObjectWithPhpDocMetadataOnProperties
     /** @var Money */
     public $propertyMoney;
 
-    public function __construct($propertyInteger, $propertyString, $propertyDateTime, $propertyUuid)
+    public function __construct($propertyInteger, $propertyString, $propertyDateTime, $propertyUuid, $propertyMoney)
     {
         $this->propertyInteger  = $propertyInteger;
         $this->propertyString   = $propertyString;
         $this->propertyDateTime = $propertyDateTime;
         $this->propertyUuid     = $propertyUuid;
+        $this->propertyMoney    = $propertyMoney;
     }
 }

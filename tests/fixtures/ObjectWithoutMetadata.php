@@ -16,6 +16,6 @@ class ObjectWithoutMetadata
         $this->propertyString   = $propertyString;
         $this->propertyDateTime = $propertyDateTime;
         $this->propertyUuid     = $propertyUuid;
-        $this->propertyMoney = $propertyMoney;
+        $this->propertyMoney    = $propertyMoney;
     }
 }

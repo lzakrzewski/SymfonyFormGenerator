@@ -7,6 +7,7 @@ use Lucaszz\SymfonyGenericForm\Form\Guesser\HintTypeGuesser;
 use Lucaszz\SymfonyGenericForm\Form\Guesser\PHPDocTypeGuesser;
 use Lucaszz\SymfonyGenericForm\Form\Guesser\Resolver\TypeGuessResolver;
 use Lucaszz\SymfonyGenericForm\Form\Type\DateTimeType;
+use Lucaszz\SymfonyGenericForm\Form\Type\MoneyType;
 use Lucaszz\SymfonyGenericForm\Form\Type\UuidType;
 use Lucaszz\SymfonyGenericForm\Generator;
 use Lucaszz\SymfonyGenericForm\Reader\PropertyNamesReader;
@@ -18,6 +19,9 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\Forms;
 use Symfony\Component\Validator\Validation;
 
+/**
+ * @todo introduce custom FORMS
+ */
 abstract class FunctionalTestCase extends UnitTestCase
 {
     /** @var Generator */
@@ -73,6 +77,6 @@ abstract class FunctionalTestCase extends UnitTestCase
 
     private function getTypes()
     {
-        return [new DateTimeType(), new UuidType()];
+        return [new DateTimeType(), new UuidType(), new MoneyType()];
     }
 }

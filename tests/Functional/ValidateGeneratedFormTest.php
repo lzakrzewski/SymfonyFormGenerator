@@ -20,7 +20,7 @@ class ValidateGeneratedFormTest extends FunctionalTestCase
             'propertyString'   => null,
             'propertyDateTime' => null,
             'propertyUuid'     => null,
-            'propertyMoney'     => null,
+            'propertyMoney'    => null,
         ]);
 
         $this->assertThatFormIsNotValid($form);
@@ -37,7 +37,7 @@ class ValidateGeneratedFormTest extends FunctionalTestCase
             'propertyString'   => null,
             'propertyDateTime' => 'invalid-date-time',
             'propertyUuid'     => 'invalid-uuid',
-            'propertyMoney'     => '100xxUSD',
+            'propertyMoney'    => '100xxUSD',
         ]);
 
         $this->assertThatFormIsNotValid($form);
@@ -54,7 +54,7 @@ class ValidateGeneratedFormTest extends FunctionalTestCase
             'propertyString'   => [],
             'propertyDateTime' => 'invalid-date-time',
             'propertyUuid'     => 'invalid-uuid',
-            'propertyMoney'     => '100xxUSD',
+            'propertyMoney'    => '100xxUSD',
         ]);
 
         $this->assertThatFormIsNotValid($form);
@@ -71,7 +71,7 @@ class ValidateGeneratedFormTest extends FunctionalTestCase
             'propertyString'   => [],
             'propertyDateTime' => 'invalid-date-time',
             'propertyUuid'     => 'invalid-uuid',
-            'propertyMoney'     => '100xxUSD',
+            'propertyMoney'    => '100xxUSD',
         ]);
 
         $this->assertThatFormIsNotValid($form);

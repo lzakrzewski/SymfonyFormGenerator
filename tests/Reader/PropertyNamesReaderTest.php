@@ -4,6 +4,7 @@ namespace Lucaszz\SymfonyGenericForm\Tests\Reader;
 
 use Lucaszz\SymfonyGenericForm\Reader\PropertyNamesReader;
 use Lucaszz\SymfonyGenericForm\Tests\fixtures\ObjectWithoutMetadata;
+use Money\Money;
 use Ramsey\Uuid\Uuid;
 
 class PropertyNamesReaderTest extends \PHPUnit_Framework_TestCase
@@ -14,9 +15,9 @@ class PropertyNamesReaderTest extends \PHPUnit_Framework_TestCase
     /** @test */
     public function it_can_read_names_of_properties()
     {
-        $object = new ObjectWithoutMetadata(1, 'test', new \DateTime(), Uuid::uuid4());
+        $object = new ObjectWithoutMetadata(1, 'test', new \DateTime(), Uuid::uuid4(), Money::USD(1000));
 
-        $this->assertEquals(['propertyInteger', 'propertyString', 'propertyDateTime', 'propertyUuid'], $this->reader->read($object));
+        $this->assertEquals(['propertyInteger', 'propertyString', 'propertyDateTime', 'propertyUuid', 'propertyMoney'], $this->reader->read($object));
     }
 
     /** {@inheritdoc} */
