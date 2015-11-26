@@ -1,6 +1,6 @@
 <?php
 
-namespace Lucaszz\SymfonyGenericForm\Annotation;
+namespace Lucaszz\SymfonyGenericForm\Annotation\Form;
 
 use Doctrine\Common\Annotations\Annotation;
 
@@ -9,9 +9,7 @@ use Doctrine\Common\Annotations\Annotation;
  */
 final class Field
 {
-    public $value;
-
-    public $name;
+    public $type;
 
     public $options = [];
 }

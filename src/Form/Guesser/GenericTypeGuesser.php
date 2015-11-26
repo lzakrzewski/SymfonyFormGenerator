@@ -5,6 +5,9 @@ namespace Lucaszz\SymfonyGenericForm\Form\Guesser;
 use Lucaszz\SymfonyGenericForm\Form\Guesser\Resolver\TypeGuessResolver;
 use Symfony\Component\Form\FormTypeGuesserInterface;
 
+/**
+ * @todo rename to variable type guesser ?
+ */
 abstract class GenericTypeGuesser implements FormTypeGuesserInterface
 {
     /** @var TypeGuessResolver */

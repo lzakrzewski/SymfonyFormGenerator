@@ -25,6 +25,8 @@ class Generator
     }
 
     /**
+     * @todo Probably this method should return form builder
+     *
      * @param $class
      *
      * @throws \InvalidArgumentException

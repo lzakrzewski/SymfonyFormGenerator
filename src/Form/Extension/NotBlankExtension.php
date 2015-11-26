@@ -7,6 +7,9 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Symfony\Component\Validator\Constraints\NotBlank;
 
+/**
+ * @todo remove this class
+ */
 class NotBlankExtension extends AbstractTypeExtension
 {
     public function configureOptions(OptionsResolver $resolver)

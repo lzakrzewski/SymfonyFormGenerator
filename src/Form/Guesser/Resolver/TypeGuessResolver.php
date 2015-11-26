@@ -7,7 +7,9 @@ use Symfony\Component\Form\Guess\TypeGuess;
 
 /**
  * @todo introduce config class
- * read full namespace
+ * @todo: Word for config "mapper", "rule" could be great
+ *
+ * read full namespace, how about class for this ?
  */
 class TypeGuessResolver
 {

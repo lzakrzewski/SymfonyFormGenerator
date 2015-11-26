@@ -8,6 +8,9 @@ use Lucaszz\SymfonyGenericForm\Tests\fixtures\ObjectWithPhpDocMetadataOnProperti
 use Lucaszz\SymfonyGenericForm\Tests\fixtures\ObjectWithTypeHinting;
 use Symfony\Component\Form\FormInterface;
 
+/**
+ * @todo: missing test cases for mixed metadata of classes
+ */
 class ValidateGeneratedFormTest extends FunctionalTestCase
 {
     /** @test */

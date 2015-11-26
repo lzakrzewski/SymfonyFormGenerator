@@ -10,6 +10,9 @@ use Money\Money;
 use Ramsey\Uuid\Uuid;
 use Symfony\Component\Form\FormInterface;
 
+/**
+ * @todo: missing test cases for mixed metadata of classes
+ */
 class SubmitGeneratedFormTest extends FunctionalTestCase
 {
     /** @test */
