@@ -2,20 +2,25 @@
 Generic solution to create form types "on the fly" basing on class metadata.
 
 #Todo 
-- [ ] Rename to symfony form metadata reader
-- [ ] HintTypeGuesser
-- [ ] PhpDocTypeGuesser
+- [ ] Rename to symfony FormGenerator
+- [ ] Introduce custom Forms
+- [ ] Rename form types (avoid "generic" word)
+- [ ] Customizable mapping
+- [x] HintTypeGuesser
+- [x] PhpDocTypeGuesser
 - [ ] ValidatorTypeGuesser
+- [ ] Test for mixed metadata
+- [ ] Test for validation annotation
+- [ ] Readme
 
-- [ ] Support phpdoc only on constructor 
+- [x] Support phpdoc only on constructor 
 
 - SupportTypes:
-    - [ ] string  
-    - [ ] integer 
+    - [x] string  
+    - [x] integer 
     - [ ] float/double/real 
 
 - Support VO: 
-    - [ ] DateTime 
-    - [ ] Money 
-    - [ ] Uuid 
-    - [ ] Carbon 
+    - [x] DateTime 
+    - [x] Money 
+    - [x] Uuid 

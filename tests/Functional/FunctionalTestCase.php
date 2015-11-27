@@ -3,6 +3,7 @@
 namespace Lucaszz\SymfonyGenericForm\Tests\Functional;
 
 use Lucaszz\SymfonyGenericForm\Form\Extension\NotBlankExtension;
+use Lucaszz\SymfonyGenericForm\Form\Guesser\FormAnnotationTypeGuesser;
 use Lucaszz\SymfonyGenericForm\Form\Guesser\HintTypeGuesser;
 use Lucaszz\SymfonyGenericForm\Form\Guesser\PHPDocTypeGuesser;
 use Lucaszz\SymfonyGenericForm\Form\Guesser\Resolver\TypeGuessResolver;
@@ -59,6 +60,7 @@ abstract class FunctionalTestCase extends UnitTestCase
         return [
             new PHPDocTypeGuesser($resolver),
             new HintTypeGuesser($resolver),
+            new FormAnnotationTypeGuesser($resolver),
         ];
     }
 
