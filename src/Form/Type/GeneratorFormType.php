@@ -5,10 +5,7 @@ namespace Lucaszz\SymfonyFormGenerator\Form\Type;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-/**
- * @todo move it directly to form
- */
-class GenericFormType extends AbstractType
+class GeneratorFormType extends AbstractType
 {
     /** @var string */
     private $class;
@@ -38,6 +35,6 @@ class GenericFormType extends AbstractType
     /** {@inheritdoc} */
     public function getName()
     {
-        return 'generic_form';
+        return 'generator_form';
     }
 }

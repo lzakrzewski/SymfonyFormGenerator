@@ -2,7 +2,7 @@
 
 namespace Lucaszz\SymfonyFormGenerator;
 
-use Lucaszz\SymfonyFormGenerator\Form\Type\GenericFormType;
+use Lucaszz\SymfonyFormGenerator\Form\Type\GeneratorFormType;
 use Lucaszz\SymfonyFormGenerator\Reader\PropertyNamesReader;
 use Symfony\Component\Form\FormBuilderInterface;
 
@@ -47,6 +47,6 @@ class Generator
 
     private function emptyBuilder($class)
     {
-        return $this->builder->create('form', new GenericFormType($class));
+        return $this->builder->create('form', new GeneratorFormType($class));
     }
 }
