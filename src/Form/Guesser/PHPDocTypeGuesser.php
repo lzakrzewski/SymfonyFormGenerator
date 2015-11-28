@@ -1,6 +1,6 @@
 <?php
 
-namespace Lucaszz\SymfonyGenericForm\Form\Guesser;
+namespace Lucaszz\SymfonyFormGenerator\Form\Guesser;
 
 use phpDocumentor\Reflection\DocBlock;
 use phpDocumentor\Reflection\DocBlock\Tag\ParamTag;

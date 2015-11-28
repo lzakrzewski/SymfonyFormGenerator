@@ -1,6 +1,6 @@
 <?php
 
-namespace Lucaszz\SymfonyGenericForm\Form\Guesser;
+namespace Lucaszz\SymfonyFormGenerator\Form\Guesser;
 
 class HintTypeGuesser extends GenericTypeGuesser
 {

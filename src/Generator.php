@@ -1,9 +1,9 @@
 <?php
 
-namespace Lucaszz\SymfonyGenericForm;
+namespace Lucaszz\SymfonyFormGenerator;
 
-use Lucaszz\SymfonyGenericForm\Form\Type\GenericFormType;
-use Lucaszz\SymfonyGenericForm\Reader\PropertyNamesReader;
+use Lucaszz\SymfonyFormGenerator\Form\Type\GenericFormType;
+use Lucaszz\SymfonyFormGenerator\Reader\PropertyNamesReader;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormInterface;
 

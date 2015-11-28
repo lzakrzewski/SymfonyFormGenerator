@@ -1,6 +1,6 @@
 <?php
 
-namespace Lucaszz\SymfonyGenericForm\Tests\fixtures;
+namespace Lucaszz\SymfonyFormGenerator\Tests\fixtures;
 
 class ObjectWithoutMetadata
 {

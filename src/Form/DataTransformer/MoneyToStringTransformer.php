@@ -1,6 +1,6 @@
 <?php
 
-namespace Lucaszz\SymfonyGenericForm\Form\DataTransformer;
+namespace Lucaszz\SymfonyFormGenerator\Form\DataTransformer;
 
 use Money\Currency;
 use Money\Money;

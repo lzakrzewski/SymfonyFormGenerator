@@ -1,8 +1,8 @@
 <?php
 
-namespace Lucaszz\SymfonyGenericForm\Form\Type;
+namespace Lucaszz\SymfonyFormGenerator\Form\Type;
 
-use Lucaszz\SymfonyGenericForm\Form\DataTransformer\MoneyToStringTransformer;
+use Lucaszz\SymfonyFormGenerator\Form\DataTransformer\MoneyToStringTransformer;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 

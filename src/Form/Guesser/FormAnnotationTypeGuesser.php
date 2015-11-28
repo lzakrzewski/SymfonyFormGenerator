@@ -1,9 +1,9 @@
 <?php
 
-namespace Lucaszz\SymfonyGenericForm\Form\Guesser;
+namespace Lucaszz\SymfonyFormGenerator\Form\Guesser;
 
 use Doctrine\Common\Annotations\AnnotationReader;
-use Lucaszz\SymfonyGenericForm\Annotation\Form\Field;
+use Lucaszz\SymfonyFormGenerator\Annotation\Form\Field;
 use Symfony\Component\Form\FormTypeGuesserInterface;
 use Symfony\Component\Form\Guess\TypeGuess;
 

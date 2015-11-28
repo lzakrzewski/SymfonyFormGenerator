@@ -1,12 +1,12 @@
 <?php
 
-namespace Lucaszz\SymfonyGenericForm\Tests\Form\Guesser;
+namespace Lucaszz\SymfonyFormGenerator\Tests\Form\Guesser;
 
-use Lucaszz\SymfonyGenericForm\Form\Guesser\PHPDocTypeGuesser;
-use Lucaszz\SymfonyGenericForm\Form\Guesser\Resolver\TypeGuessResolver;
-use Lucaszz\SymfonyGenericForm\Tests\fixtures\ObjectWithoutMetadata;
-use Lucaszz\SymfonyGenericForm\Tests\fixtures\ObjectWithPhpDocMetadataOnConstructorParams;
-use Lucaszz\SymfonyGenericForm\Tests\fixtures\ObjectWithPhpDocMetadataOnProperties;
+use Lucaszz\SymfonyFormGenerator\Form\Guesser\PHPDocTypeGuesser;
+use Lucaszz\SymfonyFormGenerator\Form\Guesser\Resolver\TypeGuessResolver;
+use Lucaszz\SymfonyFormGenerator\Tests\fixtures\ObjectWithoutMetadata;
+use Lucaszz\SymfonyFormGenerator\Tests\fixtures\ObjectWithPhpDocMetadataOnConstructorParams;
+use Lucaszz\SymfonyFormGenerator\Tests\fixtures\ObjectWithPhpDocMetadataOnProperties;
 use Prophecy\Argument;
 use Prophecy\Prophecy\ObjectProphecy;
 use Symfony\Component\Form\Guess\TypeGuess;

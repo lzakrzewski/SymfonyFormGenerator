@@ -1,8 +1,8 @@
 <?php
 
-namespace Lucaszz\SymfonyGenericForm\Tests\Form\Type;
+namespace Lucaszz\SymfonyFormGenerator\Tests\Form\Type;
 
-use Lucaszz\SymfonyGenericForm\Form\Type\MoneyType;
+use Lucaszz\SymfonyFormGenerator\Form\Type\MoneyType;
 use Money\Currency;
 use Money\Money;
 use Symfony\Component\Form\Test\TypeTestCase;

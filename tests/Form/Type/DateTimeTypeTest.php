@@ -1,8 +1,8 @@
 <?php
 
-namespace Lucaszz\SymfonyGenericForm\Tests\Form\Type;
+namespace Lucaszz\SymfonyFormGenerator\Tests\Form\Type;
 
-use Lucaszz\SymfonyGenericForm\Form\Type\DateTimeType;
+use Lucaszz\SymfonyFormGenerator\Form\Type\DateTimeType;
 use Symfony\Component\Form\Test\TypeTestCase;
 
 class DateTimeTypeTest extends TypeTestCase

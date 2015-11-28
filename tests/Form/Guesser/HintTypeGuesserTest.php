@@ -1,10 +1,10 @@
 <?php
 
-namespace Lucaszz\SymfonyGenericForm\Tests\Form\Guesser;
+namespace Lucaszz\SymfonyFormGenerator\Tests\Form\Guesser;
 
-use Lucaszz\SymfonyGenericForm\Form\Guesser\HintTypeGuesser;
-use Lucaszz\SymfonyGenericForm\Form\Guesser\Resolver\TypeGuessResolver;
-use Lucaszz\SymfonyGenericForm\Tests\fixtures\ObjectWithTypeHinting;
+use Lucaszz\SymfonyFormGenerator\Form\Guesser\HintTypeGuesser;
+use Lucaszz\SymfonyFormGenerator\Form\Guesser\Resolver\TypeGuessResolver;
+use Lucaszz\SymfonyFormGenerator\Tests\fixtures\ObjectWithTypeHinting;
 use Prophecy\Argument;
 use Prophecy\Prophecy\ObjectProphecy;
 use Symfony\Component\Form\Guess\TypeGuess;

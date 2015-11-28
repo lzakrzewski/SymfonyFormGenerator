@@ -1,8 +1,8 @@
 <?php
 
-namespace Lucaszz\SymfonyGenericForm\Tests\Form\Guesser\Resolver;
+namespace Lucaszz\SymfonyFormGenerator\Tests\Form\Guesser\Resolver;
 
-use Lucaszz\SymfonyGenericForm\Form\Guesser\Resolver\TypeGuessResolver;
+use Lucaszz\SymfonyFormGenerator\Form\Guesser\Resolver\TypeGuessResolver;
 use Symfony\Component\Form\Guess\Guess;
 use Symfony\Component\Form\Guess\TypeGuess;
 

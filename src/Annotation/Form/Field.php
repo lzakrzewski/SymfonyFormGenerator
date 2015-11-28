@@ -1,6 +1,6 @@
 <?php
 
-namespace Lucaszz\SymfonyGenericForm\Annotation\Form;
+namespace Lucaszz\SymfonyFormGenerator\Annotation\Form;
 
 use Doctrine\Common\Annotations\Annotation;
 

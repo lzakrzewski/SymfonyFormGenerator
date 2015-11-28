@@ -1,18 +1,18 @@
 <?php
 
-namespace Lucaszz\SymfonyGenericForm\Tests\Functional;
+namespace Lucaszz\SymfonyFormGenerator\Tests\Functional;
 
-use Lucaszz\SymfonyGenericForm\Form\Extension\NotBlankExtension;
-use Lucaszz\SymfonyGenericForm\Form\Guesser\FormAnnotationTypeGuesser;
-use Lucaszz\SymfonyGenericForm\Form\Guesser\HintTypeGuesser;
-use Lucaszz\SymfonyGenericForm\Form\Guesser\PHPDocTypeGuesser;
-use Lucaszz\SymfonyGenericForm\Form\Guesser\Resolver\TypeGuessResolver;
-use Lucaszz\SymfonyGenericForm\Form\Type\DateTimeType;
-use Lucaszz\SymfonyGenericForm\Form\Type\MoneyType;
-use Lucaszz\SymfonyGenericForm\Form\Type\UuidType;
-use Lucaszz\SymfonyGenericForm\Generator;
-use Lucaszz\SymfonyGenericForm\Reader\PropertyNamesReader;
-use Lucaszz\SymfonyGenericForm\Tests\UnitTestCase;
+use Lucaszz\SymfonyFormGenerator\Form\Extension\NotBlankExtension;
+use Lucaszz\SymfonyFormGenerator\Form\Guesser\FormAnnotationTypeGuesser;
+use Lucaszz\SymfonyFormGenerator\Form\Guesser\HintTypeGuesser;
+use Lucaszz\SymfonyFormGenerator\Form\Guesser\PHPDocTypeGuesser;
+use Lucaszz\SymfonyFormGenerator\Form\Guesser\Resolver\TypeGuessResolver;
+use Lucaszz\SymfonyFormGenerator\Form\Type\DateTimeType;
+use Lucaszz\SymfonyFormGenerator\Form\Type\MoneyType;
+use Lucaszz\SymfonyFormGenerator\Form\Type\UuidType;
+use Lucaszz\SymfonyFormGenerator\Generator;
+use Lucaszz\SymfonyFormGenerator\Reader\PropertyNamesReader;
+use Lucaszz\SymfonyFormGenerator\Tests\UnitTestCase;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\Form\Extension\Validator\ValidatorExtension;
 use Symfony\Component\Form\FormBuilder;

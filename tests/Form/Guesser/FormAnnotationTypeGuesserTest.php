@@ -1,10 +1,10 @@
 <?php
 
-namespace Lucaszz\SymfonyGenericForm\Tests\Form\Guesser;
+namespace Lucaszz\SymfonyFormGenerator\Tests\Form\Guesser;
 
-use Lucaszz\SymfonyGenericForm\Form\Guesser\FormAnnotationTypeGuesser;
-use Lucaszz\SymfonyGenericForm\Tests\fixtures\ObjectWithFormAnnotations;
-use Lucaszz\SymfonyGenericForm\Tests\fixtures\ObjectWithTypeHinting;
+use Lucaszz\SymfonyFormGenerator\Form\Guesser\FormAnnotationTypeGuesser;
+use Lucaszz\SymfonyFormGenerator\Tests\fixtures\ObjectWithFormAnnotations;
+use Lucaszz\SymfonyFormGenerator\Tests\fixtures\ObjectWithTypeHinting;
 use Symfony\Component\Form\Guess\TypeGuess;
 
 class FormAnnotationTypeGuesserTest extends \PHPUnit_Framework_TestCase

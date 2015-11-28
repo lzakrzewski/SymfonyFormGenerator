@@ -1,8 +1,8 @@
 <?php
 
-namespace Lucaszz\SymfonyGenericForm\Form\Type;
+namespace Lucaszz\SymfonyFormGenerator\Form\Type;
 
-use Lucaszz\SymfonyGenericForm\Form\DataTransformer\UuidToStringTransformer;
+use Lucaszz\SymfonyFormGenerator\Form\DataTransformer\UuidToStringTransformer;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;

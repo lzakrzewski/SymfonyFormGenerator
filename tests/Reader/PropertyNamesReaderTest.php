@@ -1,9 +1,9 @@
 <?php
 
-namespace Lucaszz\SymfonyGenericForm\Tests\Reader;
+namespace Lucaszz\SymfonyFormGenerator\Tests\Reader;
 
-use Lucaszz\SymfonyGenericForm\Reader\PropertyNamesReader;
-use Lucaszz\SymfonyGenericForm\Tests\fixtures\ObjectWithoutMetadata;
+use Lucaszz\SymfonyFormGenerator\Reader\PropertyNamesReader;
+use Lucaszz\SymfonyFormGenerator\Tests\fixtures\ObjectWithoutMetadata;
 use Money\Money;
 use Ramsey\Uuid\Uuid;
 

@@ -1,12 +1,12 @@
 <?php
 
-namespace Lucaszz\SymfonyGenericForm\Tests\Functional;
+namespace Lucaszz\SymfonyFormGenerator\Tests\Functional;
 
-use Lucaszz\SymfonyGenericForm\Tests\fixtures\ObjectWithFormAnnotations;
-use Lucaszz\SymfonyGenericForm\Tests\fixtures\ObjectWithoutMetadata;
-use Lucaszz\SymfonyGenericForm\Tests\fixtures\ObjectWithPhpDocMetadataOnConstructorParams;
-use Lucaszz\SymfonyGenericForm\Tests\fixtures\ObjectWithPhpDocMetadataOnProperties;
-use Lucaszz\SymfonyGenericForm\Tests\fixtures\ObjectWithTypeHinting;
+use Lucaszz\SymfonyFormGenerator\Tests\fixtures\ObjectWithFormAnnotations;
+use Lucaszz\SymfonyFormGenerator\Tests\fixtures\ObjectWithoutMetadata;
+use Lucaszz\SymfonyFormGenerator\Tests\fixtures\ObjectWithPhpDocMetadataOnConstructorParams;
+use Lucaszz\SymfonyFormGenerator\Tests\fixtures\ObjectWithPhpDocMetadataOnProperties;
+use Lucaszz\SymfonyFormGenerator\Tests\fixtures\ObjectWithTypeHinting;
 use Symfony\Component\Form\FormInterface;
 
 /**
