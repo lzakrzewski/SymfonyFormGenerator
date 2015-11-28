@@ -5,7 +5,6 @@ namespace Lucaszz\SymfonyFormGenerator;
 use Lucaszz\SymfonyFormGenerator\Form\Type\GenericFormType;
 use Lucaszz\SymfonyFormGenerator\Reader\PropertyNamesReader;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\Form\FormInterface;
 
 class Generator
 {
@@ -25,13 +24,11 @@ class Generator
     }
 
     /**
-     * @todo Probably this method should return form builder
-     *
      * @param $class
      *
      * @throws \InvalidArgumentException
      *
-     * @return FormInterface
+     * @return FormBuilderInterface
      */
     public function generate($class)
     {
@@ -45,7 +42,7 @@ class Generator
             $builder = $builder->add($propertyName, null);
         }
 
-        return $builder->getForm();
+        return $builder;
     }
 
     private function emptyBuilder($class)

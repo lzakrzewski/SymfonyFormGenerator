@@ -19,7 +19,7 @@ class SubmitGeneratedFormTest extends FunctionalTestCase
     /** @test */
     public function it_can_submit_form_generated_from_class_without_metadata()
     {
-        $form = $this->generator->generate(ObjectWithoutMetadata::class);
+        $form = $this->generator->generate(ObjectWithoutMetadata::class)->getForm();
 
         $form->submit($this->validFormData());
 
@@ -33,7 +33,7 @@ class SubmitGeneratedFormTest extends FunctionalTestCase
     /** @test */
     public function it_can_submit_form_generated_from_class_with_type_hints()
     {
-        $form = $this->generator->generate(ObjectWithTypeHinting::class);
+        $form = $this->generator->generate(ObjectWithTypeHinting::class)->getForm();
 
         $form->submit($this->validFormData());
 
@@ -47,7 +47,7 @@ class SubmitGeneratedFormTest extends FunctionalTestCase
     /** @test */
     public function it_can_submit_form_generated_from_class_with_phpdoc_annotations_on_properties()
     {
-        $form = $this->generator->generate(ObjectWithPhpDocMetadataOnProperties::class);
+        $form = $this->generator->generate(ObjectWithPhpDocMetadataOnProperties::class)->getForm();
 
         $form->submit($this->validFormData());
 
@@ -61,7 +61,7 @@ class SubmitGeneratedFormTest extends FunctionalTestCase
     /** @test */
     public function it_can_submit_form_generated_from_class_with_phpdoc_annotations_on_constructor_parameters()
     {
-        $form = $this->generator->generate(ObjectWithPhpDocMetadataOnConstructorParams::class);
+        $form = $this->generator->generate(ObjectWithPhpDocMetadataOnConstructorParams::class)->getForm();
 
         $form->submit($this->validFormData());
 
@@ -75,7 +75,7 @@ class SubmitGeneratedFormTest extends FunctionalTestCase
     /** @test */
     public function it_can_submit_form_generated_from_form_annotations()
     {
-        $form = $this->generator->generate(ObjectWithFormAnnotations::class);
+        $form = $this->generator->generate(ObjectWithFormAnnotations::class)->getForm();
 
         $form->submit($this->validFormData());
 

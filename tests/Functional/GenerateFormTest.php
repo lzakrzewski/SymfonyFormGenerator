@@ -44,7 +44,7 @@ class GenerateFormTest extends FunctionalTestCase
     /** @test */
     public function it_can_generate_form_from_class_without_metadata()
     {
-        $form = $this->generator->generate(ObjectWithoutMetadata::class);
+        $form = $this->generator->generate(ObjectWithoutMetadata::class)->getForm();
 
         $this->assertThatFormFieldHasType('text', 'propertyInteger', $form);
         $this->assertThatFormFieldHasType('text', 'propertyString', $form);
@@ -56,7 +56,7 @@ class GenerateFormTest extends FunctionalTestCase
     /** @test */
     public function it_can_generate_form_from_class_with_type_hints()
     {
-        $form = $this->generator->generate(ObjectWithTypeHinting::class);
+        $form = $this->generator->generate(ObjectWithTypeHinting::class)->getForm();
 
         $this->assertThatFormFieldHasType('text', 'propertyInteger', $form);
         $this->assertThatFormFieldHasType('text', 'propertyString', $form);
@@ -68,7 +68,7 @@ class GenerateFormTest extends FunctionalTestCase
     /** @test */
     public function it_can_generate_form_from_class_with_phpdoc_annotations_on_properties()
     {
-        $form = $this->generator->generate(ObjectWithPhpDocMetadataOnProperties::class);
+        $form = $this->generator->generate(ObjectWithPhpDocMetadataOnProperties::class)->getForm();
 
         $this->assertThatFormFieldHasType('integer', 'propertyInteger', $form);
         $this->assertThatFormFieldHasType('text', 'propertyString', $form);
@@ -80,7 +80,7 @@ class GenerateFormTest extends FunctionalTestCase
     /** @test */
     public function it_can_generate_form_from_class_with_phpdoc_annotations_on_constructor_parameters()
     {
-        $form = $this->generator->generate(ObjectWithPhpDocMetadataOnConstructorParams::class);
+        $form = $this->generator->generate(ObjectWithPhpDocMetadataOnConstructorParams::class)->getForm();
 
         $this->assertThatFormFieldHasType('integer', 'propertyInteger', $form);
         $this->assertThatFormFieldHasType('text', 'propertyString', $form);
@@ -92,7 +92,7 @@ class GenerateFormTest extends FunctionalTestCase
     /** @test */
     public function it_can_generate_form_from_class_with_form_annotations()
     {
-        $form = $this->generator->generate(ObjectWithFormAnnotations::class);
+        $form = $this->generator->generate(ObjectWithFormAnnotations::class)->getForm();
 
         $this->assertThatFormFieldHasType('integer', 'propertyInteger', $form);
         $this->assertThatFormFieldHasType('text', 'propertyString', $form);
