@@ -41,64 +41,26 @@ class GenerateFormTest extends FunctionalTestCase
         $this->generator->generate('NonExistingNamespace\NonExistingClass');
     }
 
-    /** @test */
-    public function it_can_generate_form_from_class_without_metadata()
+    /**
+     * @test
+     * @dataProvider expectedFormTypes
+     */
+    public function it_can_generate_form_for_given_class($className, $expectedTypes)
     {
-        $form = $this->generator->generate(ObjectWithoutMetadata::class)->getForm();
+        $form = $this->generator->generate($className)->getForm();
 
-        $this->assertThatFormFieldHasType('text', 'propertyInteger', $form);
-        $this->assertThatFormFieldHasType('text', 'propertyString', $form);
-        $this->assertThatFormFieldHasType('text', 'propertyDateTime', $form);
-        $this->assertThatFormFieldHasType('text', 'propertyUuid', $form);
-        $this->assertThatFormFieldHasType('text', 'propertyMoney', $form);
+        $this->assertThatFormFieldsHasExpectedTypes($expectedTypes, $form);
     }
 
-    /** @test */
-    public function it_can_generate_form_from_class_with_type_hints()
+    public function expectedFormTypes()
     {
-        $form = $this->generator->generate(ObjectWithTypeHinting::class)->getForm();
-
-        $this->assertThatFormFieldHasType('text', 'propertyInteger', $form);
-        $this->assertThatFormFieldHasType('text', 'propertyString', $form);
-        $this->assertThatFormFieldHasType('generic_datetime', 'propertyDateTime', $form);
-        $this->assertThatFormFieldHasType('generic_uuid', 'propertyUuid', $form);
-        $this->assertThatFormFieldHasType('generic_money', 'propertyMoney', $form);
-    }
-
-    /** @test */
-    public function it_can_generate_form_from_class_with_phpdoc_annotations_on_properties()
-    {
-        $form = $this->generator->generate(ObjectWithPhpDocMetadataOnProperties::class)->getForm();
-
-        $this->assertThatFormFieldHasType('integer', 'propertyInteger', $form);
-        $this->assertThatFormFieldHasType('text', 'propertyString', $form);
-        $this->assertThatFormFieldHasType('generic_datetime', 'propertyDateTime', $form);
-        $this->assertThatFormFieldHasType('generic_uuid', 'propertyUuid', $form);
-        $this->assertThatFormFieldHasType('generic_money', 'propertyMoney', $form);
-    }
-
-    /** @test */
-    public function it_can_generate_form_from_class_with_phpdoc_annotations_on_constructor_parameters()
-    {
-        $form = $this->generator->generate(ObjectWithPhpDocMetadataOnConstructorParams::class)->getForm();
-
-        $this->assertThatFormFieldHasType('integer', 'propertyInteger', $form);
-        $this->assertThatFormFieldHasType('text', 'propertyString', $form);
-        $this->assertThatFormFieldHasType('generic_datetime', 'propertyDateTime', $form);
-        $this->assertThatFormFieldHasType('generic_uuid', 'propertyUuid', $form);
-        $this->assertThatFormFieldHasType('generic_money', 'propertyMoney', $form);
-    }
-
-    /** @test */
-    public function it_can_generate_form_from_class_with_form_annotations()
-    {
-        $form = $this->generator->generate(ObjectWithFormAnnotations::class)->getForm();
-
-        $this->assertThatFormFieldHasType('integer', 'propertyInteger', $form);
-        $this->assertThatFormFieldHasType('text', 'propertyString', $form);
-        $this->assertThatFormFieldHasType('generic_datetime', 'propertyDateTime', $form);
-        $this->assertThatFormFieldHasType('generic_uuid', 'propertyUuid', $form);
-        $this->assertThatFormFieldHasType('generic_money', 'propertyMoney', $form);
+        return [
+            [ObjectWithoutMetadata::class, ['propertyInteger' => 'text', 'propertyString' => 'text', 'propertyDateTime' => 'text', 'propertyUuid' => 'text', 'propertyMoney' => 'text']],
+            [ObjectWithTypeHinting::class, ['propertyInteger' => 'text', 'propertyString' => 'text', 'propertyDateTime' => 'generic_datetime', 'propertyUuid' => 'generic_uuid', 'propertyMoney' => 'generic_money']],
+            [ObjectWithPhpDocMetadataOnProperties::class, ['propertyInteger' => 'integer', 'propertyString' => 'text', 'propertyDateTime' => 'generic_datetime', 'propertyUuid' => 'generic_uuid', 'propertyMoney' => 'generic_money']],
+            [ObjectWithPhpDocMetadataOnConstructorParams::class, ['propertyInteger' => 'integer', 'propertyString' => 'text', 'propertyDateTime' => 'generic_datetime', 'propertyUuid' => 'generic_uuid', 'propertyMoney' => 'generic_money']],
+            [ObjectWithFormAnnotations::class, ['propertyInteger' => 'integer', 'propertyString' => 'text', 'propertyDateTime' => 'generic_datetime', 'propertyUuid' => 'generic_uuid', 'propertyMoney' => 'generic_money']],
+        ];
     }
 
     private function assertThatFormFieldHasType($expectedType, $fieldName, FormInterface $form)
@@ -106,5 +68,12 @@ class GenerateFormTest extends FunctionalTestCase
         $name = $form->get($fieldName)->getConfig()->getType()->getName();
 
         $this->assertEquals($expectedType, $name);
+    }
+
+    private function assertThatFormFieldsHasExpectedTypes(array $expectedTypes, FormInterface $form)
+    {
+        foreach ($expectedTypes as $propertyName => $expectedType) {
+            $this->assertThatFormFieldHasType($expectedType, $propertyName, $form);
+        }
     }
 }
