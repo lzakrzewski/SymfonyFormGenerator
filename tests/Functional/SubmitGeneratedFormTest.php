@@ -16,74 +16,29 @@ use Symfony\Component\Form\FormInterface;
  */
 class SubmitGeneratedFormTest extends FunctionalTestCase
 {
-    /** @test */
-    public function it_can_submit_form_generated_from_class_without_metadata()
+    /**
+     * @test
+     * @dataProvider expectedObjects
+     */
+    public function it_can_submit_generated_form($className, $expectedObject)
     {
-        $form = $this->generator->generate(ObjectWithoutMetadata::class)->getForm();
+        $form = $this->generator->generate($className)->getForm();
 
         $form->submit($this->validFormData());
-
         $this->assertThatFormWasSubmittedWithSuccess($form);
-        $this->assertEquals(
-            new ObjectWithoutMetadata('1', 'test', '2015-01-01 01:01:01', 'b771a92d-57a3-4442-ad85-165000c07f12', '100 USD'),
-            $form->getData()
-        );
+
+        $this->assertFormDataEqualsAndHasExpectedTypes($expectedObject, $form);
     }
 
-    /** @test */
-    public function it_can_submit_form_generated_from_class_with_type_hints()
+    public function expectedObjects()
     {
-        $form = $this->generator->generate(ObjectWithTypeHinting::class)->getForm();
-
-        $form->submit($this->validFormData());
-
-        $this->assertThatFormWasSubmittedWithSuccess($form);
-        $this->assertFormDataEqualsAndHasExpectedTypes(
-            new ObjectWithTypeHinting('1', 'test', new \DateTime('2015-01-01 01:01:01'), Uuid::fromString('b771a92d-57a3-4442-ad85-165000c07f12'), Money::USD(10000)),
-            $form
-        );
-    }
-
-    /** @test */
-    public function it_can_submit_form_generated_from_class_with_phpdoc_annotations_on_properties()
-    {
-        $form = $this->generator->generate(ObjectWithPhpDocMetadataOnProperties::class)->getForm();
-
-        $form->submit($this->validFormData());
-
-        $this->assertThatFormWasSubmittedWithSuccess($form);
-        $this->assertFormDataEqualsAndHasExpectedTypes(
-            new ObjectWithPhpDocMetadataOnProperties(1, 'test', new \DateTime('2015-01-01 01:01:01'), Uuid::fromString('b771a92d-57a3-4442-ad85-165000c07f12'), Money::USD(10000)),
-            $form
-        );
-    }
-
-    /** @test */
-    public function it_can_submit_form_generated_from_class_with_phpdoc_annotations_on_constructor_parameters()
-    {
-        $form = $this->generator->generate(ObjectWithPhpDocMetadataOnConstructorParams::class)->getForm();
-
-        $form->submit($this->validFormData());
-
-        $this->assertThatFormWasSubmittedWithSuccess($form);
-        $this->assertFormDataEqualsAndHasExpectedTypes(
-            new ObjectWithPhpDocMetadataOnConstructorParams(1, 'test', new \DateTime('2015-01-01 01:01:01'), Uuid::fromString('b771a92d-57a3-4442-ad85-165000c07f12'), Money::USD(10000)),
-            $form
-        );
-    }
-
-    /** @test */
-    public function it_can_submit_form_generated_from_form_annotations()
-    {
-        $form = $this->generator->generate(ObjectWithFormAnnotations::class)->getForm();
-
-        $form->submit($this->validFormData());
-
-        $this->assertThatFormWasSubmittedWithSuccess($form);
-        $this->assertFormDataEqualsAndHasExpectedTypes(
-            new ObjectWithFormAnnotations(1, 'test', new \DateTime('2015-01-01 01:01:01'), Uuid::fromString('b771a92d-57a3-4442-ad85-165000c07f12'), Money::USD(10000)),
-            $form
-        );
+        return [
+            [ObjectWithoutMetadata::class, new ObjectWithoutMetadata('1', 'test', '2015-01-01 01:01:01', 'b771a92d-57a3-4442-ad85-165000c07f12', '100 USD')],
+            [ObjectWithTypeHinting::class, new ObjectWithTypeHinting('1', 'test', new \DateTime('2015-01-01 01:01:01'), Uuid::fromString('b771a92d-57a3-4442-ad85-165000c07f12'), Money::USD(10000))],
+            [ObjectWithPhpDocMetadataOnProperties::class, new ObjectWithPhpDocMetadataOnProperties(1, 'test', new \DateTime('2015-01-01 01:01:01'), Uuid::fromString('b771a92d-57a3-4442-ad85-165000c07f12'), Money::USD(10000))],
+            [ObjectWithPhpDocMetadataOnConstructorParams::class, new ObjectWithPhpDocMetadataOnConstructorParams(1, 'test', new \DateTime('2015-01-01 01:01:01'), Uuid::fromString('b771a92d-57a3-4442-ad85-165000c07f12'), Money::USD(10000))],
+            [ObjectWithFormAnnotations::class, new ObjectWithFormAnnotations(1, 'test', new \DateTime('2015-01-01 01:01:01'), Uuid::fromString('b771a92d-57a3-4442-ad85-165000c07f12'), Money::USD(10000))],
+        ];
     }
 
     private function assertThatFormWasSubmittedWithSuccess(FormInterface $form)
@@ -108,10 +63,20 @@ class SubmitGeneratedFormTest extends FunctionalTestCase
     {
         $formData = $form->getData();
 
+        $this->assertEquals($expected, $formData);
+
         $this->assertEquals($expected->propertyInteger, $formData->propertyInteger);
         $this->assertEquals($expected->propertyString, $formData->propertyString);
-        $this->assertDateTimeEquals($expected->propertyDateTime, $formData->propertyDateTime);
-        $this->assertUuidEquals($expected->propertyUuid, $formData->propertyUuid);
-        $this->assertMoneyEquals($expected->propertyMoney, $formData->propertyMoney);
+        if ($expected->propertyDateTime instanceof \DateTime) {
+            $this->assertDateTimeEquals($expected->propertyDateTime, $formData->propertyDateTime);
+        }
+
+        if ($expected->propertyDateTime instanceof \DateTime) {
+            $this->assertUuidEquals($expected->propertyUuid, $formData->propertyUuid);
+        }
+
+        if ($expected->propertyDateTime instanceof Money) {
+            $this->assertMoneyEquals($expected->propertyMoney, $formData->propertyMoney);
+        }
     }
 }
