@@ -37,6 +37,6 @@ class UuidType extends AbstractType
     /** {@inheritdoc} */
     public function getName()
     {
-        return 'generic_uuid';
+        return 'generator_uuid';
     }
 }

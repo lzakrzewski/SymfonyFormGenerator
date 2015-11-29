@@ -25,6 +25,6 @@ class DateTimeType extends AbstractType
     /** {@inheritdoc} */
     public function getName()
     {
-        return 'generic_datetime';
+        return 'generator_datetime';
     }
 }

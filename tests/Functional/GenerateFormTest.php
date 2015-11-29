@@ -59,10 +59,10 @@ class GenerateFormTest extends FunctionalTestCase
     {
         return [
             [ObjectWithoutMetadata::class, ['propertyInteger' => 'text', 'propertyString' => 'text', 'propertyDateTime' => 'text', 'propertyUuid' => 'text', 'propertyMoney' => 'text']],
-            [ObjectWithTypeHinting::class, ['propertyInteger' => 'text', 'propertyString' => 'text', 'propertyDateTime' => 'generic_datetime', 'propertyUuid' => 'generic_uuid', 'propertyMoney' => 'generic_money']],
-            [ObjectWithPhpDocMetadataOnProperties::class, ['propertyInteger' => 'integer', 'propertyString' => 'text', 'propertyDateTime' => 'generic_datetime', 'propertyUuid' => 'generic_uuid', 'propertyMoney' => 'generic_money']],
-            [ObjectWithPhpDocMetadataOnConstructorParams::class, ['propertyInteger' => 'integer', 'propertyString' => 'text', 'propertyDateTime' => 'generic_datetime', 'propertyUuid' => 'generic_uuid', 'propertyMoney' => 'generic_money']],
-            [ObjectWithFormAnnotations::class, ['propertyInteger' => 'integer', 'propertyString' => 'text', 'propertyDateTime' => 'generic_datetime', 'propertyUuid' => 'generic_uuid', 'propertyMoney' => 'generic_money']],
+            [ObjectWithTypeHinting::class, ['propertyInteger' => 'text', 'propertyString' => 'text', 'propertyDateTime' => 'generator_datetime', 'propertyUuid' => 'generator_uuid', 'propertyMoney' => 'generator_money']],
+            [ObjectWithPhpDocMetadataOnProperties::class, ['propertyInteger' => 'integer', 'propertyString' => 'text', 'propertyDateTime' => 'generator_datetime', 'propertyUuid' => 'generator_uuid', 'propertyMoney' => 'generator_money']],
+            [ObjectWithPhpDocMetadataOnConstructorParams::class, ['propertyInteger' => 'integer', 'propertyString' => 'text', 'propertyDateTime' => 'generator_datetime', 'propertyUuid' => 'generator_uuid', 'propertyMoney' => 'generator_money']],
+            [ObjectWithFormAnnotations::class, ['propertyInteger' => 'integer', 'propertyString' => 'text', 'propertyDateTime' => 'generator_datetime', 'propertyUuid' => 'generator_uuid', 'propertyMoney' => 'generator_money']],
         ];
     }
 

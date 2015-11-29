@@ -39,7 +39,7 @@ class TypeGuessResolver
 
             case '\DateTime':
             case 'DateTime':
-                return new TypeGuess('generic_datetime', [], Guess::HIGH_CONFIDENCE);
+                return new TypeGuess('generator_datetime', [], Guess::HIGH_CONFIDENCE);
 
             case '\UuidInterface':
             case '\Uuid':
@@ -49,13 +49,13 @@ class TypeGuessResolver
             case '\Ramsey\Uuid\UuidInterface':
             case 'Ramsey\Uuid\Uuid':
             case 'Ramsey\Uuid\UuidInterface':
-                return new TypeGuess('generic_uuid', [], Guess::HIGH_CONFIDENCE);
+                return new TypeGuess('generator_uuid', [], Guess::HIGH_CONFIDENCE);
 
             case '\Money\Money':
             case 'Money\Money':
             case '\Money':
             case 'Money':
-                return new TypeGuess('generic_money', [], Guess::HIGH_CONFIDENCE);
+                return new TypeGuess('generator_money', [], Guess::HIGH_CONFIDENCE);
 
             default:
                 return new TypeGuess('text', [], Guess::LOW_CONFIDENCE);

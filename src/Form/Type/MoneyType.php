@@ -23,6 +23,6 @@ class MoneyType extends AbstractType
     /** {@inheritdoc} */
     public function getName()
     {
-        return 'generic_money';
+        return 'generator_money';
     }
 }

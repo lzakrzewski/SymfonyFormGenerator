@@ -42,7 +42,7 @@ class FormAnnotationTypeGuesserTest extends \PHPUnit_Framework_TestCase
         $typeGuess = $this->guesser->guessType(ObjectWithFormAnnotations::class, 'propertyDateTime');
 
         $this->assertEquals(
-            new TypeGuess('generic_datetime', ['label' => 'Property DateTime'], TypeGuess::HIGH_CONFIDENCE),
+            new TypeGuess('generator_datetime', ['label' => 'Property DateTime'], TypeGuess::HIGH_CONFIDENCE),
             $typeGuess
         );
     }
