@@ -14,89 +14,29 @@ use Symfony\Component\Form\FormInterface;
  */
 class ValidateGeneratedFormTest extends FunctionalTestCase
 {
-    /** @test */
-    public function it_can_not_validate_form_generated_from_class_without_metadata()
+    /**
+     * @test
+     * @dataProvider invalidData
+     */
+    public function it_can_not_validate_form_with_invalid_data($className, $invalidData)
     {
-        $form = $this->generator->generate(ObjectWithoutMetadata::class)->getForm();
+        $form = $this->generator->generate($className)->getForm();
 
-        $form->submit([
-            'propertyInteger'  => null,
-            'propertyString'   => null,
-            'propertyDateTime' => null,
-            'propertyUuid'     => null,
-            'propertyMoney'    => null,
-        ]);
+        $form->submit($invalidData);
 
         $this->assertThatFormIsNotValid($form);
         $this->assertThatFormHasErrors(5, $form);
     }
 
-    /** @test */
-    public function it_can_not_validate_form_generated_from_class_with_type_hints()
+    public function invalidData()
     {
-        $form = $this->generator->generate(ObjectWithTypeHinting::class)->getForm();
-
-        $form->submit([
-            'propertyInteger'  => null,
-            'propertyString'   => null,
-            'propertyDateTime' => 'invalid-date-time',
-            'propertyUuid'     => 'invalid-uuid',
-            'propertyMoney'    => '100xxUSD',
-        ]);
-
-        $this->assertThatFormIsNotValid($form);
-        $this->assertThatFormHasErrors(5, $form);
-    }
-
-    /** @test */
-    public function it_can_not_validate_form_generated_from_class_with_phpdoc_annotations_on_properties()
-    {
-        $form = $this->generator->generate(ObjectWithPhpDocMetadataOnProperties::class)->getForm();
-
-        $form->submit([
-            'propertyInteger'  => 'string',
-            'propertyString'   => [],
-            'propertyDateTime' => 'invalid-date-time',
-            'propertyUuid'     => 'invalid-uuid',
-            'propertyMoney'    => '100xxUSD',
-        ]);
-
-        $this->assertThatFormIsNotValid($form);
-        $this->assertThatFormHasErrors(5, $form);
-    }
-
-    /** @test */
-    public function it_can_not_validate_form_generated_from_class_with_phpdoc_annotations_on_constructor_parameters()
-    {
-        $form = $this->generator->generate(ObjectWithPhpDocMetadataOnConstructorParams::class)->getForm();
-
-        $form->submit([
-            'propertyInteger'  => 'string',
-            'propertyString'   => [],
-            'propertyDateTime' => 'invalid-date-time',
-            'propertyUuid'     => 'invalid-uuid',
-            'propertyMoney'    => '100xxUSD',
-        ]);
-
-        $this->assertThatFormIsNotValid($form);
-        $this->assertThatFormHasErrors(5, $form);
-    }
-
-    /** @test */
-    public function it_can_not_validate_form_generated_from_class_with_form_annotations()
-    {
-        $form = $this->generator->generate(ObjectWithFormAnnotations::class)->getForm();
-
-        $form->submit([
-            'propertyInteger'  => 'string',
-            'propertyString'   => [],
-            'propertyDateTime' => 'invalid-date-time',
-            'propertyUuid'     => 'invalid-uuid',
-            'propertyMoney'    => '100xxUSD',
-        ]);
-
-        $this->assertThatFormIsNotValid($form);
-        $this->assertThatFormHasErrors(5, $form);
+        return [
+            [ObjectWithoutMetadata::class, ['propertyInteger' => null, 'propertyString' => null, 'propertyDateTime' => null, 'propertyUuid' => null, 'propertyMoney' => null]],
+            [ObjectWithTypeHinting::class, ['propertyInteger' => null, 'propertyString' => null, 'propertyDateTime' => 'invalid-date-time', 'propertyUuid' => 'invalid-uuid', 'propertyMoney' => '100xxUSD']],
+            [ObjectWithPhpDocMetadataOnProperties::class, ['propertyInteger' => 'string', 'propertyString' => [], 'propertyDateTime' => 'invalid-date-time', 'propertyUuid' => 'invalid-uuid', 'propertyMoney' => '100xxUSD']],
+            [ObjectWithPhpDocMetadataOnConstructorParams::class, ['propertyInteger' => 'string', 'propertyString' => [], 'propertyDateTime' => 'invalid-date-time', 'propertyUuid' => 'invalid-uuid', 'propertyMoney' => '100xxUSD']],
+            [ObjectWithFormAnnotations::class, ['propertyInteger' => 'string', 'propertyString' => [], 'propertyDateTime' => 'invalid-date-time', 'propertyUuid' => 'invalid-uuid', 'propertyMoney' => '100xxUSD']],
+        ];
     }
 
     private function assertThatFormIsNotValid(FormInterface $form)

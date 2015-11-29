@@ -30,6 +30,9 @@ class SubmitGeneratedFormTest extends FunctionalTestCase
         $this->assertFormDataEqualsAndHasExpectedTypes($expectedObject, $form);
     }
 
+    /**
+     * @return array
+     */
     public function expectedObjects()
     {
         return [

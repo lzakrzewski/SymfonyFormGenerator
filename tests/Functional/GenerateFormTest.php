@@ -52,6 +52,9 @@ class GenerateFormTest extends FunctionalTestCase
         $this->assertThatFormFieldsHasExpectedTypes($expectedTypes, $form);
     }
 
+    /**
+     * @return array
+     */
     public function expectedFormTypes()
     {
         return [
