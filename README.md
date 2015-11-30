@@ -1,4 +1,4 @@
-# SymfonyGenericForm [![Build Status](https://travis-ci.org/Lucaszz/SymfonyGenericForm.svg?branch=master)](https://travis-ci.org/Lucaszz/SymfonyGenericForm)
+# SymfonyGenericForm [![Build Status](https://travis-ci.org/Lucaszz/SymfonyFormGenerator.svg?branch=master)](https://travis-ci.org/Lucaszz/SymfonyFormGenerator)
 Generic solution to create form types "on the fly" basing on class metadata.
 
 #Todo 
