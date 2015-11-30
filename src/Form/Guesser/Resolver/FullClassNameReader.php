@@ -26,16 +26,16 @@ class FullClassNameReader
     private function readFullName($variableType, $class)
     {
         $reflectionClass = new \ReflectionClass($class);
-
-        $contents = file_get_contents($reflectionClass->getFileName());
+        $contents        = file_get_contents($reflectionClass->getFileName());
 
         if ($contents) {
             $classImports = $this->unParseClassImports($contents);
 
             foreach ($classImports as $classImport) {
-                $fullName = $classImport.$variableType;
-                if (interface_exists($fullName) || class_exists($fullName)) {
-                    return $fullName;
+                if (interface_exists($classImport) || class_exists($classImport)) {
+                    if (false !== strpos($classImport, $variableType)) {
+                        return $classImport;
+                    }
                 }
             }
         }
@@ -79,8 +79,6 @@ class FullClassNameReader
                 $importParts[] = trim($token[1]);
             }
         }
-
-        array_pop($importParts);
 
         return implode('', $importParts);
     }

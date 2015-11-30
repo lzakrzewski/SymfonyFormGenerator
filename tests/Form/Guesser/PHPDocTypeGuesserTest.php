@@ -2,8 +2,9 @@
 
 namespace Lucaszz\SymfonyFormGenerator\Tests\Form\Guesser;
 
+use Lucaszz\SymfonyFormGenerator\Form\Guesser\Factory\TypeGuessFactory;
+use Lucaszz\SymfonyFormGenerator\Form\Guesser\Mapper\VariableTypeToFormTypeMapper;
 use Lucaszz\SymfonyFormGenerator\Form\Guesser\PHPDocTypeGuesser;
-use Lucaszz\SymfonyFormGenerator\Form\Guesser\Resolver\TypeGuessResolverLegacy;
 use Lucaszz\SymfonyFormGenerator\Tests\fixtures\ObjectWithoutMetadata;
 use Lucaszz\SymfonyFormGenerator\Tests\fixtures\ObjectWithPhpDocMetadataOnConstructorParams;
 use Lucaszz\SymfonyFormGenerator\Tests\fixtures\ObjectWithPhpDocMetadataOnProperties;
@@ -13,12 +14,14 @@ use Symfony\Component\Form\Guess\TypeGuess;
 
 class PHPDocTypeGuesserTest extends \PHPUnit_Framework_TestCase
 {
-    /** @var PHPDocTypeGuesser */
-    private $guesser;
-    /** @var TypeGuessResolverLegacy|ObjectProphecy */
-    private $resolver;
+    /** @var VariableTypeToFormTypeMapper|ObjectProphecy */
+    private $mapper;
+    /** @var TypeGuessFactory|ObjectProphecy */
+    private $factory;
     /** @var TypeGuess|ObjectProphecy */
     private $typeGuess;
+    /** @var PHPDocTypeGuesser */
+    private $guesser;
 
     /** @test */
     public function it_does_not_guess_required()
@@ -39,9 +42,10 @@ class PHPDocTypeGuesserTest extends \PHPUnit_Framework_TestCase
     }
 
     /** @test */
-    public function it_can_not_read_type_of_properties_without_phpdoc()
+    public function it_can_not_guess_type_of_properties_without_phpdoc()
     {
-        $this->resolver->resolve(Argument::any())->shouldNotBeCalled();
+        $this->mapper->getFormType(Argument::any())->shouldNotBeCalled();
+        $this->factory->create(Argument::any())->shouldNotBeCalled();
 
         $this->assertNull($this->guesser->guessType(ObjectWithoutMetadata::class, 'propertyInteger'));
     }
@@ -49,65 +53,91 @@ class PHPDocTypeGuesserTest extends \PHPUnit_Framework_TestCase
     /** @test */
     public function it_can_read_type_of_integer_properties()
     {
-        $this->resolver->resolve('int')->willReturn($this->typeGuess->reveal());
+        $this->mapper->getFormType('int')->willReturn('integer');
+        $this->factory->create('integer')->willReturn($this->typeGuess->reveal());
 
         $this->assertInstanceOf(TypeGuess::class, $this->guesser->guessType(ObjectWithPhpDocMetadataOnProperties::class, 'propertyInteger'));
     }
 
     /** @test */
-    public function it_can_read_type_of_string_properties()
+    public function it_can_guess_type_of_string_properties()
     {
-        $this->resolver->resolve('string')->willReturn($this->typeGuess->reveal());
+        $this->mapper->getFormType('string')->willReturn('text');
+        $this->factory->create('text')->willReturn($this->typeGuess->reveal());
 
         $this->assertInstanceOf(TypeGuess::class, $this->guesser->guessType(ObjectWithPhpDocMetadataOnProperties::class, 'propertyString'));
     }
 
     /** @test */
-    public function it_can_read_type_of_datetime_properties()
+    public function it_can_guess_type_of_datetime_properties()
     {
-        $this->resolver->resolve('\DateTime')->willReturn($this->typeGuess->reveal());
+        $this->mapper->getFormType('\DateTime')->willReturn('generator_datetime');
+        $this->factory->create('generator_datetime')->willReturn($this->typeGuess->reveal());
 
         $this->assertInstanceOf(TypeGuess::class, $this->guesser->guessType(ObjectWithPhpDocMetadataOnProperties::class, 'propertyDateTime'));
     }
 
     /** @test */
-    public function it_can_read_type_of_integer_constructor_parameter()
+    public function it_can_guess_type_of_uuid_properties()
     {
-        $this->resolver->resolve('int')->willReturn($this->typeGuess->reveal());
+        $this->mapper->getFormType('Ramsey\Uuid\UuidInterface')->willReturn('generator_uuid');
+        $this->factory->create('generator_uuid')->willReturn($this->typeGuess->reveal());
+
+        $this->assertInstanceOf(TypeGuess::class, $this->guesser->guessType(ObjectWithPhpDocMetadataOnProperties::class, 'propertyUuid'));
+    }
+
+    /** @test */
+    public function it_can_guess_type_of_integer_constructor_parameter()
+    {
+        $this->mapper->getFormType('int')->willReturn('integer');
+        $this->factory->create('integer')->willReturn($this->typeGuess->reveal());
 
         $this->assertInstanceOf(TypeGuess::class, $this->guesser->guessType(ObjectWithPhpDocMetadataOnConstructorParams::class, 'propertyInteger'));
     }
 
     /** @test */
-    public function it_can_read_type_of_string_constructor_parameter()
+    public function it_can_guess_type_of_string_constructor_parameter()
     {
-        $this->resolver->resolve('string')->willReturn($this->typeGuess->reveal());
+        $this->mapper->getFormType('string')->willReturn('text');
+        $this->factory->create('text')->willReturn($this->typeGuess->reveal());
 
         $this->assertInstanceOf(TypeGuess::class, $this->guesser->guessType(ObjectWithPhpDocMetadataOnConstructorParams::class, 'propertyString'));
     }
 
     /** @test */
-    public function it_can_read_type_of_datetime_constructor_parameter()
+    public function it_can_guess_type_of_datetime_constructor_parameter()
     {
-        $this->resolver->resolve('\DateTime')->willReturn($this->typeGuess->reveal());
+        $this->mapper->getFormType('\DateTime')->willReturn('generator_datetime');
+        $this->factory->create('generator_datetime')->willReturn($this->typeGuess->reveal());
 
         $this->assertInstanceOf(TypeGuess::class, $this->guesser->guessType(ObjectWithPhpDocMetadataOnConstructorParams::class, 'propertyDateTime'));
+    }
+
+    /** @test */
+    public function it_can_guess_type_of_uuid_constructor_parameter()
+    {
+        $this->mapper->getFormType('Ramsey\Uuid\UuidInterface')->willReturn('generator_uuid');
+        $this->factory->create('generator_uuid')->willReturn($this->typeGuess->reveal());
+
+        $this->assertInstanceOf(TypeGuess::class, $this->guesser->guessType(ObjectWithPhpDocMetadataOnConstructorParams::class, 'propertyUuid'));
     }
 
     /** {@inheritdoc} */
     protected function setUp()
     {
+        $this->mapper    = $this->prophesize(VariableTypeToFormTypeMapper::class);
+        $this->factory   = $this->prophesize(TypeGuessFactory::class);
         $this->typeGuess = $this->prophesize(TypeGuess::class);
-        $this->resolver  = $this->prophesize(TypeGuessResolverLegacy::class);
 
-        $this->guesser = new PHPDocTypeGuesser($this->resolver->reveal());
+        $this->guesser = new PHPDocTypeGuesser($this->mapper->reveal(), $this->factory->reveal());
     }
 
     /** {@inheritdoc} */
     protected function tearDown()
     {
+        $this->mapper    = null;
+        $this->factory   = null;
         $this->typeGuess = null;
-        $this->resolver  = null;
 
         $this->guesser = null;
     }

@@ -2,7 +2,9 @@
 
 namespace Lucaszz\SymfonyFormGenerator\Form\Guesser;
 
-use Lucaszz\SymfonyFormGenerator\Form\Guesser\Resolver\TypeGuessResolverLegacy;
+use Lucaszz\SymfonyFormGenerator\Form\Guesser\Factory\TypeGuessFactory;
+use Lucaszz\SymfonyFormGenerator\Form\Guesser\Mapper\VariableTypeToFormTypeMapper;
+use Lucaszz\SymfonyFormGenerator\Form\Guesser\Resolver\FullClassNameReader;
 use phpDocumentor\Reflection\DocBlock;
 use phpDocumentor\Reflection\DocBlock\Tag\ParamTag;
 use phpDocumentor\Reflection\DocBlock\Tag\VarTag;
@@ -10,27 +12,39 @@ use Symfony\Component\Form\FormTypeGuesserInterface;
 
 class PHPDocTypeGuesser implements FormTypeGuesserInterface
 {
-    /** @var TypeGuessResolverLegacy */
-    private $resolver;
+    /** @var TypeGuessFactory */
+    private $factory;
+    /** @var VariableTypeToFormTypeMapper */
+    private $mapper;
 
     /**
-     * @param TypeGuessResolverLegacy $resolver
+     * @param VariableTypeToFormTypeMapper $mapper
+     * @param TypeGuessFactory             $factory
      */
-    public function __construct(TypeGuessResolverLegacy $resolver)
+    public function __construct(VariableTypeToFormTypeMapper $mapper, TypeGuessFactory $factory)
     {
-        $this->resolver = $resolver;
+        $this->factory = $factory;
+        $this->mapper  = $mapper;
     }
 
     /** {@inheritdoc} */
     public function guessType($class, $property)
     {
-        $propertyType = $this->readPropertyType($class, $property);
+        $propertyType = $this->readVariableType($class, $property);
 
         if (null === $propertyType) {
             return;
         }
 
-        return $this->resolver->resolve($propertyType);
+        $variableType = (new FullClassNameReader())->read($propertyType, $class);
+
+        $formType = $this->mapper->getFormType($variableType);
+
+        if (null === $formType) {
+            return;
+        }
+
+        return $this->factory->create($formType);
     }
 
     /** {@inheritdoc} */
@@ -49,7 +63,7 @@ class PHPDocTypeGuesser implements FormTypeGuesserInterface
     }
 
     /** {@inheritdoc} */
-    protected function readPropertyType($class, $property)
+    protected function readVariableType($class, $property)
     {
         $propertyType = $this->readTypeOnProperty($class, $property);
 
