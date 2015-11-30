@@ -1,8 +1,8 @@
 <?php
 
-namespace Lucaszz\SymfonyFormGenerator\Tests\Form\Guesser\Resolver;
+namespace Lucaszz\SymfonyFormGenerator\Tests\Form\Guesser\FullClassName;
 
-use Lucaszz\SymfonyFormGenerator\Form\Guesser\Resolver\FullClassNameReader;
+use Lucaszz\SymfonyFormGenerator\Form\Guesser\FullClassName\FullClassNameReader;
 use Lucaszz\SymfonyFormGenerator\Tests\fixtures\ObjectWithPhpDocMetadataOnProperties;
 use Money\Money;
 use Ramsey\Uuid\UuidInterface;

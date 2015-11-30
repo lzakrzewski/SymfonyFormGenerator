@@ -1,6 +1,6 @@
 <?php
 
-namespace Lucaszz\SymfonyFormGenerator\Form\Guesser\Resolver;
+namespace Lucaszz\SymfonyFormGenerator\Form\Guesser\FullClassName;
 
 class FullClassNameReader
 {

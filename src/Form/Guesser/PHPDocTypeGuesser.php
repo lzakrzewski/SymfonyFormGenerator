@@ -3,8 +3,8 @@
 namespace Lucaszz\SymfonyFormGenerator\Form\Guesser;
 
 use Lucaszz\SymfonyFormGenerator\Form\Guesser\Factory\TypeGuessFactory;
+use Lucaszz\SymfonyFormGenerator\Form\Guesser\FullClassName\FullClassNameReader;
 use Lucaszz\SymfonyFormGenerator\Form\Guesser\Mapper\VariableTypeToFormTypeMapper;
-use Lucaszz\SymfonyFormGenerator\Form\Guesser\Resolver\FullClassNameReader;
 use phpDocumentor\Reflection\DocBlock;
 use phpDocumentor\Reflection\DocBlock\Tag\ParamTag;
 use phpDocumentor\Reflection\DocBlock\Tag\VarTag;
