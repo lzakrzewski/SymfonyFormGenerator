@@ -2,32 +2,43 @@
 
 namespace Lucaszz\SymfonyFormGenerator\Form\Guesser;
 
-use Lucaszz\SymfonyFormGenerator\Form\Guesser\Resolver\TypeGuessResolver;
+use Lucaszz\SymfonyFormGenerator\Form\Guesser\Factory\TypeGuessFactory;
+use Lucaszz\SymfonyFormGenerator\Form\Guesser\Mapper\VariableTypeToFormTypeMapper;
 use Symfony\Component\Form\FormTypeGuesserInterface;
 
 class HintTypeGuesser implements FormTypeGuesserInterface
 {
-    /** @var TypeGuessResolver */
-    private $resolver;
+    /** @var TypeGuessFactory */
+    private $factory;
+    /** @var VariableTypeToFormTypeMapper */
+    private $mapper;
 
     /**
-     * @param TypeGuessResolver $resolver
+     * @param VariableTypeToFormTypeMapper $mapper
+     * @param TypeGuessFactory             $factory
      */
-    public function __construct(TypeGuessResolver $resolver)
+    public function __construct(VariableTypeToFormTypeMapper $mapper, TypeGuessFactory $factory)
     {
-        $this->resolver = $resolver;
+        $this->factory = $factory;
+        $this->mapper  = $mapper;
     }
 
     /** {@inheritdoc} */
     public function guessType($class, $property)
     {
-        $propertyType = $this->readPropertyType($class, $property);
+        $propertyType = $this->readVariableType($class, $property);
 
         if (null === $propertyType) {
             return;
         }
 
-        return $this->resolver->resolve($propertyType);
+        $formType = $this->mapper->getFormType($propertyType);
+
+        if (null === $formType) {
+            return;
+        }
+
+        return $this->factory->create($formType);
     }
 
     /** {@inheritdoc} */
@@ -46,7 +57,7 @@ class HintTypeGuesser implements FormTypeGuesserInterface
     }
 
     /** {@inheritdoc} */
-    protected function readPropertyType($class, $property)
+    protected function readVariableType($class, $property)
     {
         $reflectionClass = new \ReflectionClass($class);
         $constructor     = $reflectionClass->getConstructor();

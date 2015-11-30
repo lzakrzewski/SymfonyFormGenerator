@@ -36,6 +36,8 @@ class VariableTypeToFormTypeMapper
      */
     public function getFormType($variableType)
     {
+        $variableType = $this->trim($variableType);
+
         $classes = array_filter(array_keys($this->mappings), function ($variableType) {
             return interface_exists($variableType) || class_exists($variableType);
         });
@@ -57,6 +59,17 @@ class VariableTypeToFormTypeMapper
      */
     public function addMapping($variableType, $formType)
     {
+        $variableType = $this->trim($variableType);
+
         $this->mappings[$variableType] = $formType;
+    }
+
+    private function trim($variableType)
+    {
+        if ($variableType[0] == '\\') {
+            $variableType = ltrim($variableType, '\\');
+        }
+
+        return $variableType;
     }
 }

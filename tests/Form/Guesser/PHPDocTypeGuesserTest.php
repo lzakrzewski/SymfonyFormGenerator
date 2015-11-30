@@ -3,7 +3,7 @@
 namespace Lucaszz\SymfonyFormGenerator\Tests\Form\Guesser;
 
 use Lucaszz\SymfonyFormGenerator\Form\Guesser\PHPDocTypeGuesser;
-use Lucaszz\SymfonyFormGenerator\Form\Guesser\Resolver\TypeGuessResolver;
+use Lucaszz\SymfonyFormGenerator\Form\Guesser\Resolver\TypeGuessResolverLegacy;
 use Lucaszz\SymfonyFormGenerator\Tests\fixtures\ObjectWithoutMetadata;
 use Lucaszz\SymfonyFormGenerator\Tests\fixtures\ObjectWithPhpDocMetadataOnConstructorParams;
 use Lucaszz\SymfonyFormGenerator\Tests\fixtures\ObjectWithPhpDocMetadataOnProperties;
@@ -15,7 +15,7 @@ class PHPDocTypeGuesserTest extends \PHPUnit_Framework_TestCase
 {
     /** @var PHPDocTypeGuesser */
     private $guesser;
-    /** @var TypeGuessResolver|ObjectProphecy */
+    /** @var TypeGuessResolverLegacy|ObjectProphecy */
     private $resolver;
     /** @var TypeGuess|ObjectProphecy */
     private $typeGuess;
@@ -98,7 +98,7 @@ class PHPDocTypeGuesserTest extends \PHPUnit_Framework_TestCase
     protected function setUp()
     {
         $this->typeGuess = $this->prophesize(TypeGuess::class);
-        $this->resolver  = $this->prophesize(TypeGuessResolver::class);
+        $this->resolver  = $this->prophesize(TypeGuessResolverLegacy::class);
 
         $this->guesser = new PHPDocTypeGuesser($this->resolver->reveal());
     }

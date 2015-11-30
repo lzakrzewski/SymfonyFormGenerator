@@ -2,7 +2,7 @@
 
 namespace Lucaszz\SymfonyFormGenerator\Form\Guesser;
 
-use Lucaszz\SymfonyFormGenerator\Form\Guesser\Resolver\TypeGuessResolver;
+use Lucaszz\SymfonyFormGenerator\Form\Guesser\Resolver\TypeGuessResolverLegacy;
 use phpDocumentor\Reflection\DocBlock;
 use phpDocumentor\Reflection\DocBlock\Tag\ParamTag;
 use phpDocumentor\Reflection\DocBlock\Tag\VarTag;
@@ -10,13 +10,13 @@ use Symfony\Component\Form\FormTypeGuesserInterface;
 
 class PHPDocTypeGuesser implements FormTypeGuesserInterface
 {
-    /** @var TypeGuessResolver */
+    /** @var TypeGuessResolverLegacy */
     private $resolver;
 
     /**
-     * @param TypeGuessResolver $resolver
+     * @param TypeGuessResolverLegacy $resolver
      */
-    public function __construct(TypeGuessResolver $resolver)
+    public function __construct(TypeGuessResolverLegacy $resolver)
     {
         $this->resolver = $resolver;
     }

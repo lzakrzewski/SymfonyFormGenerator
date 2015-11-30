@@ -2,21 +2,23 @@
 
 namespace Lucaszz\SymfonyFormGenerator\Tests\Form\Guesser;
 
+use Lucaszz\SymfonyFormGenerator\Form\Guesser\Factory\TypeGuessFactory;
 use Lucaszz\SymfonyFormGenerator\Form\Guesser\HintTypeGuesser;
-use Lucaszz\SymfonyFormGenerator\Form\Guesser\Resolver\TypeGuessResolver;
+use Lucaszz\SymfonyFormGenerator\Form\Guesser\Mapper\VariableTypeToFormTypeMapper;
 use Lucaszz\SymfonyFormGenerator\Tests\fixtures\ObjectWithTypeHinting;
 use Prophecy\Argument;
 use Prophecy\Prophecy\ObjectProphecy;
+use Symfony\Component\Form\Guess\Guess;
 use Symfony\Component\Form\Guess\TypeGuess;
 
 class HintTypeGuesserTest extends \PHPUnit_Framework_TestCase
 {
+    /** @var VariableTypeToFormTypeMapper|ObjectProphecy */
+    private $mapper;
+    /** @var TypeGuessFactory|ObjectProphecy */
+    private $factory;
     /** @var HintTypeGuesser */
     private $guesser;
-    /** @var TypeGuessResolver|ObjectProphecy */
-    private $resolver;
-    /** @var TypeGuess|ObjectProphecy */
-    private $typeGuess;
 
     /** @test */
     public function it_does_not_guess_required()
@@ -37,17 +39,19 @@ class HintTypeGuesserTest extends \PHPUnit_Framework_TestCase
     }
 
     /** @test */
-    public function it_can_not_read_type_of_properties_without_hint()
+    public function it_can_not_guess_type_of_properties_without_hint()
     {
-        $this->resolver->resolve(Argument::any())->shouldNotBeCalled();
+        $this->mapper->getFormType(Argument::any())->shouldNotBeCalled();
+        $this->factory->create(Argument::any())->shouldNotBeCalled();
 
         $this->assertNull($this->guesser->guessType(ObjectWithTypeHinting::class, 'propertyInteger'));
     }
 
     /** @test */
-    public function it_can_read_type_of_datetime_properties()
+    public function it_can_guess_type_of_datetime_properties()
     {
-        $this->resolver->resolve('DateTime')->willReturn($this->typeGuess->reveal());
+        $this->mapper->getFormType(\DateTime::class)->willReturn('generator_datetime');
+        $this->factory->create('generator_datetime')->willReturn(new TypeGuess('generator_datetime', [], Guess::HIGH_CONFIDENCE));
 
         $this->assertInstanceOf(TypeGuess::class, $this->guesser->guessType(ObjectWithTypeHinting::class, 'propertyDateTime'));
     }
@@ -55,17 +59,17 @@ class HintTypeGuesserTest extends \PHPUnit_Framework_TestCase
     /** {@inheritdoc} */
     protected function setUp()
     {
-        $this->typeGuess = $this->prophesize(TypeGuess::class);
-        $this->resolver  = $this->prophesize(TypeGuessResolver::class);
+        $this->mapper  = $this->prophesize(VariableTypeToFormTypeMapper::class);
+        $this->factory = $this->prophesize(TypeGuessFactory::class);
 
-        $this->guesser = new HintTypeGuesser($this->resolver->reveal());
+        $this->guesser = new HintTypeGuesser($this->mapper->reveal(), $this->factory->reveal());
     }
 
     /** {@inheritdoc} */
     protected function tearDown()
     {
-        $this->typeGuess = null;
-        $this->resolver  = null;
+        $this->mapper  = null;
+        $this->factory = null;
 
         $this->guesser = null;
     }

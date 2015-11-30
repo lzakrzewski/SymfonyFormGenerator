@@ -2,10 +2,12 @@
 
 namespace Lucaszz\SymfonyFormGenerator\Form\Extension\Core;
 
+use Lucaszz\SymfonyFormGenerator\Form\Guesser\Factory\TypeGuessFactory;
 use Lucaszz\SymfonyFormGenerator\Form\Guesser\FormAnnotationTypeGuesser;
 use Lucaszz\SymfonyFormGenerator\Form\Guesser\HintTypeGuesser;
+use Lucaszz\SymfonyFormGenerator\Form\Guesser\Mapper\VariableTypeToFormTypeMapper;
 use Lucaszz\SymfonyFormGenerator\Form\Guesser\PHPDocTypeGuesser;
-use Lucaszz\SymfonyFormGenerator\Form\Guesser\Resolver\TypeGuessResolver;
+use Lucaszz\SymfonyFormGenerator\Form\Guesser\Resolver\TypeGuessResolverLegacy;
 use Lucaszz\SymfonyFormGenerator\Form\Type\DateTimeType;
 use Lucaszz\SymfonyFormGenerator\Form\Type\MoneyType;
 use Lucaszz\SymfonyFormGenerator\Form\Type\UuidType;
@@ -28,12 +30,15 @@ class CoreExtension extends BaseCoreExtension
 
     private static function getTypeGuessers()
     {
-        $resolver = new TypeGuessResolver();
+        $resolver = new TypeGuessResolverLegacy();
+
+        $mapper  = VariableTypeToFormTypeMapper::withDefaultMappings();
+        $factory = new TypeGuessFactory();
 
         return [
             new PHPDocTypeGuesser($resolver),
-            new HintTypeGuesser($resolver),
-            new FormAnnotationTypeGuesser($resolver),
+            new HintTypeGuesser($mapper, $factory),
+            new FormAnnotationTypeGuesser(),
         ];
     }
 }

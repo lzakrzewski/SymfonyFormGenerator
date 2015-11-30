@@ -2,13 +2,13 @@
 
 namespace Lucaszz\SymfonyFormGenerator\Tests\Form\Guesser\Resolver;
 
-use Lucaszz\SymfonyFormGenerator\Form\Guesser\Resolver\TypeGuessResolver;
+use Lucaszz\SymfonyFormGenerator\Form\Guesser\Resolver\TypeGuessResolverLegacy;
 use Symfony\Component\Form\Guess\Guess;
 use Symfony\Component\Form\Guess\TypeGuess;
 
-class TypeGuessResolverTest extends \PHPUnit_Framework_TestCase
+class TypeGuessResolverLegacyTest extends \PHPUnit_Framework_TestCase
 {
-    /** @var TypeGuessResolver */
+    /** @var TypeGuessResolverLegacy */
     private $resolver;
 
     /**
@@ -55,7 +55,7 @@ class TypeGuessResolverTest extends \PHPUnit_Framework_TestCase
     /** {@inheritdoc} */
     protected function setUp()
     {
-        $this->resolver = new TypeGuessResolver();
+        $this->resolver = new TypeGuessResolverLegacy();
     }
 
     /** {@inheritdoc} */

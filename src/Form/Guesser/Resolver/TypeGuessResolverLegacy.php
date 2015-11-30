@@ -9,9 +9,10 @@ use Symfony\Component\Form\Guess\TypeGuess;
  * @todo introduce config class
  * @todo: Word for config "mapper", "rule" could be great
  *
+ * @deprecated
  * read full namespace, how about class for this ?
  */
-class TypeGuessResolver
+class TypeGuessResolverLegacy
 {
     /**
      * @param $propertyType
