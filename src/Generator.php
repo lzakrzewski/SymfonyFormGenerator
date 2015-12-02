@@ -5,6 +5,7 @@ namespace Lucaszz\SymfonyFormGenerator;
 use Lucaszz\SymfonyFormGenerator\Form\Type\GeneratorFormType;
 use Lucaszz\SymfonyFormGenerator\Reader\PropertyNamesReader;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\Validator\Constraints\NotBlank;
 
 class Generator
@@ -15,12 +16,12 @@ class Generator
     private $propertyNames;
 
     /**
-     * @param FormBuilderInterface $builder
+     * @param FormFactoryInterface $factory
      * @param PropertyNamesReader  $propertyNames
      */
-    public function __construct(FormBuilderInterface $builder, PropertyNamesReader $propertyNames)
+    public function __construct(FormFactoryInterface $factory, PropertyNamesReader $propertyNames)
     {
-        $this->builder       = $builder;
+        $this->builder       = $factory->createBuilder();
         $this->propertyNames = $propertyNames;
     }
 
