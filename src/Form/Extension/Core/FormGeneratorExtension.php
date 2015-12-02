@@ -13,7 +13,7 @@ use Lucaszz\SymfonyFormGenerator\Form\Type\UuidType;
 use Symfony\Component\Form\Extension\Core\CoreExtension as BaseCoreExtension;
 use Symfony\Component\Form\FormTypeGuesserChain;
 
-class CoreExtension extends BaseCoreExtension
+class FormGeneratorExtension extends BaseCoreExtension
 {
     /** {@inheritdoc} */
     protected function loadTypes()

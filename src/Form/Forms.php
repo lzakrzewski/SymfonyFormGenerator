@@ -2,7 +2,7 @@
 
 namespace Lucaszz\SymfonyFormGenerator\Form;
 
-use Lucaszz\SymfonyFormGenerator\Form\Extension\Core\CoreExtension;
+use Lucaszz\SymfonyFormGenerator\Form\Extension\Core\FormGeneratorExtension;
 use Symfony\Component\Form\Extension\Validator\ValidatorExtension;
 use Symfony\Component\Form\FormFactoryBuilder;
 use Symfony\Component\Form\FormFactoryBuilderInterface;
@@ -29,7 +29,7 @@ final class Forms
     public static function createFormFactoryBuilder()
     {
         $builder = new FormFactoryBuilder();
-        $builder->addExtension(new CoreExtension())
+        $builder->addExtension(new FormGeneratorExtension())
             ->addExtensions(self::getExtensions());
 
         return $builder;
