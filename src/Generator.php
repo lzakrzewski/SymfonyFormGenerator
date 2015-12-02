@@ -5,6 +5,7 @@ namespace Lucaszz\SymfonyFormGenerator;
 use Lucaszz\SymfonyFormGenerator\Form\Type\GeneratorFormType;
 use Lucaszz\SymfonyFormGenerator\Reader\PropertyNamesReader;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Validator\Constraints\NotBlank;
 
 class Generator
 {
@@ -39,7 +40,7 @@ class Generator
         $builder = $this->emptyBuilder($class);
 
         foreach ($this->propertyNames->read($class) as $propertyName) {
-            $builder = $builder->add($propertyName, null);
+            $builder = $builder->add($propertyName, null, ['constraints' => [new NotBlank()]]);
         }
 
         return $builder;

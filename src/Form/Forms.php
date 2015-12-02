@@ -3,7 +3,6 @@
 namespace Lucaszz\SymfonyFormGenerator\Form;
 
 use Lucaszz\SymfonyFormGenerator\Form\Extension\Core\CoreExtension;
-use Lucaszz\SymfonyFormGenerator\Form\Extension\NotBlankExtension;
 use Symfony\Component\Form\Extension\Validator\ValidatorExtension;
 use Symfony\Component\Form\FormFactoryBuilder;
 use Symfony\Component\Form\FormFactoryBuilderInterface;
@@ -31,8 +30,7 @@ final class Forms
     {
         $builder = new FormFactoryBuilder();
         $builder->addExtension(new CoreExtension())
-            ->addExtensions(self::getExtensions())
-            ->addTypeExtensions(self::getTypeExtensions());
+            ->addExtensions(self::getExtensions());
 
         return $builder;
     }
@@ -50,10 +48,5 @@ final class Forms
         $validator  = $validation->getValidator();
 
         return [new ValidatorExtension($validator)];
-    }
-
-    private static function getTypeExtensions()
-    {
-        return [new NotBlankExtension()];
     }
 }
