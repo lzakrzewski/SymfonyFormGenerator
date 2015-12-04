@@ -15,6 +15,17 @@ use Symfony\Component\Form\FormTypeGuesserChain;
 
 class FormGeneratorExtension extends BaseCoreExtension
 {
+    /** @var VariableTypeToFormTypeMapper */
+    private $mapper;
+
+    /**
+     * @param VariableTypeToFormTypeMapper $mapper
+     */
+    public function __construct(VariableTypeToFormTypeMapper $mapper)
+    {
+        $this->mapper = $mapper;
+    }
+
     /** {@inheritdoc} */
     protected function loadTypes()
     {
@@ -27,14 +38,13 @@ class FormGeneratorExtension extends BaseCoreExtension
         return new FormTypeGuesserChain($this->getTypeGuessers());
     }
 
-    private static function getTypeGuessers()
+    private function getTypeGuessers()
     {
-        $mapper  = VariableTypeToFormTypeMapper::withDefaultMappings();
         $factory = new TypeGuessFactory();
 
         return [
-            new PHPDocTypeGuesser($mapper, $factory),
-            new HintTypeGuesser($mapper, $factory),
+            new PHPDocTypeGuesser($this->mapper, $factory),
+            new HintTypeGuesser($this->mapper, $factory),
             new FormAnnotationTypeGuesser(),
         ];
     }

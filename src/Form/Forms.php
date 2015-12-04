@@ -3,6 +3,7 @@
 namespace Lucaszz\SymfonyFormGenerator\Form;
 
 use Lucaszz\SymfonyFormGenerator\Form\Extension\Core\FormGeneratorExtension;
+use Lucaszz\SymfonyFormGenerator\Form\Guesser\Mapper\VariableTypeToFormTypeMapper;
 use Symfony\Component\Form\Extension\Validator\ValidatorExtension;
 use Symfony\Component\Form\FormFactoryBuilder;
 use Symfony\Component\Form\FormFactoryBuilderInterface;
@@ -29,7 +30,7 @@ final class Forms
     public static function createFormFactoryBuilder()
     {
         $builder = new FormFactoryBuilder();
-        $builder->addExtension(new FormGeneratorExtension())
+        $builder->addExtension(new FormGeneratorExtension(VariableTypeToFormTypeMapper::withDefaultMappings()))
             ->addExtensions(self::getExtensions());
 
         return $builder;
