@@ -2,11 +2,13 @@
 Generic solution to create form types "on the fly" basing on class metadata.
 
 ## Todo 
-- [ ] Rename to `FormGenerator`,
-- [ ] Write test for mixed metadata,
-- [ ] Write test for private properties,
+- [ ] Add travis testing for different `symfony/form` component version,
+- [ ] `Generator::generate` => `Generator::generateFormBuilder`,
+- [ ] Doctrine annotations for requirements,
 - [ ] Write test for real/double/float properties,
 - [ ] Write test for `Assert` annotations,
+- [ ] Write test for private properties,
+- [ ] Write test for mixed metadata,
 - [ ] Readme.
 
 ## Readme todo
