@@ -14,19 +14,24 @@ class VariableTypeToFormTypeMapper
     {
         $self = new self();
 
-        $self->addMapping('string', 'text');
-        $self->addMapping('int', 'integer');
-        $self->addMapping('integer', 'integer');
-        $self->addMapping('float', 'number');
-        $self->addMapping('double', 'number');
-        $self->addMapping('real', 'number');
-        $self->addMapping('bool', 'number');
-        $self->addMapping('boolean', 'number');
-        $self->addMapping('\DateTime', 'generator_datetime');
-        $self->addMapping('\Ramsey\Uuid\UuidInterface', 'generator_uuid');
-        $self->addMapping('\Money\Money', 'generator_money');
+        $self->applyDefaultMappings();
 
         return $self;
+    }
+
+    public function applyDefaultMappings()
+    {
+        $this->addMapping('string', 'text');
+        $this->addMapping('int', 'integer');
+        $this->addMapping('integer', 'integer');
+        $this->addMapping('float', 'number');
+        $this->addMapping('double', 'number');
+        $this->addMapping('real', 'number');
+        $this->addMapping('bool', 'number');
+        $this->addMapping('boolean', 'number');
+        $this->addMapping('\DateTime', 'generator_datetime');
+        $this->addMapping('\Ramsey\Uuid\UuidInterface', 'generator_uuid');
+        $this->addMapping('\Money\Money', 'generator_money');
     }
 
     /**
@@ -36,6 +41,10 @@ class VariableTypeToFormTypeMapper
      */
     public function getFormType($variableType)
     {
+        if (empty($this->mappings)) {
+            return;
+        }
+
         $variableType = $this->trim($variableType);
 
         $classes = array_filter(array_keys($this->mappings), function ($variableType) {

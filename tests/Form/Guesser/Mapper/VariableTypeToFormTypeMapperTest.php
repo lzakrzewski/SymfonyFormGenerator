@@ -13,6 +13,12 @@ class VariableTypeToFormTypeMapperTest extends \PHPUnit_Framework_TestCase
     private $mapper;
 
     /** @test */
+    public function it_returns_null_when_no_mappings()
+    {
+        $this->assertNull($this->mapper->getFormType('int'));
+    }
+
+    /** @test */
     public function it_can_be_constructed_with_default_values()
     {
         $mapper = VariableTypeToFormTypeMapper::withDefaultMappings();
