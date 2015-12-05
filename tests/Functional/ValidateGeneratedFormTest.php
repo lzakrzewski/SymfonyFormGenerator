@@ -25,17 +25,17 @@ class ValidateGeneratedFormTest extends FunctionalTestCase
         $form->submit($invalidData);
 
         $this->assertThatFormIsNotValid($form);
-        $this->assertThatFormHasErrors(5, $form);
+        $this->assertThatFormHasErrors(6, $form);
     }
 
     public function invalidData()
     {
         return [
-            [ObjectWithoutMetadata::class, ['propertyInteger' => null, 'propertyString' => null, 'propertyDateTime' => null, 'propertyUuid' => null, 'propertyMoney' => null]],
-            [ObjectWithTypeHinting::class, ['propertyInteger' => null, 'propertyString' => null, 'propertyDateTime' => 'invalid-date-time', 'propertyUuid' => 'invalid-uuid', 'propertyMoney' => '100xxUSD']],
-            [ObjectWithPhpDocMetadataOnProperties::class, ['propertyInteger' => 'string', 'propertyString' => [], 'propertyDateTime' => 'invalid-date-time', 'propertyUuid' => 'invalid-uuid', 'propertyMoney' => '100xxUSD']],
-            [ObjectWithPhpDocMetadataOnConstructorParams::class, ['propertyInteger' => 'string', 'propertyString' => [], 'propertyDateTime' => 'invalid-date-time', 'propertyUuid' => 'invalid-uuid', 'propertyMoney' => '100xxUSD']],
-            [ObjectWithFormAnnotations::class, ['propertyInteger' => 'string', 'propertyString' => [], 'propertyDateTime' => 'invalid-date-time', 'propertyUuid' => 'invalid-uuid', 'propertyMoney' => '100xxUSD']],
+            [ObjectWithoutMetadata::class, ['propertyInteger' => null, 'propertyNumber' => null, 'propertyString' => null, 'propertyDateTime' => null, 'propertyUuid' => null, 'propertyMoney' => null]],
+            [ObjectWithTypeHinting::class, ['propertyInteger' => null, 'propertyNumber' => null, 'propertyString' => null, 'propertyDateTime' => 'invalid-date-time', 'propertyUuid' => 'invalid-uuid', 'propertyMoney' => '100xxUSD']],
+            [ObjectWithPhpDocMetadataOnProperties::class, ['propertyInteger' => 'string', 'propertyNumber' => 'string', 'propertyString' => [], 'propertyDateTime' => 'invalid-date-time', 'propertyUuid' => 'invalid-uuid', 'propertyMoney' => '100xxUSD']],
+            [ObjectWithPhpDocMetadataOnConstructorParams::class, ['propertyInteger' => 'string', 'propertyNumber' => 'string', 'propertyString' => [], 'propertyDateTime' => 'invalid-date-time', 'propertyUuid' => 'invalid-uuid', 'propertyMoney' => '100xxUSD']],
+            [ObjectWithFormAnnotations::class, ['propertyInteger' => 'string', 'propertyNumber' => 'string', 'propertyString' => [], 'propertyDateTime' => 'invalid-date-time', 'propertyUuid' => 'invalid-uuid', 'propertyMoney' => '100xxUSD']],
         ];
     }
 

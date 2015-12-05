@@ -6,7 +6,7 @@ Generic solution to create form types "on the fly" basing on class metadata.
 - [ ] PhpDoc guesser should have more test cases,
 - [x] `Generator::generate` => `Generator::generateFormBuilder`,
 - [x] Doctrine annotations for requirements,
-- [ ] Write test for real/double/float properties,
+- [x] Write test for real/double/float properties,
 - [ ] Write test for `Assert` annotations,
 - [ ] Write test for private properties,
 - [ ] Write test for mixed metadata,

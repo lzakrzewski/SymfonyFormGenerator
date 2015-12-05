@@ -8,6 +8,8 @@ class ObjectWithFormAnnotations
 {
     /** @Form\Field("integer", options={"label"="Property Integer"}) */
     public $propertyInteger;
+    /** @Form\Field("number", options={"label"="Property Integer"}) */
+    public $propertyNumber;
     /** @Form\Field("text", options={"label"="Property String"}) */
     public $propertyString;
     /** @Form\Field("generator_datetime", options={"label"="Property DateTime"}) */
@@ -17,9 +19,10 @@ class ObjectWithFormAnnotations
     /** @Form\Field("generator_money", options={"label"="Property Money"}) */
     public $propertyMoney;
 
-    public function __construct($propertyInteger, $propertyString, $propertyDateTime, $propertyUuid, $propertyMoney)
+    public function __construct($propertyInteger, $propertyNumber, $propertyString, $propertyDateTime, $propertyUuid, $propertyMoney)
     {
         $this->propertyInteger  = $propertyInteger;
+        $this->propertyNumber   = $propertyNumber;
         $this->propertyString   = $propertyString;
         $this->propertyDateTime = $propertyDateTime;
         $this->propertyUuid     = $propertyUuid;

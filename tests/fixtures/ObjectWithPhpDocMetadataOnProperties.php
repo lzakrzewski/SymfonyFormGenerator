@@ -9,6 +9,8 @@ class ObjectWithPhpDocMetadataOnProperties
 {
     /** @var int */
     public $propertyInteger;
+    /** @var float */
+    public $propertyNumber;
     /** @var string */
     public $propertyString;
     /** @var \DateTime */
@@ -18,9 +20,10 @@ class ObjectWithPhpDocMetadataOnProperties
     /** @var Money */
     public $propertyMoney;
 
-    public function __construct($propertyInteger, $propertyString, $propertyDateTime, $propertyUuid, $propertyMoney)
+    public function __construct($propertyInteger, $propertyNumber, $propertyString, $propertyDateTime, $propertyUuid, $propertyMoney)
     {
         $this->propertyInteger  = $propertyInteger;
+        $this->propertyNumber   = $propertyNumber;
         $this->propertyString   = $propertyString;
         $this->propertyDateTime = $propertyDateTime;
         $this->propertyUuid     = $propertyUuid;

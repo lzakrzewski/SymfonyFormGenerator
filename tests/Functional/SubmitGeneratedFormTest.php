@@ -36,11 +36,11 @@ class SubmitGeneratedFormTest extends FunctionalTestCase
     public function expectedObjects()
     {
         return [
-            [ObjectWithoutMetadata::class, new ObjectWithoutMetadata('1', 'test', '2015-01-01 01:01:01', 'b771a92d-57a3-4442-ad85-165000c07f12', '100 USD')],
-            [ObjectWithTypeHinting::class, new ObjectWithTypeHinting('1', 'test', new \DateTime('2015-01-01 01:01:01'), Uuid::fromString('b771a92d-57a3-4442-ad85-165000c07f12'), Money::USD(10000))],
-            [ObjectWithPhpDocMetadataOnProperties::class, new ObjectWithPhpDocMetadataOnProperties(1, 'test', new \DateTime('2015-01-01 01:01:01'), Uuid::fromString('b771a92d-57a3-4442-ad85-165000c07f12'), Money::USD(10000))],
-            [ObjectWithPhpDocMetadataOnConstructorParams::class, new ObjectWithPhpDocMetadataOnConstructorParams(1, 'test', new \DateTime('2015-01-01 01:01:01'), Uuid::fromString('b771a92d-57a3-4442-ad85-165000c07f12'), Money::USD(10000))],
-            [ObjectWithFormAnnotations::class, new ObjectWithFormAnnotations(1, 'test', new \DateTime('2015-01-01 01:01:01'), Uuid::fromString('b771a92d-57a3-4442-ad85-165000c07f12'), Money::USD(10000))],
+            [ObjectWithoutMetadata::class, new ObjectWithoutMetadata('1', '0.1', 'test', '2015-01-01 01:01:01', 'b771a92d-57a3-4442-ad85-165000c07f12', '100 USD')],
+            [ObjectWithTypeHinting::class, new ObjectWithTypeHinting('1', '0.1', 'test', new \DateTime('2015-01-01 01:01:01'), Uuid::fromString('b771a92d-57a3-4442-ad85-165000c07f12'), Money::USD(10000))],
+            [ObjectWithPhpDocMetadataOnProperties::class, new ObjectWithPhpDocMetadataOnProperties(1, 0.1, 'test', new \DateTime('2015-01-01 01:01:01'), Uuid::fromString('b771a92d-57a3-4442-ad85-165000c07f12'), Money::USD(10000))],
+            [ObjectWithPhpDocMetadataOnConstructorParams::class, new ObjectWithPhpDocMetadataOnConstructorParams(1, 0.1, 'test', new \DateTime('2015-01-01 01:01:01'), Uuid::fromString('b771a92d-57a3-4442-ad85-165000c07f12'), Money::USD(10000))],
+            [ObjectWithFormAnnotations::class, new ObjectWithFormAnnotations(1, 0.1, 'test', new \DateTime('2015-01-01 01:01:01'), Uuid::fromString('b771a92d-57a3-4442-ad85-165000c07f12'), Money::USD(10000))],
         ];
     }
 
@@ -55,6 +55,7 @@ class SubmitGeneratedFormTest extends FunctionalTestCase
     {
         return [
             'propertyInteger'  => 1,
+            'propertyNumber'   => 0.1,
             'propertyString'   => 'test',
             'propertyDateTime' => '2015-01-01 01:01:01',
             'propertyUuid'     => 'b771a92d-57a3-4442-ad85-165000c07f12',
@@ -68,13 +69,11 @@ class SubmitGeneratedFormTest extends FunctionalTestCase
 
         $this->assertEquals($expected, $formData);
 
-        $this->assertEquals($expected->propertyInteger, $formData->propertyInteger);
-        $this->assertEquals($expected->propertyString, $formData->propertyString);
         if ($expected->propertyDateTime instanceof \DateTime) {
             $this->assertDateTimeEquals($expected->propertyDateTime, $formData->propertyDateTime);
         }
 
-        if ($expected->propertyDateTime instanceof \DateTime) {
+        if ($expected->propertyUuid instanceof Uuid) {
             $this->assertUuidEquals($expected->propertyUuid, $formData->propertyUuid);
         }
 
