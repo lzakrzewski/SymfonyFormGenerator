@@ -32,7 +32,7 @@ class Generator
      *
      * @return FormBuilderInterface
      */
-    public function generate($class)
+    public function generateFormBuilder($class)
     {
         if (!is_string($class) || !class_exists($class)) {
             throw new \InvalidArgumentException(sprintf('Form could be generated only from valid class names, %s given.', gettype($class)));

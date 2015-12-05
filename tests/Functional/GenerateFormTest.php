@@ -20,7 +20,7 @@ class GenerateFormTest extends FunctionalTestCase
      */
     public function it_can_not_generate_form_array()
     {
-        $this->generator->generate([1, 2, 3, 4]);
+        $this->generator->generateFormBuilder([1, 2, 3, 4]);
     }
 
     /**
@@ -29,7 +29,7 @@ class GenerateFormTest extends FunctionalTestCase
      */
     public function it_can_not_generate_form_object()
     {
-        $this->generator->generate(new \stdClass());
+        $this->generator->generateFormBuilder(new \stdClass());
     }
 
     /**
@@ -38,7 +38,7 @@ class GenerateFormTest extends FunctionalTestCase
      */
     public function it_can_not_generate_form_not_existing_class()
     {
-        $this->generator->generate('NonExistingNamespace\NonExistingClass');
+        $this->generator->generateFormBuilder('NonExistingNamespace\NonExistingClass');
     }
 
     /**
@@ -47,7 +47,7 @@ class GenerateFormTest extends FunctionalTestCase
      */
     public function it_can_generate_form_for_given_class($className, $expectedTypes)
     {
-        $form = $this->generator->generate($className)->getForm();
+        $form = $this->generator->generateFormBuilder($className)->getForm();
 
         $this->assertThatFormFieldsHasExpectedTypes($expectedTypes, $form);
     }

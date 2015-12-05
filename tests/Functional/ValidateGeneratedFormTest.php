@@ -20,7 +20,7 @@ class ValidateGeneratedFormTest extends FunctionalTestCase
      */
     public function it_can_not_validate_form_with_invalid_data($className, $invalidData)
     {
-        $form = $this->generator->generate($className)->getForm();
+        $form = $this->generator->generateFormBuilder($className)->getForm();
 
         $form->submit($invalidData);
 

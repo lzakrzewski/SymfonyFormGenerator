@@ -22,7 +22,7 @@ class SubmitGeneratedFormTest extends FunctionalTestCase
      */
     public function it_can_submit_generated_form($className, $expectedObject)
     {
-        $form = $this->generator->generate($className)->getForm();
+        $form = $this->generator->generateFormBuilder($className)->getForm();
 
         $form->submit($this->validFormData());
         $this->assertThatFormWasSubmittedWithSuccess($form);
