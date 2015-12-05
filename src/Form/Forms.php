@@ -2,6 +2,7 @@
 
 namespace Lucaszz\SymfonyFormGenerator\Form;
 
+use Doctrine\Common\Annotations\AnnotationReader;
 use Lucaszz\SymfonyFormGenerator\Form\Extension\Core\FormGeneratorExtension;
 use Lucaszz\SymfonyFormGenerator\Form\Guesser\Mapper\VariableTypeToFormTypeMapper;
 use Symfony\Component\Form\Extension\Validator\ValidatorExtension;
@@ -45,7 +46,7 @@ final class Forms
 
     private static function getExtensions()
     {
-        $validation = Validation::createValidatorBuilder();
+        $validation = Validation::createValidatorBuilder()->enableAnnotationMapping(new AnnotationReader());
         $validator  = $validation->getValidator();
 
         return [new ValidatorExtension($validator)];

@@ -2,6 +2,7 @@
 
 namespace Lucaszz\SymfonyFormGenerator\Tests\Functional;
 
+use Lucaszz\SymfonyFormGenerator\Tests\fixtures\ObjectWithAssertAnnotations;
 use Lucaszz\SymfonyFormGenerator\Tests\fixtures\ObjectWithFormAnnotations;
 use Lucaszz\SymfonyFormGenerator\Tests\fixtures\ObjectWithoutMetadata;
 use Lucaszz\SymfonyFormGenerator\Tests\fixtures\ObjectWithPhpDocMetadataOnConstructorParams;
@@ -63,6 +64,7 @@ class GenerateFormTest extends FunctionalTestCase
             [ObjectWithPhpDocMetadataOnProperties::class, ['propertyInteger' => 'integer', 'propertyString' => 'text', 'propertyDateTime' => 'generator_datetime', 'propertyUuid' => 'generator_uuid', 'propertyMoney' => 'generator_money']],
             [ObjectWithPhpDocMetadataOnConstructorParams::class, ['propertyInteger' => 'integer', 'propertyString' => 'text', 'propertyDateTime' => 'generator_datetime', 'propertyUuid' => 'generator_uuid', 'propertyMoney' => 'generator_money']],
             [ObjectWithFormAnnotations::class, ['propertyInteger' => 'integer', 'propertyString' => 'text', 'propertyDateTime' => 'generator_datetime', 'propertyUuid' => 'generator_uuid', 'propertyMoney' => 'generator_money']],
+            [ObjectWithAssertAnnotations::class, ['propertyInteger' => 'text', 'propertyString' => 'text', 'propertyDateTime' => 'text', 'propertyUuid' => 'text', 'propertyMoney' => 'text']],
         ];
     }
 

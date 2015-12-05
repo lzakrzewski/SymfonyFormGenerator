@@ -2,6 +2,7 @@
 
 namespace Lucaszz\SymfonyFormGenerator\Tests\Functional;
 
+use Lucaszz\SymfonyFormGenerator\Tests\fixtures\ObjectWithAssertAnnotations;
 use Lucaszz\SymfonyFormGenerator\Tests\fixtures\ObjectWithFormAnnotations;
 use Lucaszz\SymfonyFormGenerator\Tests\fixtures\ObjectWithoutMetadata;
 use Lucaszz\SymfonyFormGenerator\Tests\fixtures\ObjectWithPhpDocMetadataOnConstructorParams;
@@ -25,7 +26,6 @@ class ValidateGeneratedFormTest extends FunctionalTestCase
         $form->submit($invalidData);
 
         $this->assertThatFormIsNotValid($form);
-        $this->assertThatFormHasErrors(6, $form);
     }
 
     public function invalidData()
@@ -36,6 +36,7 @@ class ValidateGeneratedFormTest extends FunctionalTestCase
             [ObjectWithPhpDocMetadataOnProperties::class, ['propertyInteger' => 'string', 'propertyNumber' => 'string', 'propertyString' => [], 'propertyDateTime' => 'invalid-date-time', 'propertyUuid' => 'invalid-uuid', 'propertyMoney' => '100xxUSD']],
             [ObjectWithPhpDocMetadataOnConstructorParams::class, ['propertyInteger' => 'string', 'propertyNumber' => 'string', 'propertyString' => [], 'propertyDateTime' => 'invalid-date-time', 'propertyUuid' => 'invalid-uuid', 'propertyMoney' => '100xxUSD']],
             [ObjectWithFormAnnotations::class, ['propertyInteger' => 'string', 'propertyNumber' => 'string', 'propertyString' => [], 'propertyDateTime' => 'invalid-date-time', 'propertyUuid' => 'invalid-uuid', 'propertyMoney' => '100xxUSD']],
+            [ObjectWithAssertAnnotations::class, ['propertyInteger' => 40, 'propertyNumber' => 40, 'propertyString' => 'test1234567', 'propertyDateTime' => 'invalid-date-time', 'propertyUuid' => null, 'propertyMoney' => null]],
         ];
     }
 
@@ -44,10 +45,12 @@ class ValidateGeneratedFormTest extends FunctionalTestCase
         $this->assertFalse($form->isValid());
         $this->assertTrue($form->isSubmitted());
         $this->assertTrue($form->isSynchronized());
-    }
 
-    private function assertThatFormHasErrors($expectedErrorCount, FormInterface $form)
-    {
-        $this->assertEquals($expectedErrorCount, $form->getErrors(true)->count());
+        $this->assertFalse($form->get('propertyInteger')->isValid());
+        $this->assertFalse($form->get('propertyNumber')->isValid());
+        $this->assertFalse($form->get('propertyString')->isValid());
+        $this->assertFalse($form->get('propertyDateTime')->isValid());
+        $this->assertFalse($form->get('propertyUuid')->isValid());
+        $this->assertFalse($form->get('propertyMoney')->isValid());
     }
 }

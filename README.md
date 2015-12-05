@@ -7,8 +7,7 @@ Generic solution to create form types "on the fly" basing on class metadata.
 - [x] `Generator::generate` => `Generator::generateFormBuilder`,
 - [x] Doctrine annotations for requirements,
 - [x] Write test for real/double/float properties,
-- [ ] Write test for `Assert` annotations,
-- [ ] Write test for private properties,
+- [x] Write test for `Assert` annotations,
 - [ ] Write test for mixed metadata,
 - [ ] Readme.
 
