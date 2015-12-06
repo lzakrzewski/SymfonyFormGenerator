@@ -5,7 +5,6 @@ namespace Lucaszz\SymfonyFormGenerator\Tests\Functional;
 use Lucaszz\SymfonyFormGenerator\Tests\fixtures\ObjectWithAssertAnnotations;
 use Lucaszz\SymfonyFormGenerator\Tests\fixtures\ObjectWithFormAnnotations;
 use Lucaszz\SymfonyFormGenerator\Tests\fixtures\ObjectWithoutMetadata;
-use Lucaszz\SymfonyFormGenerator\Tests\fixtures\ObjectWithPhpDocMetadataOnConstructorParams;
 use Lucaszz\SymfonyFormGenerator\Tests\fixtures\ObjectWithPhpDocMetadataOnProperties;
 use Lucaszz\SymfonyFormGenerator\Tests\fixtures\ObjectWithTypeHinting;
 use Symfony\Component\Form\FormInterface;
@@ -62,7 +61,6 @@ class GenerateFormTest extends FunctionalTestCase
             [ObjectWithoutMetadata::class, ['propertyInteger' => 'text', 'propertyNumber' => 'text', 'propertyString' => 'text', 'propertyDateTime' => 'text', 'propertyUuid' => 'text', 'propertyMoney' => 'text']],
             [ObjectWithTypeHinting::class, ['propertyInteger' => 'text', 'propertyNumber' => 'text', 'propertyString' => 'text', 'propertyDateTime' => 'generator_datetime', 'propertyUuid' => 'generator_uuid', 'propertyMoney' => 'generator_money']],
             [ObjectWithPhpDocMetadataOnProperties::class, ['propertyInteger' => 'integer', 'propertyNumber' => 'number', 'propertyString' => 'text', 'propertyDateTime' => 'generator_datetime', 'propertyUuid' => 'generator_uuid', 'propertyMoney' => 'generator_money']],
-            [ObjectWithPhpDocMetadataOnConstructorParams::class, ['propertyInteger' => 'integer', 'propertyNumber' => 'number', 'propertyString' => 'text', 'propertyDateTime' => 'generator_datetime', 'propertyUuid' => 'generator_uuid', 'propertyMoney' => 'generator_money']],
             [ObjectWithFormAnnotations::class, ['propertyInteger' => 'integer', 'propertyNumber' => 'number', 'propertyString' => 'text', 'propertyDateTime' => 'generator_datetime', 'propertyUuid' => 'generator_uuid', 'propertyMoney' => 'generator_money']],
             [ObjectWithAssertAnnotations::class, ['propertyInteger' => 'number', 'propertyNumber' => 'number', 'propertyString' => 'text', 'propertyDateTime' => 'datetime', 'propertyUuid' => 'text', 'propertyMoney' => 'text']],
         ];

@@ -5,7 +5,6 @@ namespace Lucaszz\SymfonyFormGenerator\Tests\Functional;
 use Lucaszz\SymfonyFormGenerator\Tests\fixtures\ObjectWithAssertAnnotations;
 use Lucaszz\SymfonyFormGenerator\Tests\fixtures\ObjectWithFormAnnotations;
 use Lucaszz\SymfonyFormGenerator\Tests\fixtures\ObjectWithoutMetadata;
-use Lucaszz\SymfonyFormGenerator\Tests\fixtures\ObjectWithPhpDocMetadataOnConstructorParams;
 use Lucaszz\SymfonyFormGenerator\Tests\fixtures\ObjectWithPhpDocMetadataOnProperties;
 use Lucaszz\SymfonyFormGenerator\Tests\fixtures\ObjectWithTypeHinting;
 use Symfony\Component\Form\FormInterface;
@@ -34,7 +33,6 @@ class ValidateGeneratedFormTest extends FunctionalTestCase
             [ObjectWithoutMetadata::class, ['propertyInteger' => null, 'propertyNumber' => null, 'propertyString' => null, 'propertyDateTime' => null, 'propertyUuid' => null, 'propertyMoney' => null]],
             [ObjectWithTypeHinting::class, ['propertyInteger' => null, 'propertyNumber' => null, 'propertyString' => null, 'propertyDateTime' => 'invalid-date-time', 'propertyUuid' => 'invalid-uuid', 'propertyMoney' => '100xxUSD']],
             [ObjectWithPhpDocMetadataOnProperties::class, ['propertyInteger' => 'string', 'propertyNumber' => 'string', 'propertyString' => [], 'propertyDateTime' => 'invalid-date-time', 'propertyUuid' => 'invalid-uuid', 'propertyMoney' => '100xxUSD']],
-            [ObjectWithPhpDocMetadataOnConstructorParams::class, ['propertyInteger' => 'string', 'propertyNumber' => 'string', 'propertyString' => [], 'propertyDateTime' => 'invalid-date-time', 'propertyUuid' => 'invalid-uuid', 'propertyMoney' => '100xxUSD']],
             [ObjectWithFormAnnotations::class, ['propertyInteger' => 'string', 'propertyNumber' => 'string', 'propertyString' => [], 'propertyDateTime' => 'invalid-date-time', 'propertyUuid' => 'invalid-uuid', 'propertyMoney' => '100xxUSD']],
             [ObjectWithAssertAnnotations::class, ['propertyInteger' => 40, 'propertyNumber' => 40, 'propertyString' => 'test1234567', 'propertyDateTime' => 'invalid-date-time', 'propertyUuid' => null, 'propertyMoney' => null]],
         ];
