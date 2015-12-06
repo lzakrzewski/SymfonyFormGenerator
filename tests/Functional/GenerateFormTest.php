@@ -58,11 +58,61 @@ class GenerateFormTest extends FunctionalTestCase
     public function expectedFormTypes()
     {
         return [
-            [ObjectWithoutMetadata::class, ['propertyInteger' => 'generator_string', 'propertyNumber' => 'generator_string', 'propertyString' => 'generator_string', 'propertyDateTime' => 'generator_string', 'propertyUuid' => 'generator_string', 'propertyMoney' => 'generator_string']],
-            [ObjectWithTypeHinting::class, ['propertyInteger' => 'generator_string', 'propertyNumber' => 'generator_string', 'propertyString' => 'generator_string', 'propertyDateTime' => 'generator_datetime', 'propertyUuid' => 'generator_uuid', 'propertyMoney' => 'generator_money']],
-            [ObjectWithPhpDocMetadataOnProperties::class, ['propertyInteger' => 'integer', 'propertyNumber' => 'number', 'propertyString' => 'generator_string', 'propertyDateTime' => 'generator_datetime', 'propertyUuid' => 'generator_uuid', 'propertyMoney' => 'generator_money']],
-            [ObjectWithFormAnnotations::class, ['propertyInteger' => 'integer', 'propertyNumber' => 'number', 'propertyString' => 'generator_string', 'propertyDateTime' => 'generator_datetime', 'propertyUuid' => 'generator_uuid', 'propertyMoney' => 'generator_money']],
-            [ObjectWithAssertAnnotations::class, ['propertyInteger' => 'number', 'propertyNumber' => 'number', 'propertyString' => 'generator_string', 'propertyDateTime' => 'generator_datetime', 'propertyUuid' => 'generator_string', 'propertyMoney' => 'generator_string']],
+            [
+                ObjectWithoutMetadata::class,
+                [
+                    'propertyInteger'  => 'generator_string',
+                    'propertyNumber'   => 'generator_string',
+                    'propertyString'   => 'generator_string',
+                    'propertyDateTime' => 'generator_string',
+                    'propertyUuid'     => 'generator_string',
+                    'propertyMoney'    => 'generator_string',
+                ],
+            ],
+            [
+                ObjectWithTypeHinting::class,
+                [
+                    'propertyInteger'  => 'generator_string',
+                    'propertyNumber'   => 'generator_string',
+                    'propertyString'   => 'generator_string',
+                    'propertyDateTime' => 'generator_datetime',
+                    'propertyUuid'     => 'generator_uuid',
+                    'propertyMoney'    => 'generator_money',
+                ],
+            ],
+            [
+                ObjectWithPhpDocMetadataOnProperties::class,
+                [
+                    'propertyInteger'  => 'integer',
+                    'propertyNumber'   => 'number',
+                    'propertyString'   => 'generator_string',
+                    'propertyDateTime' => 'generator_datetime',
+                    'propertyUuid'     => 'generator_uuid',
+                    'propertyMoney'    => 'generator_money',
+                ],
+            ],
+            [
+                ObjectWithFormAnnotations::class,
+                [
+                    'propertyInteger'  => 'integer',
+                    'propertyNumber'   => 'number',
+                    'propertyString'   => 'generator_string',
+                    'propertyDateTime' => 'generator_datetime',
+                    'propertyUuid'     => 'generator_uuid',
+                    'propertyMoney'    => 'generator_money',
+                ],
+            ],
+            [
+                ObjectWithAssertAnnotations::class,
+                [
+                    'propertyInteger'  => 'number',
+                    'propertyNumber'   => 'number',
+                    'propertyString'   => 'generator_string',
+                    'propertyDateTime' => 'generator_datetime',
+                    'propertyUuid'     => 'generator_string',
+                    'propertyMoney'    => 'generator_string',
+                ],
+            ],
         ];
     }
 

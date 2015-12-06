@@ -30,11 +30,61 @@ class ValidateGeneratedFormTest extends FunctionalTestCase
     public function invalidData()
     {
         return [
-            [ObjectWithoutMetadata::class, ['propertyInteger' => null, 'propertyNumber' => null, 'propertyString' => null, 'propertyDateTime' => null, 'propertyUuid' => null, 'propertyMoney' => null]],
-            [ObjectWithTypeHinting::class, ['propertyInteger' => null, 'propertyNumber' => null, 'propertyString' => null, 'propertyDateTime' => 'invalid-date-time', 'propertyUuid' => 'invalid-uuid', 'propertyMoney' => '100xxUSD']],
-            [ObjectWithPhpDocMetadataOnProperties::class, ['propertyInteger' => 'string', 'propertyNumber' => 'string', 'propertyString' => [], 'propertyDateTime' => 'invalid-date-time', 'propertyUuid' => 'invalid-uuid', 'propertyMoney' => '100xxUSD']],
-            [ObjectWithFormAnnotations::class, ['propertyInteger' => 'string', 'propertyNumber' => 'string', 'propertyString' => [], 'propertyDateTime' => 'invalid-date-time', 'propertyUuid' => 'invalid-uuid', 'propertyMoney' => '100xxUSD']],
-            [ObjectWithAssertAnnotations::class, ['propertyInteger' => 40, 'propertyNumber' => 40, 'propertyString' => 'test1234567', 'propertyDateTime' => 'invalid-date-time', 'propertyUuid' => null, 'propertyMoney' => null]],
+            [
+                ObjectWithoutMetadata::class,
+                [
+                    'propertyInteger'  => null,
+                    'propertyNumber'   => null,
+                    'propertyString'   => null,
+                    'propertyDateTime' => null,
+                    'propertyUuid'     => null,
+                    'propertyMoney'    => null,
+                ],
+            ],
+            [
+                ObjectWithTypeHinting::class,
+                [
+                    'propertyInteger'  => null,
+                    'propertyNumber'   => null,
+                    'propertyString'   => null,
+                    'propertyDateTime' => 'invalid-date-time',
+                    'propertyUuid'     => 'invalid-uuid',
+                    'propertyMoney'    => '100xxUSD',
+                ],
+            ],
+            [
+                ObjectWithPhpDocMetadataOnProperties::class,
+                [
+                    'propertyInteger'  => 'string',
+                    'propertyNumber'   => 'string',
+                    'propertyString'   => [],
+                    'propertyDateTime' => 'invalid-date-time',
+                    'propertyUuid'     => 'invalid-uuid',
+                    'propertyMoney'    => '100xxUSD',
+                ],
+            ],
+            [
+                ObjectWithFormAnnotations::class,
+                [
+                    'propertyInteger'  => 'string',
+                    'propertyNumber'   => 'string',
+                    'propertyString'   => [],
+                    'propertyDateTime' => 'invalid-date-time',
+                    'propertyUuid'     => 'invalid-uuid',
+                    'propertyMoney'    => '100xxUSD',
+                ],
+            ],
+            [
+                ObjectWithAssertAnnotations::class,
+                [
+                    'propertyInteger'  => 40,
+                    'propertyNumber'   => 40,
+                    'propertyString'   => 'test1234567',
+                    'propertyDateTime' => 'invalid-date-time',
+                    'propertyUuid'     => null,
+                    'propertyMoney'    => null,
+                ],
+            ],
         ];
     }
 
