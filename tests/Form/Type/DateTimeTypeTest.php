@@ -3,9 +3,8 @@
 namespace Lucaszz\SymfonyFormGenerator\Tests\Form\Type;
 
 use Lucaszz\SymfonyFormGenerator\Form\Type\DateTimeType;
-use Symfony\Component\Form\Test\TypeTestCase;
 
-class DateTimeTypeTest extends TypeTestCase
+class DateTimeTypeTest extends FormTypeTestCase
 {
     /** @test */
     public function it_submits_valid_data()
@@ -14,6 +13,17 @@ class DateTimeTypeTest extends TypeTestCase
 
         $form->submit('2010-06-02 01:01:01');
 
+        $this->assertTrue($form->isValid());
         $this->assertDateTimeEquals(new \DateTime('2010-06-02 01:01:01'), $form->getData());
+    }
+
+    /** @test */
+    public function it_does_not_submit_invalid_data()
+    {
+        $form = $this->factory->create(new DateTimeType());
+
+        $form->submit('20100602-01-01-01');
+
+        $this->assertFalse($form->isValid());
     }
 }
