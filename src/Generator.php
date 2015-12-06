@@ -10,7 +10,7 @@ use Lucaszz\SymfonyFormGenerator\Guesser\FormAnnotationGuesser;
 use Lucaszz\SymfonyFormGenerator\Guesser\PHPDocGuesser;
 use Lucaszz\SymfonyFormGenerator\Guesser\TypeHintGuesser;
 use Lucaszz\SymfonyFormGenerator\Guesser\ValidatorGuesser;
-use Lucaszz\SymfonyFormGenerator\Reader\PropertyNamesReader;
+use Lucaszz\SymfonyFormGenerator\Property\PropertyNamesReader;
 use Symfony\Component\Form\Extension\Validator\ValidatorTypeGuesser;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormFactoryInterface;

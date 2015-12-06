@@ -4,7 +4,7 @@ namespace Lucaszz\SymfonyFormGenerator\Tests\Functional;
 
 use Lucaszz\SymfonyFormGenerator\Form\Forms;
 use Lucaszz\SymfonyFormGenerator\Generator;
-use Lucaszz\SymfonyFormGenerator\Reader\PropertyNamesReader;
+use Lucaszz\SymfonyFormGenerator\Property\PropertyNamesReader;
 use Lucaszz\SymfonyFormGenerator\Tests\UnitTestCase;
 
 abstract class FunctionalTestCase extends UnitTestCase

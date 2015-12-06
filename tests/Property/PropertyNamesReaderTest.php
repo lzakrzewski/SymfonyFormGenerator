@@ -1,8 +1,8 @@
 <?php
 
-namespace Lucaszz\SymfonyFormGenerator\Tests\Reader;
+namespace Lucaszz\SymfonyFormGenerator\Tests\Property;
 
-use Lucaszz\SymfonyFormGenerator\Reader\PropertyNamesReader;
+use Lucaszz\SymfonyFormGenerator\Property\PropertyNamesReader;
 use Lucaszz\SymfonyFormGenerator\Tests\fixtures\ObjectWithoutMetadata;
 use Money\Money;
 use Ramsey\Uuid\Uuid;

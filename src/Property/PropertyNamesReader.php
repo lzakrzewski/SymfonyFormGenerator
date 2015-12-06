@@ -1,6 +1,6 @@
 <?php
 
-namespace Lucaszz\SymfonyFormGenerator\Reader;
+namespace Lucaszz\SymfonyFormGenerator\Property;
 
 class PropertyNamesReader
 {
