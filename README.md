@@ -8,7 +8,7 @@ Generic solution to create form types "on the fly" basing on class metadata.
 - [x] Doctrine annotations for requirements,
 - [x] Write test for real/double/float properties,
 - [x] Write test for `Assert` annotations,
-- [ ] Write test for array metadata,
+- [x] Write test for array metadata,
 - [x] Write test for mixed metadata,
 - [ ] Readme.
 
