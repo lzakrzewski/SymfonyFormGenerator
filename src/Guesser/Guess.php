@@ -26,4 +26,20 @@ final class Guess
     {
         return new self($formType, ['constraints' => new NotBlank()]);
     }
+
+    /**
+     * @return string
+     */
+    public function getFormType()
+    {
+        return $this->formType;
+    }
+
+    /**
+     * @return array
+     */
+    public function getOptions()
+    {
+        return $this->options;
+    }
 }

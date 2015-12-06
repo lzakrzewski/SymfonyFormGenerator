@@ -62,7 +62,7 @@ class GenerateFormTest extends FunctionalTestCase
             [ObjectWithTypeHinting::class, ['propertyInteger' => 'text', 'propertyNumber' => 'text', 'propertyString' => 'text', 'propertyDateTime' => 'generator_datetime', 'propertyUuid' => 'generator_uuid', 'propertyMoney' => 'generator_money']],
             [ObjectWithPhpDocMetadataOnProperties::class, ['propertyInteger' => 'integer', 'propertyNumber' => 'number', 'propertyString' => 'text', 'propertyDateTime' => 'generator_datetime', 'propertyUuid' => 'generator_uuid', 'propertyMoney' => 'generator_money']],
             [ObjectWithFormAnnotations::class, ['propertyInteger' => 'integer', 'propertyNumber' => 'number', 'propertyString' => 'text', 'propertyDateTime' => 'generator_datetime', 'propertyUuid' => 'generator_uuid', 'propertyMoney' => 'generator_money']],
-            [ObjectWithAssertAnnotations::class, ['propertyInteger' => 'number', 'propertyNumber' => 'number', 'propertyString' => 'text', 'propertyDateTime' => 'datetime', 'propertyUuid' => 'text', 'propertyMoney' => 'text']],
+            [ObjectWithAssertAnnotations::class, ['propertyInteger' => 'number', 'propertyNumber' => 'number', 'propertyString' => 'text', 'propertyDateTime' => 'generator_datetime', 'propertyUuid' => 'text', 'propertyMoney' => 'text']],
         ];
     }
 

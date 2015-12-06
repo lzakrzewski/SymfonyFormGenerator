@@ -15,7 +15,7 @@ class ChainGuesser implements FormTypeGuesser
     /** {@inheritdoc} */
     public function guess($class, $property)
     {
-        foreach ($this->guessers as $guesser) {
+        foreach (clone $this->guessers as $guesser) {
             if (null !== $guess = $guesser->guess($class, $property)) {
                 return $guess;
             }

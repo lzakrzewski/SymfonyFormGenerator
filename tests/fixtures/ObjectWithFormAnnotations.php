@@ -3,6 +3,7 @@
 namespace Lucaszz\SymfonyFormGenerator\Tests\fixtures;
 
 use Lucaszz\SymfonyFormGenerator\Annotation\Form;
+use Symfony\Component\Validator\Constraints as Assert;
 
 class ObjectWithFormAnnotations
 {
@@ -10,7 +11,10 @@ class ObjectWithFormAnnotations
     public $propertyInteger;
     /** @Form\Field("number", options={"label"="Property Integer"}) */
     public $propertyNumber;
-    /** @Form\Field("text", options={"label"="Property String"}) */
+    /**
+     * @Form\Field("text", options={"label"="Property String"})
+     * @Assert\Type(type="string")
+     */
     public $propertyString;
     /** @Form\Field("generator_datetime", options={"label"="Property DateTime"}) */
     public $propertyDateTime;
