@@ -8,7 +8,9 @@ Generic solution to create form types "on the fly" basing on class metadata.
 - [x] Doctrine annotations for requirements,
 - [x] Write test for real/double/float properties,
 - [x] Write test for `Assert` annotations,
+- [ ] Write test for array metadata,
 - [ ] Write test for mixed metadata,
+- [ ] Support 3.0 `symfony/form`,
 - [ ] Readme.
 
 ## Readme todo
