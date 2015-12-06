@@ -2,6 +2,8 @@
 
 namespace Lucaszz\SymfonyFormGenerator\Guesser;
 
+use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
+use Symfony\Component\Validator\Constraints\DateTime;
 use Symfony\Component\Validator\Constraints\NotBlank;
 
 final class Guess
@@ -13,6 +15,8 @@ final class Guess
 
     public function __construct($formType, $options)
     {
+        $formType = $this->convertFormType($formType);
+
         $this->formType = $formType;
         $this->options  = $options;
     }
@@ -41,5 +45,22 @@ final class Guess
     public function getOptions()
     {
         return $this->options;
+    }
+
+    private function convertFormType($formType)
+    {
+        if ($formType instanceof DateTimeType) {
+            return 'generator_datetime';
+        }
+
+        if ($formType == DateTimeType::class) {
+            return 'generator_datetime';
+        }
+
+        if ($formType == 'datetime') {
+            return 'generator_datetime';
+        }
+
+        return $formType;
     }
 }

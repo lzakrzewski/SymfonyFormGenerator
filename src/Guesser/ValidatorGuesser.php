@@ -37,10 +37,6 @@ class ValidatorGuesser implements FormTypeGuesser
     {
         $formType = $symfonyGuess->getType();
 
-        if ($formType == 'datetime') {
-            $formType = 'generator_datetime';
-        }
-
         return Guess::withDefaultOptions($formType);
     }
 }

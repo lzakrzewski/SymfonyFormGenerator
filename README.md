@@ -3,7 +3,7 @@ Generic solution to create form types "on the fly" basing on class metadata.
 
 ## Todo 
 - [x] Add travis testing for different `symfony/form` component version,
-- [ ] PhpDoc guesser should have more test cases,
+- [x] PhpDoc guesser should have more test cases,
 - [x] `Generator::generate` => `Generator::generateFormBuilder`,
 - [x] Doctrine annotations for requirements,
 - [x] Write test for real/double/float properties,
