@@ -4,14 +4,12 @@ namespace Lucaszz\SymfonyFormGenerator\Tests\Functional;
 
 use Lucaszz\SymfonyFormGenerator\Tests\fixtures\ObjectWithAssertAnnotations;
 use Lucaszz\SymfonyFormGenerator\Tests\fixtures\ObjectWithFormAnnotations;
+use Lucaszz\SymfonyFormGenerator\Tests\fixtures\ObjectWithMixedMetadata;
 use Lucaszz\SymfonyFormGenerator\Tests\fixtures\ObjectWithoutMetadata;
 use Lucaszz\SymfonyFormGenerator\Tests\fixtures\ObjectWithPhpDocMetadataOnProperties;
 use Lucaszz\SymfonyFormGenerator\Tests\fixtures\ObjectWithTypeHinting;
 use Symfony\Component\Form\FormInterface;
 
-/**
- * @todo: missing test cases for mixed metadata of classes
- */
 class GenerateFormTest extends FunctionalTestCase
 {
     /**
@@ -111,6 +109,17 @@ class GenerateFormTest extends FunctionalTestCase
                     'propertyDateTime' => 'generator_datetime',
                     'propertyUuid'     => 'generator_string',
                     'propertyMoney'    => 'generator_string',
+                ],
+            ],
+            [
+                ObjectWithMixedMetadata::class,
+                [
+                    'propertyInteger'  => 'integer',
+                    'propertyNumber'   => 'number',
+                    'propertyString'   => 'generator_string',
+                    'propertyDateTime' => 'generator_datetime',
+                    'propertyUuid'     => 'generator_uuid',
+                    'propertyMoney'    => 'generator_money',
                 ],
             ],
         ];

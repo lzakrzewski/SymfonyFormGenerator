@@ -4,6 +4,7 @@ namespace Lucaszz\SymfonyFormGenerator\Tests\Functional;
 
 use Lucaszz\SymfonyFormGenerator\Tests\fixtures\ObjectWithAssertAnnotations;
 use Lucaszz\SymfonyFormGenerator\Tests\fixtures\ObjectWithFormAnnotations;
+use Lucaszz\SymfonyFormGenerator\Tests\fixtures\ObjectWithMixedMetadata;
 use Lucaszz\SymfonyFormGenerator\Tests\fixtures\ObjectWithoutMetadata;
 use Lucaszz\SymfonyFormGenerator\Tests\fixtures\ObjectWithPhpDocMetadataOnProperties;
 use Lucaszz\SymfonyFormGenerator\Tests\fixtures\ObjectWithTypeHinting;
@@ -11,9 +12,6 @@ use Money\Money;
 use Ramsey\Uuid\Uuid;
 use Symfony\Component\Form\FormInterface;
 
-/**
- * @todo: missing test cases for mixed metadata of classes
- */
 class SubmitGeneratedFormTest extends FunctionalTestCase
 {
     /**
@@ -89,6 +87,17 @@ class SubmitGeneratedFormTest extends FunctionalTestCase
                     new \DateTime('2015-01-01 01:01:01'),
                     'b771a92d-57a3-4442-ad85-165000c07f12',
                     '100 USD'
+                ),
+            ],
+            [
+                ObjectWithMixedMetadata::class,
+                new ObjectWithMixedMetadata(
+                    1,
+                    0.1,
+                    'test',
+                    new \DateTime('2015-01-01 01:01:01'),
+                    Uuid::fromString('b771a92d-57a3-4442-ad85-165000c07f12'),
+                    Money::USD(10000)
                 ),
             ],
         ];
