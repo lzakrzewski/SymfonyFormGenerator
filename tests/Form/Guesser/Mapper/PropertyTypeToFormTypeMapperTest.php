@@ -2,14 +2,14 @@
 
 namespace Lucaszz\SymfonyFormGenerator\Tests\Form\Guesser\Mapper;
 
-use Lucaszz\SymfonyFormGenerator\Form\Guesser\Mapper\VariableTypeToFormTypeMapper;
+use Lucaszz\SymfonyFormGenerator\Form\Guesser\Mapper\PropertyTypeToFormTypeMapper;
 use Money\Money;
 use Ramsey\Uuid\Uuid;
 use Ramsey\Uuid\UuidInterface;
 
-class VariableTypeToFormTypeMapperTest extends \PHPUnit_Framework_TestCase
+class PropertyTypeToFormTypeMapperTest extends \PHPUnit_Framework_TestCase
 {
-    /** @var VariableTypeToFormTypeMapper */
+    /** @var PropertyTypeToFormTypeMapper */
     private $mapper;
 
     /** @test */
@@ -21,9 +21,9 @@ class VariableTypeToFormTypeMapperTest extends \PHPUnit_Framework_TestCase
     /** @test */
     public function it_can_be_constructed_with_default_values()
     {
-        $mapper = VariableTypeToFormTypeMapper::withDefaultMappings();
+        $mapper = PropertyTypeToFormTypeMapper::withDefaultMappings();
 
-        $this->assertInstanceOf(VariableTypeToFormTypeMapper::class, $mapper);
+        $this->assertInstanceOf(PropertyTypeToFormTypeMapper::class, $mapper);
     }
 
     /** @test */
@@ -61,7 +61,7 @@ class VariableTypeToFormTypeMapperTest extends \PHPUnit_Framework_TestCase
     /** {@inheritdoc} */
     protected function setUp()
     {
-        $this->mapper = new VariableTypeToFormTypeMapper();
+        $this->mapper = new PropertyTypeToFormTypeMapper();
     }
 
     /** {@inheritdoc} */

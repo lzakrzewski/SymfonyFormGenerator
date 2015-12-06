@@ -4,7 +4,7 @@ namespace Lucaszz\SymfonyFormGenerator\Form\Guesser;
 
 use Lucaszz\SymfonyFormGenerator\Form\Guesser\Factory\TypeGuessFactory;
 use Lucaszz\SymfonyFormGenerator\Form\Guesser\FullClassName\FullClassNameReader;
-use Lucaszz\SymfonyFormGenerator\Form\Guesser\Mapper\VariableTypeToFormTypeMapper;
+use Lucaszz\SymfonyFormGenerator\Form\Guesser\Mapper\PropertyTypeToFormTypeMapper;
 use phpDocumentor\Reflection\DocBlock;
 use phpDocumentor\Reflection\DocBlock\Tag\ParamTag;
 use phpDocumentor\Reflection\DocBlock\Tag\VarTag;
@@ -14,14 +14,14 @@ class PHPDocTypeGuesser implements FormTypeGuesserInterface
 {
     /** @var TypeGuessFactory */
     private $factory;
-    /** @var VariableTypeToFormTypeMapper */
+    /** @var PropertyTypeToFormTypeMapper */
     private $mapper;
 
     /**
-     * @param VariableTypeToFormTypeMapper $mapper
+     * @param PropertyTypeToFormTypeMapper $mapper
      * @param TypeGuessFactory             $factory
      */
-    public function __construct(VariableTypeToFormTypeMapper $mapper, TypeGuessFactory $factory)
+    public function __construct(PropertyTypeToFormTypeMapper $mapper, TypeGuessFactory $factory)
     {
         $this->factory = $factory;
         $this->mapper  = $mapper;

@@ -4,7 +4,7 @@ namespace Lucaszz\SymfonyFormGenerator\Tests\Form\Guesser;
 
 use Lucaszz\SymfonyFormGenerator\Form\Guesser\Factory\TypeGuessFactory;
 use Lucaszz\SymfonyFormGenerator\Form\Guesser\HintTypeGuesser;
-use Lucaszz\SymfonyFormGenerator\Form\Guesser\Mapper\VariableTypeToFormTypeMapper;
+use Lucaszz\SymfonyFormGenerator\Form\Guesser\Mapper\PropertyTypeToFormTypeMapper;
 use Lucaszz\SymfonyFormGenerator\Tests\fixtures\ObjectWithTypeHinting;
 use Prophecy\Argument;
 use Prophecy\Prophecy\ObjectProphecy;
@@ -13,7 +13,7 @@ use Symfony\Component\Form\Guess\TypeGuess;
 
 class HintTypeGuesserTest extends \PHPUnit_Framework_TestCase
 {
-    /** @var VariableTypeToFormTypeMapper|ObjectProphecy */
+    /** @var PropertyTypeToFormTypeMapper|ObjectProphecy */
     private $mapper;
     /** @var TypeGuessFactory|ObjectProphecy */
     private $factory;
@@ -59,7 +59,7 @@ class HintTypeGuesserTest extends \PHPUnit_Framework_TestCase
     /** {@inheritdoc} */
     protected function setUp()
     {
-        $this->mapper  = $this->prophesize(VariableTypeToFormTypeMapper::class);
+        $this->mapper  = $this->prophesize(PropertyTypeToFormTypeMapper::class);
         $this->factory = $this->prophesize(TypeGuessFactory::class);
 
         $this->guesser = new HintTypeGuesser($this->mapper->reveal(), $this->factory->reveal());

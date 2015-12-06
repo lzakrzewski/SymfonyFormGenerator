@@ -13,13 +13,13 @@ class FormAnnotationGuesserTest extends \PHPUnit_Framework_TestCase
     private $guesser;
 
     /** @test */
-    public function it_can_not_read_type_of_properties_without_hint()
+    public function it_does_not_guess_when_no_annotation()
     {
         $this->assertNull($this->guesser->guess(ObjectWithTypeHinting::class, 'propertyInteger'));
     }
 
     /** @test */
-    public function it_can_read_form_annotations()
+    public function it_guess_basing_on_annotations()
     {
         $guess = $this->guesser->guess(ObjectWithFormAnnotations::class, 'propertyDateTime');
 

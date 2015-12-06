@@ -2,7 +2,10 @@
 
 namespace Lucaszz\SymfonyFormGenerator\Guesser;
 
-class Guess
+/**
+ * @todo add default static constructor
+ */
+final class Guess
 {
     /** @var string */
     private $formType;

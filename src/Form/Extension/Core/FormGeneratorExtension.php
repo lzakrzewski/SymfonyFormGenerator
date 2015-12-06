@@ -5,7 +5,7 @@ namespace Lucaszz\SymfonyFormGenerator\Form\Extension\Core;
 use Lucaszz\SymfonyFormGenerator\Form\Guesser\Factory\TypeGuessFactory;
 use Lucaszz\SymfonyFormGenerator\Form\Guesser\FormAnnotationTypeGuesser;
 use Lucaszz\SymfonyFormGenerator\Form\Guesser\HintTypeGuesser;
-use Lucaszz\SymfonyFormGenerator\Form\Guesser\Mapper\VariableTypeToFormTypeMapper;
+use Lucaszz\SymfonyFormGenerator\Form\Guesser\Mapper\PropertyTypeToFormTypeMapper;
 use Lucaszz\SymfonyFormGenerator\Form\Guesser\PHPDocTypeGuesser;
 use Lucaszz\SymfonyFormGenerator\Form\Type\DateTimeType;
 use Lucaszz\SymfonyFormGenerator\Form\Type\MoneyType;
@@ -15,13 +15,13 @@ use Symfony\Component\Form\FormTypeGuesserChain;
 
 class FormGeneratorExtension extends BaseCoreExtension
 {
-    /** @var VariableTypeToFormTypeMapper */
+    /** @var PropertyTypeToFormTypeMapper */
     private $mapper;
 
     /**
-     * @param VariableTypeToFormTypeMapper $mapper
+     * @param PropertyTypeToFormTypeMapper $mapper
      */
-    public function __construct(VariableTypeToFormTypeMapper $mapper)
+    public function __construct(PropertyTypeToFormTypeMapper $mapper)
     {
         $this->mapper = $mapper;
     }

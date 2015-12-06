@@ -3,7 +3,7 @@
 namespace Lucaszz\SymfonyFormGenerator\Tests\Form\Guesser;
 
 use Lucaszz\SymfonyFormGenerator\Form\Guesser\Factory\TypeGuessFactory;
-use Lucaszz\SymfonyFormGenerator\Form\Guesser\Mapper\VariableTypeToFormTypeMapper;
+use Lucaszz\SymfonyFormGenerator\Form\Guesser\Mapper\PropertyTypeToFormTypeMapper;
 use Lucaszz\SymfonyFormGenerator\Form\Guesser\PHPDocTypeGuesser;
 use Lucaszz\SymfonyFormGenerator\Tests\fixtures\ObjectWithoutMetadata;
 use Lucaszz\SymfonyFormGenerator\Tests\fixtures\ObjectWithPhpDocMetadataOnConstructorParams;
@@ -14,7 +14,7 @@ use Symfony\Component\Form\Guess\TypeGuess;
 
 class PHPDocTypeGuesserTest extends \PHPUnit_Framework_TestCase
 {
-    /** @var VariableTypeToFormTypeMapper|ObjectProphecy */
+    /** @var PropertyTypeToFormTypeMapper|ObjectProphecy */
     private $mapper;
     /** @var TypeGuessFactory|ObjectProphecy */
     private $factory;
@@ -125,7 +125,7 @@ class PHPDocTypeGuesserTest extends \PHPUnit_Framework_TestCase
     /** {@inheritdoc} */
     protected function setUp()
     {
-        $this->mapper    = $this->prophesize(VariableTypeToFormTypeMapper::class);
+        $this->mapper    = $this->prophesize(PropertyTypeToFormTypeMapper::class);
         $this->factory   = $this->prophesize(TypeGuessFactory::class);
         $this->typeGuess = $this->prophesize(TypeGuess::class);
 

@@ -2,13 +2,13 @@
 
 namespace Lucaszz\SymfonyFormGenerator\Form\Guesser\Mapper;
 
-class VariableTypeToFormTypeMapper
+class PropertyTypeToFormTypeMapper
 {
     /** @var array */
     private $mappings;
 
     /**
-     * @return VariableTypeToFormTypeMapper
+     * @return PropertyTypeToFormTypeMapper
      */
     public static function withDefaultMappings()
     {
