@@ -7,9 +7,9 @@ use Ramsey\Uuid\UuidInterface;
 
 class ObjectWithPhpDocMetadataOnProperties
 {
-    /** @var string */
+    /** @var bool */
     public $propertyBoolean;
-    /** @var string */
+    /** @var array */
     public $propertyArray;
     /** @var int */
     public $propertyInteger;

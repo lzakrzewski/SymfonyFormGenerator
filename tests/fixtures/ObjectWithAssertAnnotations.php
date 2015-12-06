@@ -7,11 +7,11 @@ use Symfony\Component\Validator\Constraints as Assert;
 class ObjectWithAssertAnnotations
 {
     /**
-     * @Assert\Length(min="0", max="5")
+     * @Assert\IsTrue
      */
     public $propertyBoolean;
     /**
-     * @Assert\Length(min="0", max="5")
+     * @Assert\Count(max="5")
      */
     public $propertyArray;
 

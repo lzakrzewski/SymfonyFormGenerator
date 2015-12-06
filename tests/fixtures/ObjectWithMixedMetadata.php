@@ -9,12 +9,14 @@ use Symfony\Component\Validator\Constraints as Assert;
 class ObjectWithMixedMetadata
 {
     /**
-     * @var string
+     * @var bool
+     * @Assert\Length(min="0", max="255")
      */
     public $propertyBoolean;
 
     /**
      * @var string
+     * @Assert\Count(max="5")
      */
     public $propertyArray;
 

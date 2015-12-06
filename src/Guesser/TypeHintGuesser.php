@@ -45,6 +45,10 @@ class TypeHintGuesser implements FormTypeGuesser
             if ($parameter->name == $property && null !== $parameter->getClass()) {
                 return $parameter->getClass()->name;
             }
+
+            if ($parameter->name == $property && $parameter->isArray()) {
+                return 'array';
+            }
         }
     }
 }

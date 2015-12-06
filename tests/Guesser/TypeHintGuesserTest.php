@@ -26,13 +26,23 @@ class TypeHintGuesserTest extends \PHPUnit_Framework_TestCase
     }
 
     /** @test */
-    public function it_can_guess_from_type_hint()
+    public function it_can_guess_from_class_type_hint()
     {
         $this->mapper->getFormType(\DateTime::class)->willReturn('generator_datetime');
 
         $guess = $this->guesser->guess(ObjectWithTypeHinting::class, 'propertyDateTime');
 
         $this->assertEquals(new Guess('generator_datetime', ['constraints' => new NotBlank()]), $guess);
+    }
+
+    /** @test */
+    public function it_can_guess_from_array_type_hint()
+    {
+        $this->mapper->getFormType('array')->willReturn('collection');
+
+        $guess = $this->guesser->guess(ObjectWithTypeHinting::class, 'propertyArray');
+
+        $this->assertEquals(new Guess('collection', ['constraints' => new NotBlank()]), $guess);
     }
 
     /** {@inheritdoc} */

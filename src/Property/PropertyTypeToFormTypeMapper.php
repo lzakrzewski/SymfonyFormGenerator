@@ -21,14 +21,15 @@ class PropertyTypeToFormTypeMapper
 
     public function applyDefaultMappings()
     {
+        $this->addMapping('array', 'generator_array');
         $this->addMapping('string', 'generator_string');
         $this->addMapping('int', 'integer');
         $this->addMapping('integer', 'integer');
         $this->addMapping('float', 'number');
         $this->addMapping('double', 'number');
         $this->addMapping('real', 'number');
-        $this->addMapping('bool', 'number');
-        $this->addMapping('boolean', 'number');
+        $this->addMapping('bool', 'checkbox');
+        $this->addMapping('boolean', 'checkbox');
         $this->addMapping('\DateTime', 'generator_datetime');
         $this->addMapping('\Ramsey\Uuid\UuidInterface', 'generator_uuid');
         $this->addMapping('\Money\Money', 'generator_money');

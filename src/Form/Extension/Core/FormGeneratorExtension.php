@@ -2,6 +2,7 @@
 
 namespace Lucaszz\SymfonyFormGenerator\Form\Extension\Core;
 
+use Lucaszz\SymfonyFormGenerator\Form\Type\ArrayType;
 use Lucaszz\SymfonyFormGenerator\Form\Type\DateTimeType;
 use Lucaszz\SymfonyFormGenerator\Form\Type\MoneyType;
 use Lucaszz\SymfonyFormGenerator\Form\Type\StringType;
@@ -17,6 +18,7 @@ class FormGeneratorExtension extends BaseCoreExtension
             parent::loadTypes(),
             [
                 new StringType(),
+                new ArrayType(),
                 new DateTimeType(),
                 new UuidType(),
                 new MoneyType(),

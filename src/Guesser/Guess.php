@@ -2,6 +2,7 @@
 
 namespace Lucaszz\SymfonyFormGenerator\Guesser;
 
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Validator\Constraints\DateTime;
@@ -20,6 +21,11 @@ final class Guess
             'symfonyType'  => 'text',
             'symfonyClass' => TextType::class,
             'equivalent'   => 'generator_string',
+        ],
+        [
+            'symfonyType'  => 'collection',
+            'symfonyClass' => CollectionType::class,
+            'equivalent'   => 'generator_array',
         ],
     ];
 

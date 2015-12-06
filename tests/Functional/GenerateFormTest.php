@@ -73,7 +73,7 @@ class GenerateFormTest extends FunctionalTestCase
                 ObjectWithTypeHinting::class,
                 [
                     'propertyBoolean'  => 'generator_string',
-                    'propertyArray'    => 'generator_string',
+                    'propertyArray'    => 'generator_array',
                     'propertyInteger'  => 'generator_string',
                     'propertyNumber'   => 'generator_string',
                     'propertyString'   => 'generator_string',
@@ -85,8 +85,8 @@ class GenerateFormTest extends FunctionalTestCase
             [
                 ObjectWithPhpDocMetadataOnProperties::class,
                 [
-                    'propertyBoolean'  => 'generator_string',
-                    'propertyArray'    => 'generator_string',
+                    'propertyBoolean'  => 'checkbox',
+                    'propertyArray'    => 'generator_array',
                     'propertyInteger'  => 'integer',
                     'propertyNumber'   => 'number',
                     'propertyString'   => 'generator_string',
@@ -98,8 +98,8 @@ class GenerateFormTest extends FunctionalTestCase
             [
                 ObjectWithFormAnnotations::class,
                 [
-                    'propertyBoolean'  => 'generator_string',
-                    'propertyArray'    => 'generator_string',
+                    'propertyBoolean'  => 'checkbox',
+                    'propertyArray'    => 'generator_array',
                     'propertyInteger'  => 'integer',
                     'propertyNumber'   => 'number',
                     'propertyString'   => 'generator_string',
@@ -111,8 +111,8 @@ class GenerateFormTest extends FunctionalTestCase
             [
                 ObjectWithAssertAnnotations::class,
                 [
-                    'propertyBoolean'  => 'generator_string',
-                    'propertyArray'    => 'generator_string',
+                    'propertyBoolean'  => 'checkbox',
+                    'propertyArray'    => 'generator_array',
                     'propertyInteger'  => 'number',
                     'propertyNumber'   => 'number',
                     'propertyString'   => 'generator_string',
@@ -124,7 +124,7 @@ class GenerateFormTest extends FunctionalTestCase
             [
                 ObjectWithMixedMetadata::class,
                 [
-                    'propertyBoolean'  => 'generator_string',
+                    'propertyBoolean'  => 'checkbox',
                     'propertyArray'    => 'generator_string',
                     'propertyInteger'  => 'integer',
                     'propertyNumber'   => 'number',

@@ -67,6 +67,26 @@ class PHPDocGuesserTest extends \PHPUnit_Framework_TestCase
     }
 
     /** @test */
+    public function it_can_guess_type_of_boolean_properties()
+    {
+        $this->mapper->getFormType('bool')->willReturn('checkbox');
+
+        $guess = $this->guesser->guess(ObjectWithPhpDocMetadataOnProperties::class, 'propertyBoolean');
+
+        $this->assertEquals(Guess::withDefaultOptions('checkbox'), $guess);
+    }
+
+    /** @test */
+    public function it_can_guess_type_of_array_properties()
+    {
+        $this->mapper->getFormType('array')->willReturn('collection');
+
+        $guess = $this->guesser->guess(ObjectWithPhpDocMetadataOnProperties::class, 'propertyArray');
+
+        $this->assertEquals(Guess::withDefaultOptions('collection'), $guess);
+    }
+
+    /** @test */
     public function it_can_guess_type_of_custom_class_properties()
     {
         $this->mapper->getFormType('\Lucaszz\SymfonyFormGenerator\Tests\fixtures\CustomValueObject')->willReturn('custom_value_object');

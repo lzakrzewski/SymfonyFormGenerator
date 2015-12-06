@@ -16,7 +16,7 @@ class ObjectWithTypeHinting
     public $propertyUuid;
     public $propertyMoney;
 
-    public function __construct($propertyBoolean, $propertyArray, $propertyInteger, $propertyNumber, $propertyString, \DateTime $propertyDateTime, UuidInterface $propertyUuid, Money $propertyMoney)
+    public function __construct($propertyBoolean, array $propertyArray, $propertyInteger, $propertyNumber, $propertyString, \DateTime $propertyDateTime, UuidInterface $propertyUuid, Money $propertyMoney)
     {
         $this->propertyBoolean  = $propertyBoolean;
         $this->propertyArray    = $propertyArray;

@@ -6,13 +6,13 @@ use Lucaszz\SymfonyFormGenerator\Annotation\Form;
 
 class ObjectWithFormAnnotations
 {
-    /** @Form\Field("generator_string", options={"label"="Property String"}) */
+    /** @Form\Field("checkbox", options={"label"="Property Boolean"}) */
     public $propertyBoolean;
-    /** @Form\Field("generator_string", options={"label"="Property String"}) */
+    /** @Form\Field("generator_array", options={"label"="Property Array"}) */
     public $propertyArray;
     /** @Form\Field("integer", options={"label"="Property Integer"}) */
     public $propertyInteger;
-    /** @Form\Field("number", options={"label"="Property Integer"}) */
+    /** @Form\Field("number", options={"label"="Property Number"}) */
     public $propertyNumber;
     /** @Form\Field("generator_string", options={"label"="Property String"}) */
     public $propertyString;
