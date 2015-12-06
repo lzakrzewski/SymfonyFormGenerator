@@ -2,9 +2,8 @@
 
 namespace Lucaszz\SymfonyFormGenerator\Guesser;
 
-/**
- * @todo add default static constructor
- */
+use Symfony\Component\Validator\Constraints\NotBlank;
+
 final class Guess
 {
     /** @var string */
@@ -16,5 +15,15 @@ final class Guess
     {
         $this->formType = $formType;
         $this->options  = $options;
+    }
+
+    /**
+     * @param $formType
+     *
+     * @return Guess
+     */
+    public static function withDefaultOptions($formType)
+    {
+        return new self($formType, ['constraints' => new NotBlank()]);
     }
 }

@@ -2,8 +2,6 @@
 
 namespace Lucaszz\SymfonyFormGenerator\Guesser;
 
-use Symfony\Component\Validator\Constraints\NotBlank;
-
 class ChainGuesser implements FormTypeGuesser
 {
     /** @var FormTypeGuesser[]|\SplPriorityQueue  */
@@ -37,6 +35,6 @@ class ChainGuesser implements FormTypeGuesser
 
     private function defaultGuess()
     {
-        return new Guess('text', ['constraints' => new NotBlank()]);
+        return Guess::withDefaultOptions('text');
     }
 }

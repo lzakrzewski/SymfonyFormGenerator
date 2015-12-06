@@ -3,7 +3,6 @@
 namespace Lucaszz\SymfonyFormGenerator\Guesser;
 
 use Lucaszz\SymfonyFormGenerator\Form\Guesser\Mapper\PropertyTypeToFormTypeMapper;
-use Symfony\Component\Validator\Constraints\NotBlank;
 
 class TypeHintGuesser implements FormTypeGuesser
 {
@@ -33,7 +32,7 @@ class TypeHintGuesser implements FormTypeGuesser
             return;
         }
 
-        return new Guess($formType, ['constraints' => new NotBlank()]);
+        return Guess::withDefaultOptions($formType);
     }
 
     /** {@inheritdoc} */
