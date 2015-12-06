@@ -4,13 +4,15 @@ namespace Lucaszz\SymfonyFormGenerator\Form;
 
 use Doctrine\Common\Annotations\AnnotationReader;
 use Lucaszz\SymfonyFormGenerator\Form\Extension\Core\FormGeneratorExtension;
-use Lucaszz\SymfonyFormGenerator\Form\Guesser\Mapper\PropertyTypeToFormTypeMapper;
 use Symfony\Component\Form\Extension\Validator\ValidatorExtension;
 use Symfony\Component\Form\FormFactoryBuilder;
 use Symfony\Component\Form\FormFactoryBuilderInterface;
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\Validator\Validation;
 
+/**
+ * @deprecated
+ */
 final class Forms
 {
     /**
@@ -31,7 +33,7 @@ final class Forms
     public static function createFormFactoryBuilder()
     {
         $builder = new FormFactoryBuilder();
-        $builder->addExtension(new FormGeneratorExtension(PropertyTypeToFormTypeMapper::withDefaultMappings()))
+        $builder->addExtension(new FormGeneratorExtension())
             ->addExtensions(self::getExtensions());
 
         return $builder;
