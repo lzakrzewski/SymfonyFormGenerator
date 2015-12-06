@@ -39,11 +39,11 @@ class PHPDocGuesserTest extends \PHPUnit_Framework_TestCase
     /** @test */
     public function it_can_guess_type_of_string_properties()
     {
-        $this->mapper->getFormType('string')->willReturn('text');
+        $this->mapper->getFormType('string')->willReturn('generator_string');
 
         $guess = $this->guesser->guess(ObjectWithPhpDocMetadataOnProperties::class, 'propertyString');
 
-        $this->assertEquals(Guess::withDefaultOptions('text'), $guess);
+        $this->assertEquals(Guess::withDefaultOptions('generator_string'), $guess);
     }
 
     /** @test */

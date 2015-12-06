@@ -40,7 +40,7 @@ class SubmitGeneratedFormTest extends FunctionalTestCase
             [ObjectWithTypeHinting::class, new ObjectWithTypeHinting('1', '0.1', 'test', new \DateTime('2015-01-01 01:01:01'), Uuid::fromString('b771a92d-57a3-4442-ad85-165000c07f12'), Money::USD(10000))],
             [ObjectWithPhpDocMetadataOnProperties::class, new ObjectWithPhpDocMetadataOnProperties(1, 0.1, 'test', new \DateTime('2015-01-01 01:01:01'), Uuid::fromString('b771a92d-57a3-4442-ad85-165000c07f12'), Money::USD(10000))],
             [ObjectWithFormAnnotations::class, new ObjectWithFormAnnotations(1, 0.1, 'test', new \DateTime('2015-01-01 01:01:01'), Uuid::fromString('b771a92d-57a3-4442-ad85-165000c07f12'), Money::USD(10000))],
-            //[ObjectWithAssertAnnotations::class, new ObjectWithAssertAnnotations(1, 0.1, 'test', '2015-01-01 01:01:01', 'b771a92d-57a3-4442-ad85-165000c07f12', '100 USD')],
+            [ObjectWithAssertAnnotations::class, new ObjectWithAssertAnnotations(1.0, 0.1, 'test', new \DateTime('2015-01-01 01:01:01'), 'b771a92d-57a3-4442-ad85-165000c07f12', '100 USD')],
         ];
     }
 

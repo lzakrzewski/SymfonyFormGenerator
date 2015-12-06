@@ -3,11 +3,26 @@
 namespace Lucaszz\SymfonyFormGenerator\Guesser;
 
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Validator\Constraints\DateTime;
 use Symfony\Component\Validator\Constraints\NotBlank;
 
 final class Guess
 {
+    /** @var array */
+    private $equivalentMap = [
+        [
+            'symfonyType'  => 'datetime',
+            'symfonyClass' => DateTimeType::class,
+            'equivalent'   => 'generator_datetime',
+        ],
+        [
+            'symfonyType'  => 'text',
+            'symfonyClass' => TextType::class,
+            'equivalent'   => 'generator_string',
+        ],
+    ];
+
     /** @var string */
     private $formType;
     /** @var array */
@@ -15,7 +30,9 @@ final class Guess
 
     public function __construct($formType, $options)
     {
-        $formType = $this->convertFormType($formType);
+        if (null !== $equivalent = $this->equivalent($formType)) {
+            $formType = $equivalent;
+        }
 
         $this->formType = $formType;
         $this->options  = $options;
@@ -47,20 +64,22 @@ final class Guess
         return $this->options;
     }
 
-    private function convertFormType($formType)
+    private function equivalent($formType)
     {
-        if ($formType instanceof DateTimeType) {
-            return 'generator_datetime';
-        }
+        foreach ($this->equivalentMap as $map) {
+            if ($formType == $map['symfonyType']) {
+                return $map['equivalent'];
+            }
 
-        if ($formType == DateTimeType::class) {
-            return 'generator_datetime';
-        }
+            $symfonyClass = $map['symfonyClass'];
 
-        if ($formType == 'datetime') {
-            return 'generator_datetime';
-        }
+            if ($formType instanceof $symfonyClass) {
+                return $map['equivalent'];
+            }
 
-        return $formType;
+            if ($formType == $symfonyClass) {
+                return $map['equivalent'];
+            }
+        }
     }
 }

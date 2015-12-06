@@ -21,7 +21,7 @@ class PropertyTypeToFormTypeMapper
 
     public function applyDefaultMappings()
     {
-        $this->addMapping('string', 'text');
+        $this->addMapping('string', 'generator_string');
         $this->addMapping('int', 'integer');
         $this->addMapping('integer', 'integer');
         $this->addMapping('float', 'number');
