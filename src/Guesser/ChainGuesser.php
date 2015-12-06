@@ -2,7 +2,6 @@
 
 namespace Lucaszz\SymfonyFormGenerator\Guesser;
 
-use Symfony\Component\Form\FormTypeInterface;
 use Symfony\Component\Validator\Constraints\NotBlank;
 
 class ChainGuesser implements FormTypeGuesser
@@ -15,12 +14,7 @@ class ChainGuesser implements FormTypeGuesser
         $this->guessers = new \SplPriorityQueue();
     }
 
-    /**
-     * @param $class
-     * @param $property
-     *
-     * @return FormTypeInterface|null
-     */
+    /** {@inheritdoc} */
     public function guess($class, $property)
     {
         foreach ($this->guessers as $guesser) {
