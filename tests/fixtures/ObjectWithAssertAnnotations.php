@@ -7,6 +7,15 @@ use Symfony\Component\Validator\Constraints as Assert;
 class ObjectWithAssertAnnotations
 {
     /**
+     * @Assert\Length(min="0", max="5")
+     */
+    public $propertyBoolean;
+    /**
+     * @Assert\Length(min="0", max="5")
+     */
+    public $propertyArray;
+
+    /**
      * @Assert\Range(min="0", max="10")
      */
     public $propertyInteger;
@@ -31,8 +40,10 @@ class ObjectWithAssertAnnotations
      */
     public $propertyMoney;
 
-    public function __construct($propertyInteger, $propertyNumber, $propertyString, $propertyDateTime, $propertyUuid, $propertyMoney)
+    public function __construct($propertyBoolean, $propertyArray, $propertyInteger, $propertyNumber, $propertyString, $propertyDateTime, $propertyUuid, $propertyMoney)
     {
+        $this->propertyBoolean  = $propertyBoolean;
+        $this->propertyArray    = $propertyArray;
         $this->propertyInteger  = $propertyInteger;
         $this->propertyNumber   = $propertyNumber;
         $this->propertyString   = $propertyString;

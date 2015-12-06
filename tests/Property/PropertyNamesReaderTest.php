@@ -15,10 +15,19 @@ class PropertyNamesReaderTest extends \PHPUnit_Framework_TestCase
     /** @test */
     public function it_can_read_names_of_properties()
     {
-        $object = new ObjectWithoutMetadata(1, 0.1, 'test', new \DateTime(), Uuid::uuid4(), Money::USD(1000));
+        $object = new ObjectWithoutMetadata('test', 'test', 1, 0.1, 'test', new \DateTime(), Uuid::uuid4(), Money::USD(1000));
 
         $this->assertEquals(
-            ['propertyInteger', 'propertyNumber', 'propertyString', 'propertyDateTime', 'propertyUuid', 'propertyMoney'],
+            [
+                'propertyBoolean',
+                'propertyArray',
+                'propertyInteger',
+                'propertyNumber',
+                'propertyString',
+                'propertyDateTime',
+                'propertyUuid',
+                'propertyMoney',
+            ],
             $this->reader->read($object)
         );
     }

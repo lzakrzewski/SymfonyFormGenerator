@@ -6,6 +6,10 @@ use Lucaszz\SymfonyFormGenerator\Annotation\Form;
 
 class ObjectWithFormAnnotations
 {
+    /** @Form\Field("generator_string", options={"label"="Property String"}) */
+    public $propertyBoolean;
+    /** @Form\Field("generator_string", options={"label"="Property String"}) */
+    public $propertyArray;
     /** @Form\Field("integer", options={"label"="Property Integer"}) */
     public $propertyInteger;
     /** @Form\Field("number", options={"label"="Property Integer"}) */
@@ -19,8 +23,10 @@ class ObjectWithFormAnnotations
     /** @Form\Field("generator_money", options={"label"="Property Money"}) */
     public $propertyMoney;
 
-    public function __construct($propertyInteger, $propertyNumber, $propertyString, $propertyDateTime, $propertyUuid, $propertyMoney)
+    public function __construct($propertyBoolean, $propertyArray, $propertyInteger, $propertyNumber, $propertyString, $propertyDateTime, $propertyUuid, $propertyMoney)
     {
+        $this->propertyBoolean  = $propertyBoolean;
+        $this->propertyArray    = $propertyArray;
         $this->propertyInteger  = $propertyInteger;
         $this->propertyNumber   = $propertyNumber;
         $this->propertyString   = $propertyString;

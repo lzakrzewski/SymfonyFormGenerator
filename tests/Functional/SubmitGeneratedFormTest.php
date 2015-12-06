@@ -37,6 +37,8 @@ class SubmitGeneratedFormTest extends FunctionalTestCase
             [
                 ObjectWithoutMetadata::class,
                 new ObjectWithoutMetadata(
+                    'test',
+                    'test',
                     '1',
                     '0.1',
                     'test',
@@ -48,6 +50,8 @@ class SubmitGeneratedFormTest extends FunctionalTestCase
             [
                 ObjectWithTypeHinting::class,
                 new ObjectWithTypeHinting(
+                    'test',
+                    'test',
                     '1',
                     '0.1',
                     'test',
@@ -59,6 +63,8 @@ class SubmitGeneratedFormTest extends FunctionalTestCase
             [
                 ObjectWithPhpDocMetadataOnProperties::class,
                 new ObjectWithPhpDocMetadataOnProperties(
+                    'test',
+                    'test',
                     1,
                     0.1,
                     'test',
@@ -70,6 +76,8 @@ class SubmitGeneratedFormTest extends FunctionalTestCase
             [
                 ObjectWithFormAnnotations::class,
                 new ObjectWithFormAnnotations(
+                    'test',
+                    'test',
                     1,
                     0.1,
                     'test',
@@ -81,6 +89,8 @@ class SubmitGeneratedFormTest extends FunctionalTestCase
             [
                 ObjectWithAssertAnnotations::class,
                 new ObjectWithAssertAnnotations(
+                    'test',
+                    'test',
                     1.0,
                     0.1,
                     'test',
@@ -92,6 +102,8 @@ class SubmitGeneratedFormTest extends FunctionalTestCase
             [
                 ObjectWithMixedMetadata::class,
                 new ObjectWithMixedMetadata(
+                    'test',
+                    'test',
                     1,
                     0.1,
                     'test',
@@ -113,6 +125,8 @@ class SubmitGeneratedFormTest extends FunctionalTestCase
     private function validFormData()
     {
         return [
+            'propertyBoolean'  => 'test',
+            'propertyArray'    => 'test',
             'propertyInteger'  => 1,
             'propertyNumber'   => 0.1,
             'propertyString'   => 'test',

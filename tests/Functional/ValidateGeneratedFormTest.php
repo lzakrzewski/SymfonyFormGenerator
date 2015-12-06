@@ -31,6 +31,8 @@ class ValidateGeneratedFormTest extends FunctionalTestCase
             [
                 ObjectWithoutMetadata::class,
                 [
+                    'propertyBoolean'  => null,
+                    'propertyArray'    => null,
                     'propertyInteger'  => null,
                     'propertyNumber'   => null,
                     'propertyString'   => null,
@@ -42,6 +44,8 @@ class ValidateGeneratedFormTest extends FunctionalTestCase
             [
                 ObjectWithTypeHinting::class,
                 [
+                    'propertyBoolean'  => null,
+                    'propertyArray'    => null,
                     'propertyInteger'  => null,
                     'propertyNumber'   => null,
                     'propertyString'   => null,
@@ -53,6 +57,8 @@ class ValidateGeneratedFormTest extends FunctionalTestCase
             [
                 ObjectWithPhpDocMetadataOnProperties::class,
                 [
+                    'propertyBoolean'  => [],
+                    'propertyArray'    => [],
                     'propertyInteger'  => 'string',
                     'propertyNumber'   => 'string',
                     'propertyString'   => [],
@@ -64,6 +70,8 @@ class ValidateGeneratedFormTest extends FunctionalTestCase
             [
                 ObjectWithFormAnnotations::class,
                 [
+                    'propertyBoolean'  => [],
+                    'propertyArray'    => [],
                     'propertyInteger'  => 'string',
                     'propertyNumber'   => 'string',
                     'propertyString'   => [],
@@ -75,6 +83,8 @@ class ValidateGeneratedFormTest extends FunctionalTestCase
             [
                 ObjectWithAssertAnnotations::class,
                 [
+                    'propertyBoolean'  => 'test1234567',
+                    'propertyArray'    => 'test1234567',
                     'propertyInteger'  => 40,
                     'propertyNumber'   => 40,
                     'propertyString'   => 'test1234567',
@@ -86,6 +96,8 @@ class ValidateGeneratedFormTest extends FunctionalTestCase
             [
                 ObjectWithMixedMetadata::class,
                 [
+                    'propertyBoolean'  => [],
+                    'propertyArray'    => [],
                     'propertyInteger'  => 'string',
                     'propertyNumber'   => 'string',
                     'propertyString'   => [],

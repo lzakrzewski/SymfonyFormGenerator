@@ -9,6 +9,16 @@ use Symfony\Component\Validator\Constraints as Assert;
 class ObjectWithMixedMetadata
 {
     /**
+     * @var string
+     */
+    public $propertyBoolean;
+
+    /**
+     * @var string
+     */
+    public $propertyArray;
+
+    /**
      * Expected: integer.
      *
      * @var string
@@ -59,8 +69,10 @@ class ObjectWithMixedMetadata
      */
     public $propertyMoney;
 
-    public function __construct($propertyInteger, $propertyNumber, $propertyString, $propertyDateTime, $propertyUuid, Money $propertyMoney)
+    public function __construct($propertyBoolean, $propertyArray, $propertyInteger, $propertyNumber, $propertyString, $propertyDateTime, $propertyUuid, Money $propertyMoney)
     {
+        $this->propertyBoolean  = $propertyBoolean;
+        $this->propertyArray    = $propertyArray;
         $this->propertyInteger  = $propertyInteger;
         $this->propertyNumber   = $propertyNumber;
         $this->propertyString   = $propertyString;
