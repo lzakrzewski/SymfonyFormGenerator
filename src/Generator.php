@@ -3,7 +3,6 @@
 namespace Lucaszz\SymfonyFormGenerator;
 
 use Doctrine\Common\Annotations\AnnotationReader;
-use Lucaszz\SymfonyFormGenerator\Form\Guesser\Mapper\PropertyTypeToFormTypeMapper;
 use Lucaszz\SymfonyFormGenerator\Form\Type\GeneratorFormType;
 use Lucaszz\SymfonyFormGenerator\Guesser\ChainGuesser;
 use Lucaszz\SymfonyFormGenerator\Guesser\FormAnnotationGuesser;
@@ -11,6 +10,7 @@ use Lucaszz\SymfonyFormGenerator\Guesser\PHPDocGuesser;
 use Lucaszz\SymfonyFormGenerator\Guesser\TypeHintGuesser;
 use Lucaszz\SymfonyFormGenerator\Guesser\ValidatorGuesser;
 use Lucaszz\SymfonyFormGenerator\Property\PropertyNamesReader;
+use Lucaszz\SymfonyFormGenerator\Property\PropertyTypeToFormTypeMapper;
 use Symfony\Component\Form\Extension\Validator\ValidatorTypeGuesser;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormFactoryInterface;

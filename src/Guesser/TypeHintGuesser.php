@@ -2,7 +2,7 @@
 
 namespace Lucaszz\SymfonyFormGenerator\Guesser;
 
-use Lucaszz\SymfonyFormGenerator\Form\Guesser\Mapper\PropertyTypeToFormTypeMapper;
+use Lucaszz\SymfonyFormGenerator\Property\PropertyTypeToFormTypeMapper;
 
 class TypeHintGuesser implements FormTypeGuesser
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Lucaszz\SymfonyFormGenerator\Form\Guesser\Mapper;
+namespace Lucaszz\SymfonyFormGenerator\Property;
 
 class PropertyTypeToFormTypeMapper
 {

@@ -2,9 +2,9 @@
 
 namespace Lucaszz\SymfonyFormGenerator\Tests\Guesser;
 
-use Lucaszz\SymfonyFormGenerator\Form\Guesser\Mapper\PropertyTypeToFormTypeMapper;
 use Lucaszz\SymfonyFormGenerator\Guesser\Guess;
 use Lucaszz\SymfonyFormGenerator\Guesser\ValidatorGuesser;
+use Lucaszz\SymfonyFormGenerator\Property\PropertyTypeToFormTypeMapper;
 use Lucaszz\SymfonyFormGenerator\Tests\fixtures\ObjectWithAssertAnnotations;
 use Lucaszz\SymfonyFormGenerator\Tests\fixtures\ObjectWithoutMetadata;
 use Prophecy\Prophecy\ObjectProphecy;

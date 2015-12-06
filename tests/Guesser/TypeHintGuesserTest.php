@@ -2,9 +2,9 @@
 
 namespace Lucaszz\SymfonyFormGenerator\Tests\Guesser;
 
-use Lucaszz\SymfonyFormGenerator\Form\Guesser\Mapper\PropertyTypeToFormTypeMapper;
 use Lucaszz\SymfonyFormGenerator\Guesser\Guess;
 use Lucaszz\SymfonyFormGenerator\Guesser\TypeHintGuesser;
+use Lucaszz\SymfonyFormGenerator\Property\PropertyTypeToFormTypeMapper;
 use Lucaszz\SymfonyFormGenerator\Tests\fixtures\ObjectWithTypeHinting;
 use Prophecy\Argument;
 use Prophecy\Prophecy\ObjectProphecy;
