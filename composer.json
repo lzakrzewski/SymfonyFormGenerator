@@ -19,8 +19,8 @@
     },
     "require": {
         "php": ">=5.5",
-        "symfony/form": "~2.3",
-        "symfony/validator": "~2.3",
+        "symfony/form": "~2.6",
+        "symfony/validator": "~2.6",
         "doctrine/annotations": "~1.0",
         "phpdocumentor/reflection-docblock": "~2.0",
         "phpdocumentor/reflection-common": "^1.0@dev",
