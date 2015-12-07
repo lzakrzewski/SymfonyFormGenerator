@@ -5,8 +5,6 @@ namespace Lucaszz\SymfonyFormGenerator\Form\Type;
 use Lucaszz\SymfonyFormGenerator\Form\DataTransformer\UuidToStringTransformer;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Validator\Constraints\Uuid;
 
 class UuidType extends AbstractType
 {
@@ -14,18 +12,6 @@ class UuidType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->addModelTransformer(new UuidToStringTransformer());
-    }
-
-    /** {@inheritdoc} */
-    public function configureOptions(OptionsResolver $resolver)
-    {
-        $resolver->setDefaults(
-            [
-                'constraints' => [
-                    new Uuid(['versions' => [Uuid::V4_RANDOM]]),
-                ],
-            ]
-        );
     }
 
     /** {@inheritdoc} */
