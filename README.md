@@ -1,21 +1,61 @@
-# SymfonyFormGenerator [![Build Status](https://travis-ci.org/Lucaszz/SymfonyFormGenerator.svg?branch=master)](https://travis-ci.org/Lucaszz/SymfonyFormGenerator)
-Generic solution to create form types "on the fly" basing on class metadata.
+# Symfony Form Generator [![Build Status](https://travis-ci.org/Lucaszz/SymfonyFormGenerator.svg?branch=master)](https://travis-ci.org/Lucaszz/SymfonyFormGenerator)
 
-## Todo 
-- [x] Add travis testing for different `symfony/form` component version,
-- [x] PhpDoc guesser should have more test cases,
-- [x] `Generator::generate` => `Generator::generateFormBuilder`,
-- [x] Doctrine annotations for requirements,
-- [x] Write test for real/double/float properties,
-- [x] Write test for `Assert` annotations,
-- [x] Write test for array metadata,
-- [x] Write test for mixed metadata,
-- [ ] Readme.
+This package adds feature for generating `symfony` forms "on the fly" basing on class metadata like:
+ - type hints,
+ - phpdoc comments,
+ - validator annotations,
+ - form annotations.
+ 
+## Example
 
-## Readme todo
-- [ ] Installation,
-- [ ] Usage,
-- [ ] Generate from PHPdoc metadata,
-- [ ] Generate from type hinting,
-- [ ] Generate from `Form` annotation,
-- [ ] Custom variable types.
+Object of given class:
+
+```php
+class ObjectWithMixedMetadata
+{
+    /**
+     * @var bool
+     */
+    public $propertyBoolean;
+
+    /**
+     * @Assert\Count(max="5")
+     */
+    public $propertyArray;
+
+    /**
+     * @Form\Field("integer", options={"label"="Property Integer"})
+     */
+    public $propertyInteger;
+
+    public $propertyDateTime;
+    
+    public $propertyUndefined;
+
+    public function __construct($propertyBoolean, $propertyArray, $propertyInteger, \DateTime $propertyDateTime, $propertyUndefined)
+    {
+        $this->propertyBoolean  = $propertyBoolean;
+        $this->propertyArray    = $propertyArray;
+        $this->propertyInteger  = $propertyInteger;
+        $this->propertyDateTime = $propertyDateTime;
+        $this->propertyUndefined = $propertyUndefined;
+    }
+}
+```
+
+will have `form` equivalent:
+
+```php
+///
+```
+
+## Documentation
+
+Topics: 
+- [Installation](https://not-existing.yet)
+- [Supported value objects](https://not-existing.yet)
+- [Form annotation guess](https://not-existing.yet)
+- [PHPDoc comment guess](https://not-existing.yet)
+- [Validator guess](https://not-existing.yet)
+- [Type hint guess](https://not-existing.yet)
+- [Custom mapping](https://not-existing.yet)
