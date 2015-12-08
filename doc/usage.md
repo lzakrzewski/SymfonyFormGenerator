@@ -1,6 +1,9 @@
 # Usage 
 ```php
-        $form = GeneratorFactory::createGenerator()->generateFormBuilder(ObjectWithMixedMetadata::class)->getForm();
+        $form = GeneratorFactory::createGenerator()
+            ->generateFormBuilder(ObjectWithMixedMetadata::class)
+            ->getForm();
+            
         $form->submit([
             'propertyBoolean' => true,
             'propertyArray' => ['test'],
