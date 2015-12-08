@@ -47,6 +47,13 @@ class ObjectWithMixedMetadata
     }
 }
 ```
+after:
+
+```php
+$form = GeneratorFactory::createGenerator()
+    ->generateFormBuilder(ObjectWithMixedMetadata::class)
+    ->getForm();
+```
 
 will have `form` equivalent:
 

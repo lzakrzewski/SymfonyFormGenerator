@@ -15,5 +15,5 @@
 
 ## Require with composer
 ```bash
-composer require lucaszz/symfony-form-generator "dev-master"
+composer require lucaszz/symfony-form-generator
 ```
