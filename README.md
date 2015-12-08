@@ -69,11 +69,11 @@ will have `form` equivalent:
 ## Documentation
 
 Topics: 
-- [Installation](https://github.com/Lucaszz/SymfonyFormGenerator/doc/installation.md)
-- [Usage](https://github.com/Lucaszz/SymfonyFormGenerator/doc/usage.md)
-- [Supported value objects](https://github.com/Lucaszz/SymfonyFormGenerator/doc/value_objects.md)
-- [Form annotation guess](https://github.com/Lucaszz/SymfonyFormGenerator/doc/form_annotation_guess.md)
-- [PHPDoc comment guess](https://github.com/Lucaszz/SymfonyFormGenerator/doc/phpdoc_comment_guess.md)
-- [Validator guess](https://github.com/Lucaszz/SymfonyFormGenerator/doc/validator_guess.md)
-- [Type hint guess](https://github.com/Lucaszz/SymfonyFormGenerator/doc/type_hint_guess.md)
-- [Custom mapping](https://github.com/Lucaszz/SymfonyFormGenerator/doc/custom_mapping.md)
+- [Installation](doc/installation.md)
+- [Usage](doc/usage.md)
+- [Supported value objects](doc/value_objects.md)
+- [Form annotation guess](doc/form_annotation_guess.md)
+- [PHPDoc comment guess](doc/phpdoc_comment_guess.md)
+- [Validator guess](doc/validator_guess.md)
+- [Type hint guess](doc/type_hint_guess.md)
+- [Custom mapping](doc/custom_mapping.md)
