@@ -1,6 +1,6 @@
 ## PHPdoc comment guess
 
-Form generator properly works with phpdoc comments. 
+Form generator can generate form fields basing on phpdoc comments on class properties. 
 
 Currently supported phpdoc types:
  - `bool`, `boolean` with mapped `checkbox` form type,

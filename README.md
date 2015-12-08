@@ -6,7 +6,7 @@ This package adds feature for generating `symfony` forms "on the fly" basing on 
  - phpdoc comments,
  - validator annotations. 
  
-Created forms are able to submit with raw data (`string`, `boolean`, `integer` etc).
+Created forms are able to submit with raw data (`boolean`, `integer`, `string`, `array`, `real`, `double`, `float`).
  
 ## Example
 
@@ -51,13 +51,17 @@ class ObjectWithMixedMetadata
 will have `form` equivalent:
 
 ```php
-        Forms::createFormFactory()->createBuilder()
-            ->create('form', new GeneratorFormType(ObjectWithMixedMetadata::class))
-            ->add('propertyBoolean', 'checkbox')
-            ->add('propertyArray', 'generator_array')
-            ->add('propertyInteger', 'integer')
-            ->add('propertyDateTime', 'generator_datetime')
-            ->add('propertyUndefined', 'generator_string');
+use Lucaszz\SymfonyFormGenerator\Form\Type\GeneratorFormType;
+use Lucaszz\SymfonyFormGenerator\ObjectWithMixedMetadata;
+use Symfony\Component\Form\Forms;
+
+Forms::createFormFactory()->createBuilder()
+    ->create('form', new GeneratorFormType(ObjectWithMixedMetadata::class))
+    ->add('propertyBoolean', 'checkbox')
+    ->add('propertyArray', 'generator_array')
+    ->add('propertyInteger', 'integer')
+    ->add('propertyDateTime', 'generator_datetime')
+    ->add('propertyUndefined', 'generator_string');
 ```
 `generator_array` type extends `collection`,
 `generator_datetime` type extends `datetime`,
@@ -72,6 +76,7 @@ Topics:
 - [Installation](doc/installation.md)
 - [Usage](doc/usage.md)
 - [Supported value objects](doc/value_objects.md)
+- [Guess priorities](doc/guess_priorities.md)
 - [Form annotation guess](doc/form_annotation_guess.md)
 - [PHPDoc comment guess](doc/phpdoc_comment_guess.md)
 - [Validator guess](doc/validator_guess.md)
