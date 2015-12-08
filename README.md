@@ -1,10 +1,12 @@
 # Symfony Form Generator [![Build Status](https://travis-ci.org/Lucaszz/SymfonyFormGenerator.svg?branch=master)](https://travis-ci.org/Lucaszz/SymfonyFormGenerator)
 
 This package adds feature for generating `symfony` forms "on the fly" basing on class metadata like:
- - form annotations,
+ - `Form` annotations,
  - type hints,
  - phpdoc comments,
- - validator annotations.
+ - validator annotations. 
+ 
+Created forms are able to submit with raw data (`string`, `boolean`, `integer` etc).
  
 ## Example
 
@@ -68,6 +70,7 @@ will have `form` equivalent:
 
 Topics: 
 - [Installation](https://github.com/Lucaszz/SymfonyFormGenerator/doc/installation.md)
+- [Usage](https://github.com/Lucaszz/SymfonyFormGenerator/doc/usage.md)
 - [Supported value objects](https://github.com/Lucaszz/SymfonyFormGenerator/doc/value_objects.md)
 - [Form annotation guess](https://github.com/Lucaszz/SymfonyFormGenerator/doc/form_annotation_guess.md)
 - [PHPDoc comment guess](https://github.com/Lucaszz/SymfonyFormGenerator/doc/phpdoc_comment_guess.md)
