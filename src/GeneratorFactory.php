@@ -22,7 +22,12 @@ final class GeneratorFactory
     {
     }
 
-    public static function createGenerator()
+    /**
+     * @param PropertyTypeToFormTypeMapper|null $mapper
+     *
+     * @return Generator
+     */
+    public static function createGenerator(PropertyTypeToFormTypeMapper $mapper = null)
     {
         $validation = Validation::createValidatorBuilder()->enableAnnotationMapping(new AnnotationReader());
         $validator  = $validation->getValidator();
@@ -35,7 +40,7 @@ final class GeneratorFactory
             ->addExtension($validatorExtension)
             ->getFormFactory();
 
-        $mapper = PropertyTypeToFormTypeMapper::withDefaultMappings();
+        $mapper = $mapper ?: PropertyTypeToFormTypeMapper::withDefaultMappings();
 
         $chainGuesser          = new ChainGuesser();
         $formAnnotationGuesser = new FormAnnotationGuesser();
