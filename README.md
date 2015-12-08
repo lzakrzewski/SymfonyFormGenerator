@@ -1,4 +1,4 @@
-# Symfony Form Generator [![Build Status](https://travis-ci.org/Lucaszz/SymfonyFormGenerator.svg?branch=master)](https://travis-ci.org/Lucaszz/SymfonyFormGenerator)
+# Symfony Form Generator [![Build Status](https://travis-ci.org/Lucaszz/SymfonyFormGenerator.svg?branch=master)](https://travis-ci.org/Lucaszz/SymfonyFormGenerator) [![Coverage Status](https://coveralls.io/repos/Lucaszz/SymfonyFormGenerator/badge.svg?branch=master&service=github)](https://coveralls.io/github/Lucaszz/SymfonyFormGenerator?branch=master)
 
 This package adds feature for generating `symfony` forms "on the fly" basing on class metadata like:
  - `Form` annotations,
