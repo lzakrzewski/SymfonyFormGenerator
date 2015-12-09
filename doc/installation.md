@@ -13,6 +13,14 @@
 ```
 
 ## Require with composer
+Add to `composer.json`
+```json
+    "require": {
+        "lucaszz/symfony-form-generator": "0.0.*@dev"
+    },
+```
+
+And then:
 ```bash
-composer require lucaszz/symfony-form-generator
+composer.phar update "lucaszz/symfony-form-generator"
 ```
