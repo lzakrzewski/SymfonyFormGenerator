@@ -8,8 +8,7 @@
         "symfony/validator": "~2.6",
         "doctrine/annotations": "~1.0",
         "phpdocumentor/reflection-docblock": "~2.0",
-        "phpdocumentor/reflection-common": "^1.0@dev",
-        "phpdocumentor/type-resolver": "0.1.5"
+        "phpdocumentor/type-resolver": "~0.1"
     },
 ```
 
