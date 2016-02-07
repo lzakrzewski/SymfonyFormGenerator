@@ -1,13 +1,13 @@
 <?php
 
-namespace Lucaszz\SymfonyFormGenerator\Tests\Guesser;
+namespace Lzakrzewski\SymfonyFormGenerator\Tests\Guesser;
 
-use Lucaszz\SymfonyFormGenerator\Guesser\Guess;
-use Lucaszz\SymfonyFormGenerator\Guesser\PHPDocGuesser;
-use Lucaszz\SymfonyFormGenerator\Property\PropertyTypeToFormTypeMapper;
-use Lucaszz\SymfonyFormGenerator\Tests\fixtures\ObjectWithCustomProperty;
-use Lucaszz\SymfonyFormGenerator\Tests\fixtures\ObjectWithoutMetadata;
-use Lucaszz\SymfonyFormGenerator\Tests\fixtures\ObjectWithPhpDocMetadataOnProperties;
+use Lzakrzewski\SymfonyFormGenerator\Guesser\Guess;
+use Lzakrzewski\SymfonyFormGenerator\Guesser\PHPDocGuesser;
+use Lzakrzewski\SymfonyFormGenerator\Property\PropertyTypeToFormTypeMapper;
+use Lzakrzewski\SymfonyFormGenerator\Tests\fixtures\ObjectWithCustomProperty;
+use Lzakrzewski\SymfonyFormGenerator\Tests\fixtures\ObjectWithoutMetadata;
+use Lzakrzewski\SymfonyFormGenerator\Tests\fixtures\ObjectWithPhpDocMetadataOnProperties;
 use Prophecy\Argument;
 use Prophecy\Prophecy\ObjectProphecy;
 
@@ -89,7 +89,7 @@ class PHPDocGuesserTest extends \PHPUnit_Framework_TestCase
     /** @test */
     public function it_can_guess_type_of_custom_class_properties()
     {
-        $this->mapper->getFormType('\Lucaszz\SymfonyFormGenerator\Tests\fixtures\CustomValueObject')->willReturn('custom_value_object');
+        $this->mapper->getFormType('\Lzakrzewski\SymfonyFormGenerator\Tests\fixtures\CustomValueObject')->willReturn('custom_value_object');
 
         $guess = $this->guesser->guess(ObjectWithCustomProperty::class, 'property');
 

@@ -1,8 +1,8 @@
 <?php
 
-use Lucaszz\SymfonyFormGenerator\GeneratorFactory;
-use Lucaszz\SymfonyFormGenerator\ObjectWithMixedMetadata;
-use Lucaszz\SymfonyFormGenerator\Property\PropertyTypeToFormTypeMapper;
+use Lzakrzewski\SymfonyFormGenerator\GeneratorFactory;
+use Lzakrzewski\SymfonyFormGenerator\ObjectWithMixedMetadata;
+use Lzakrzewski\SymfonyFormGenerator\Property\PropertyTypeToFormTypeMapper;
 
 $mapper = PropertyTypeToFormTypeMapper::withDefaultMappings();
 $mapper->addMapping('Namespace\CustomType', 'custom_form_type');

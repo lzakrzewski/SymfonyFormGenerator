@@ -1,8 +1,8 @@
 <?php
 
-namespace Lucaszz\SymfonyFormGenerator\Tests\Property;
+namespace Lzakrzewski\SymfonyFormGenerator\Tests\Property;
 
-use Lucaszz\SymfonyFormGenerator\Property\PropertyTypeToFormTypeMapper;
+use Lzakrzewski\SymfonyFormGenerator\Property\PropertyTypeToFormTypeMapper;
 use Money\Money;
 use Ramsey\Uuid\Uuid;
 use Ramsey\Uuid\UuidInterface;

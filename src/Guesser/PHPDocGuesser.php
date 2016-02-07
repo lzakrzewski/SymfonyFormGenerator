@@ -1,8 +1,8 @@
 <?php
 
-namespace Lucaszz\SymfonyFormGenerator\Guesser;
+namespace Lzakrzewski\SymfonyFormGenerator\Guesser;
 
-use Lucaszz\SymfonyFormGenerator\Property\PropertyTypeToFormTypeMapper;
+use Lzakrzewski\SymfonyFormGenerator\Property\PropertyTypeToFormTypeMapper;
 use phpDocumentor\Reflection\DocBlock;
 
 class PHPDocGuesser implements FormTypeGuesser

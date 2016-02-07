@@ -1,8 +1,8 @@
 <?php
 
-namespace Lucaszz\SymfonyFormGenerator\Tests\Form\Type;
+namespace Lzakrzewski\SymfonyFormGenerator\Tests\Form\Type;
 
-use Lucaszz\SymfonyFormGenerator\Form\Type\StringType;
+use Lzakrzewski\SymfonyFormGenerator\Form\Type\StringType;
 
 class StringTypeTest extends FormTypeTestCase
 {

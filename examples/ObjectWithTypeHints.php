@@ -1,6 +1,6 @@
 <?php
 
-namespace Lucaszz\SymfonyFormGenerator;
+namespace Lzakrzewski\SymfonyFormGenerator;
 
 class ObjectWithTypeHints
 {

@@ -1,8 +1,8 @@
 <?php
 
-namespace Lucaszz\SymfonyFormGenerator\Tests\Guesser;
+namespace Lzakrzewski\SymfonyFormGenerator\Tests\Guesser;
 
-use Lucaszz\SymfonyFormGenerator\Guesser\Guess;
+use Lzakrzewski\SymfonyFormGenerator\Guesser\Guess;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Validator\Constraints\NotBlank;

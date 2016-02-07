@@ -1,11 +1,11 @@
 <?php
 
-namespace Lucaszz\SymfonyFormGenerator\Tests\Guesser;
+namespace Lzakrzewski\SymfonyFormGenerator\Tests\Guesser;
 
-use Lucaszz\SymfonyFormGenerator\Guesser\FormAnnotationGuesser;
-use Lucaszz\SymfonyFormGenerator\Guesser\Guess;
-use Lucaszz\SymfonyFormGenerator\Tests\fixtures\ObjectWithFormAnnotations;
-use Lucaszz\SymfonyFormGenerator\Tests\fixtures\ObjectWithTypeHinting;
+use Lzakrzewski\SymfonyFormGenerator\Guesser\FormAnnotationGuesser;
+use Lzakrzewski\SymfonyFormGenerator\Guesser\Guess;
+use Lzakrzewski\SymfonyFormGenerator\Tests\fixtures\ObjectWithFormAnnotations;
+use Lzakrzewski\SymfonyFormGenerator\Tests\fixtures\ObjectWithTypeHinting;
 
 class FormAnnotationGuesserTest extends \PHPUnit_Framework_TestCase
 {

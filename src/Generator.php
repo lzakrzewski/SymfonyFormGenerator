@@ -1,10 +1,10 @@
 <?php
 
-namespace Lucaszz\SymfonyFormGenerator;
+namespace Lzakrzewski\SymfonyFormGenerator;
 
-use Lucaszz\SymfonyFormGenerator\Form\Type\GeneratorFormType;
-use Lucaszz\SymfonyFormGenerator\Guesser\FormTypeGuesser;
-use Lucaszz\SymfonyFormGenerator\Property\PropertyNamesReader;
+use Lzakrzewski\SymfonyFormGenerator\Form\Type\GeneratorFormType;
+use Lzakrzewski\SymfonyFormGenerator\Guesser\FormTypeGuesser;
+use Lzakrzewski\SymfonyFormGenerator\Property\PropertyNamesReader;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormFactoryInterface;
 

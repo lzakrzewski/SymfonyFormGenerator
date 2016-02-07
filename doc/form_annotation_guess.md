@@ -6,9 +6,9 @@ In case when your form for field of object need to be strict specified use `Form
 ```php
 <?php
 
-namespace Lucaszz\SymfonyFormGenerator;
+namespace Lzakrzewski\SymfonyFormGenerator;
 
-use Lucaszz\SymfonyFormGenerator\Annotation\Form;
+use Lzakrzewski\SymfonyFormGenerator\Annotation\Form;
 
 class ObjectWithFormAnnotations
 {

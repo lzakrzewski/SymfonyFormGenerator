@@ -1,8 +1,8 @@
 <?php
 
-namespace Lucaszz\SymfonyFormGenerator\Tests\Form\Type;
+namespace Lzakrzewski\SymfonyFormGenerator\Tests\Form\Type;
 
-use Lucaszz\SymfonyFormGenerator\Form\Type\ArrayType;
+use Lzakrzewski\SymfonyFormGenerator\Form\Type\ArrayType;
 
 class ArrayTypeTest extends FormTypeTestCase
 {

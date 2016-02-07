@@ -1,21 +1,21 @@
 {
-    "name": "lucaszz/symfony-form-generator",
+    "name": "lzakrzewski/symfony-form-generator",
     "description": "Generic solution to create forms \"on the fly\" basing on class metadata",
     "type": "library",
     "license": "MIT",
     "authors": [
         {
-            "name": "lucaszz",
-            "email": "lucaszz111@gmail.com"
+            "name": "lzakrzewski",
+            "email": "contact@lzakrzewski.com"
         }
     ],
     "autoload": {
         "psr-4": {
-            "Lucaszz\\SymfonyFormGenerator\\": "src"
+            "Lzakrzewski\\SymfonyFormGenerator\\": "src"
         }
     },
     "autoload-dev": {
-        "psr-4" : { "Lucaszz\\SymfonyFormGenerator\\Tests\\" : "tests" }
+        "psr-4" : { "Lzakrzewski\\SymfonyFormGenerator\\Tests\\" : "tests" }
     },
     "require": {
         "php": ">=5.5",

@@ -1,6 +1,6 @@
 <?php
 
-namespace Lucaszz\SymfonyFormGenerator\Tests\fixtures;
+namespace Lzakrzewski\SymfonyFormGenerator\Tests\fixtures;
 
 class ObjectWithCustomProperty
 {

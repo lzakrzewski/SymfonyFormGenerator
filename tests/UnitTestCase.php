@@ -1,6 +1,6 @@
 <?php
 
-namespace Lucaszz\SymfonyFormGenerator\Tests;
+namespace Lzakrzewski\SymfonyFormGenerator\Tests;
 
 use Money\Money;
 use Ramsey\Uuid\Uuid;

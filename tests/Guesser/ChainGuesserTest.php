@@ -1,10 +1,10 @@
 <?php
 
-namespace Lucaszz\SymfonyFormGenerator\Tests\Guesser;
+namespace Lzakrzewski\SymfonyFormGenerator\Tests\Guesser;
 
-use Lucaszz\SymfonyFormGenerator\Guesser\ChainGuesser;
-use Lucaszz\SymfonyFormGenerator\Guesser\FormTypeGuesser;
-use Lucaszz\SymfonyFormGenerator\Guesser\Guess;
+use Lzakrzewski\SymfonyFormGenerator\Guesser\ChainGuesser;
+use Lzakrzewski\SymfonyFormGenerator\Guesser\FormTypeGuesser;
+use Lzakrzewski\SymfonyFormGenerator\Guesser\Guess;
 use Prophecy\Prophecy\ObjectProphecy;
 
 class ChainGuesserTest extends \PHPUnit_Framework_TestCase

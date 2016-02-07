@@ -1,11 +1,11 @@
 <?php
 
-namespace Lucaszz\SymfonyFormGenerator\Tests\Guesser;
+namespace Lzakrzewski\SymfonyFormGenerator\Tests\Guesser;
 
-use Lucaszz\SymfonyFormGenerator\Guesser\Guess;
-use Lucaszz\SymfonyFormGenerator\Guesser\TypeHintGuesser;
-use Lucaszz\SymfonyFormGenerator\Property\PropertyTypeToFormTypeMapper;
-use Lucaszz\SymfonyFormGenerator\Tests\fixtures\ObjectWithTypeHinting;
+use Lzakrzewski\SymfonyFormGenerator\Guesser\Guess;
+use Lzakrzewski\SymfonyFormGenerator\Guesser\TypeHintGuesser;
+use Lzakrzewski\SymfonyFormGenerator\Property\PropertyTypeToFormTypeMapper;
+use Lzakrzewski\SymfonyFormGenerator\Tests\fixtures\ObjectWithTypeHinting;
 use Prophecy\Argument;
 use Prophecy\Prophecy\ObjectProphecy;
 use Symfony\Component\Validator\Constraints\NotBlank;

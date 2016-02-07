@@ -1,6 +1,6 @@
 <?php
 
-namespace Lucaszz\SymfonyFormGenerator\Guesser;
+namespace Lzakrzewski\SymfonyFormGenerator\Guesser;
 
 interface FormTypeGuesser
 {

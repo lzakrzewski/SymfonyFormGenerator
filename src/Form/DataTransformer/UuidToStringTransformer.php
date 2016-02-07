@@ -1,6 +1,6 @@
 <?php
 
-namespace Lucaszz\SymfonyFormGenerator\Form\DataTransformer;
+namespace Lzakrzewski\SymfonyFormGenerator\Form\DataTransformer;
 
 use Ramsey\Uuid\Uuid;
 use Symfony\Component\Form\DataTransformerInterface;

@@ -1,8 +1,8 @@
 <?php
 
-namespace Lucaszz\SymfonyFormGenerator\Tests\fixtures;
+namespace Lzakrzewski\SymfonyFormGenerator\Tests\fixtures;
 
-use Lucaszz\SymfonyFormGenerator\Annotation\Form;
+use Lzakrzewski\SymfonyFormGenerator\Annotation\Form;
 
 class ObjectWithFormAnnotations
 {

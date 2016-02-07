@@ -1,6 +1,6 @@
 # Custom mapping 
 
-There is class `\Lucaszz\SymfonyFormGenerator\Property\PropertyTypeToFormTypeMapper` which map type of properties to form types.
+There is class `\Lzakrzewski\SymfonyFormGenerator\Property\PropertyTypeToFormTypeMapper` which map type of properties to form types.
 `PropertyTypeToFormTypeMapper` is used for guess form type basing on:
  - PHPdoc comments,
  - Validator annotations,
@@ -24,9 +24,9 @@ There is class `\Lucaszz\SymfonyFormGenerator\Property\PropertyTypeToFormTypeMap
 
 ## Customize mapping
 ```php
-use Lucaszz\SymfonyFormGenerator\GeneratorFactory;
-use Lucaszz\SymfonyFormGenerator\ObjectWithMixedMetadata;
-use Lucaszz\SymfonyFormGenerator\Property\PropertyTypeToFormTypeMapper;
+use Lzakrzewski\SymfonyFormGenerator\GeneratorFactory;
+use Lzakrzewski\SymfonyFormGenerator\ObjectWithMixedMetadata;
+use Lzakrzewski\SymfonyFormGenerator\Property\PropertyTypeToFormTypeMapper;
 
 $mapper = PropertyTypeToFormTypeMapper::withDefaultMappings();
 $mapper->addMapping('Namespace\CustomType', 'custom_form_type');

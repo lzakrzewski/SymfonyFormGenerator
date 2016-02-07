@@ -1,4 +1,4 @@
-# Symfony Form Generator [![Build Status](https://travis-ci.org/Lucaszz/SymfonyFormGenerator.svg?branch=master)](https://travis-ci.org/Lucaszz/SymfonyFormGenerator) [![Coverage Status](https://coveralls.io/repos/Lucaszz/SymfonyFormGenerator/badge.svg?branch=master&service=github)](https://coveralls.io/github/Lucaszz/SymfonyFormGenerator?branch=master)
+# Symfony Form Generator [![Build Status](https://travis-ci.org/lzakrzewski/SymfonyFormGenerator.svg?branch=master)](https://travis-ci.org/Lzakrzewski/SymfonyFormGenerator) [![Coverage Status](https://coveralls.io/repos/Lzakrzewski/SymfonyFormGenerator/badge.svg?branch=master&service=github)](https://coveralls.io/github/lzakrzewski/SymfonyFormGenerator?branch=master)
 
 This package adds feature for generating `symfony` forms "on the fly" basing on class metadata like:
  - `Form` annotations,
@@ -13,7 +13,7 @@ Created forms are able to submit with raw data (`boolean`, `integer`, `string`, 
 Object of given class:
 
 ```php
-use Lucaszz\SymfonyFormGenerator\Annotation\Form;
+use Lzakrzewski\SymfonyFormGenerator\Annotation\Form;
 use Symfony\Component\Validator\Constraints as Assert;
 
 class ObjectWithMixedMetadata
@@ -58,8 +58,8 @@ $form = GeneratorFactory::createGenerator()
 will have `form` equivalent:
 
 ```php
-use Lucaszz\SymfonyFormGenerator\Form\Type\GeneratorFormType;
-use Lucaszz\SymfonyFormGenerator\ObjectWithMixedMetadata;
+use Lzakrzewski\SymfonyFormGenerator\Form\Type\GeneratorFormType;
+use Lzakrzewski\SymfonyFormGenerator\ObjectWithMixedMetadata;
 use Symfony\Component\Form\Forms;
 
 Forms::createFormFactory()->createBuilder()

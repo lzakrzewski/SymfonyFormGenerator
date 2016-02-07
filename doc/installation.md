@@ -16,11 +16,11 @@
 Add to `composer.json`
 ```json
     "require": {
-        "lucaszz/symfony-form-generator": "0.0.*@dev"
+        "lzakrzewski/symfony-form-generator": "0.0.*@dev"
     },
 ```
 
 And then:
 ```bash
-composer.phar update "lucaszz/symfony-form-generator"
+composer.phar update "lzakrzewski/symfony-form-generator"
 ```

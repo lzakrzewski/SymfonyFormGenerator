@@ -1,7 +1,7 @@
 <?php
 
-use Lucaszz\SymfonyFormGenerator\Form\Type\GeneratorFormType;
-use Lucaszz\SymfonyFormGenerator\ObjectWithMixedMetadata;
+use Lzakrzewski\SymfonyFormGenerator\Form\Type\GeneratorFormType;
+use Lzakrzewski\SymfonyFormGenerator\ObjectWithMixedMetadata;
 use Symfony\Component\Form\Forms;
 
 Forms::createFormFactory()->createBuilder()

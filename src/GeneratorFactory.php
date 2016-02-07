@@ -1,16 +1,16 @@
 <?php
 
-namespace Lucaszz\SymfonyFormGenerator;
+namespace Lzakrzewski\SymfonyFormGenerator;
 
 use Doctrine\Common\Annotations\AnnotationReader;
-use Lucaszz\SymfonyFormGenerator\Form\Extension\Core\FormGeneratorExtension;
-use Lucaszz\SymfonyFormGenerator\Guesser\ChainGuesser;
-use Lucaszz\SymfonyFormGenerator\Guesser\FormAnnotationGuesser;
-use Lucaszz\SymfonyFormGenerator\Guesser\PHPDocGuesser;
-use Lucaszz\SymfonyFormGenerator\Guesser\TypeHintGuesser;
-use Lucaszz\SymfonyFormGenerator\Guesser\ValidatorGuesser;
-use Lucaszz\SymfonyFormGenerator\Property\PropertyNamesReader;
-use Lucaszz\SymfonyFormGenerator\Property\PropertyTypeToFormTypeMapper;
+use Lzakrzewski\SymfonyFormGenerator\Form\Extension\Core\FormGeneratorExtension;
+use Lzakrzewski\SymfonyFormGenerator\Guesser\ChainGuesser;
+use Lzakrzewski\SymfonyFormGenerator\Guesser\FormAnnotationGuesser;
+use Lzakrzewski\SymfonyFormGenerator\Guesser\PHPDocGuesser;
+use Lzakrzewski\SymfonyFormGenerator\Guesser\TypeHintGuesser;
+use Lzakrzewski\SymfonyFormGenerator\Guesser\ValidatorGuesser;
+use Lzakrzewski\SymfonyFormGenerator\Property\PropertyNamesReader;
+use Lzakrzewski\SymfonyFormGenerator\Property\PropertyTypeToFormTypeMapper;
 use Symfony\Component\Form\Extension\Validator\ValidatorExtension;
 use Symfony\Component\Form\Extension\Validator\ValidatorTypeGuesser;
 use Symfony\Component\Form\Forms;

@@ -1,9 +1,9 @@
 <?php
 
-namespace Lucaszz\SymfonyFormGenerator\Tests\Form\DataTransformer;
+namespace Lzakrzewski\SymfonyFormGenerator\Tests\Form\DataTransformer;
 
-use Lucaszz\SymfonyFormGenerator\Form\DataTransformer\UuidToStringTransformer;
-use Lucaszz\SymfonyFormGenerator\Tests\UnitTestCase;
+use Lzakrzewski\SymfonyFormGenerator\Form\DataTransformer\UuidToStringTransformer;
+use Lzakrzewski\SymfonyFormGenerator\Tests\UnitTestCase;
 use Ramsey\Uuid\Uuid;
 
 class UuidToStringTransformerTest extends UnitTestCase

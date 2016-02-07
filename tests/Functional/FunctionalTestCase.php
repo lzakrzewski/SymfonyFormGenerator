@@ -1,10 +1,10 @@
 <?php
 
-namespace Lucaszz\SymfonyFormGenerator\Tests\Functional;
+namespace Lzakrzewski\SymfonyFormGenerator\Tests\Functional;
 
-use Lucaszz\SymfonyFormGenerator\Generator;
-use Lucaszz\SymfonyFormGenerator\GeneratorFactory;
-use Lucaszz\SymfonyFormGenerator\Tests\UnitTestCase;
+use Lzakrzewski\SymfonyFormGenerator\Generator;
+use Lzakrzewski\SymfonyFormGenerator\GeneratorFactory;
+use Lzakrzewski\SymfonyFormGenerator\Tests\UnitTestCase;
 
 abstract class FunctionalTestCase extends UnitTestCase
 {

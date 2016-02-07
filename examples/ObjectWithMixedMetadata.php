@@ -1,8 +1,8 @@
 <?php
 
-namespace Lucaszz\SymfonyFormGenerator;
+namespace Lzakrzewski\SymfonyFormGenerator;
 
-use Lucaszz\SymfonyFormGenerator\Annotation\Form;
+use Lzakrzewski\SymfonyFormGenerator\Annotation\Form;
 use Symfony\Component\Validator\Constraints as Assert;
 
 class ObjectWithMixedMetadata

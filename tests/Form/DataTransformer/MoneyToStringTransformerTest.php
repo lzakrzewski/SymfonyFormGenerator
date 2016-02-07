@@ -1,9 +1,9 @@
 <?php
 
-namespace Lucaszz\SymfonyFormGenerator\Tests\Form\DataTransformer;
+namespace Lzakrzewski\SymfonyFormGenerator\Tests\Form\DataTransformer;
 
-use Lucaszz\SymfonyFormGenerator\Form\DataTransformer\MoneyToStringTransformer;
-use Lucaszz\SymfonyFormGenerator\Tests\UnitTestCase;
+use Lzakrzewski\SymfonyFormGenerator\Form\DataTransformer\MoneyToStringTransformer;
+use Lzakrzewski\SymfonyFormGenerator\Tests\UnitTestCase;
 use Money\Money;
 
 class MoneyToStringTransformerTest extends UnitTestCase

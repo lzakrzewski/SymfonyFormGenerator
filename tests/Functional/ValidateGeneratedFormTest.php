@@ -1,13 +1,13 @@
 <?php
 
-namespace Lucaszz\SymfonyFormGenerator\Tests\Functional;
+namespace Lzakrzewski\SymfonyFormGenerator\Tests\Functional;
 
-use Lucaszz\SymfonyFormGenerator\Tests\fixtures\ObjectWithAssertAnnotations;
-use Lucaszz\SymfonyFormGenerator\Tests\fixtures\ObjectWithFormAnnotations;
-use Lucaszz\SymfonyFormGenerator\Tests\fixtures\ObjectWithMixedMetadata;
-use Lucaszz\SymfonyFormGenerator\Tests\fixtures\ObjectWithoutMetadata;
-use Lucaszz\SymfonyFormGenerator\Tests\fixtures\ObjectWithPhpDocMetadataOnProperties;
-use Lucaszz\SymfonyFormGenerator\Tests\fixtures\ObjectWithTypeHinting;
+use Lzakrzewski\SymfonyFormGenerator\Tests\fixtures\ObjectWithAssertAnnotations;
+use Lzakrzewski\SymfonyFormGenerator\Tests\fixtures\ObjectWithFormAnnotations;
+use Lzakrzewski\SymfonyFormGenerator\Tests\fixtures\ObjectWithMixedMetadata;
+use Lzakrzewski\SymfonyFormGenerator\Tests\fixtures\ObjectWithoutMetadata;
+use Lzakrzewski\SymfonyFormGenerator\Tests\fixtures\ObjectWithPhpDocMetadataOnProperties;
+use Lzakrzewski\SymfonyFormGenerator\Tests\fixtures\ObjectWithTypeHinting;
 use Symfony\Component\Form\FormInterface;
 
 class ValidateGeneratedFormTest extends FunctionalTestCase

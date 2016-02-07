@@ -1,10 +1,10 @@
 <?php
 
-namespace Lucaszz\SymfonyFormGenerator\Tests\Form\Type;
+namespace Lzakrzewski\SymfonyFormGenerator\Tests\Form\Type;
 
 use Doctrine\Common\Annotations\AnnotationReader;
-use Lucaszz\SymfonyFormGenerator\Form\Extension\Core\FormGeneratorExtension;
-use Lucaszz\SymfonyFormGenerator\Tests\UnitTestCase;
+use Lzakrzewski\SymfonyFormGenerator\Form\Extension\Core\FormGeneratorExtension;
+use Lzakrzewski\SymfonyFormGenerator\Tests\UnitTestCase;
 use Symfony\Component\Form\Extension\Validator\ValidatorExtension;
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\Form\Forms;
